@@ -25,8 +25,7 @@ class Score(db.Model):
     __tablename__ = "scores"
 
     score_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
-    # user_score = db.Column(db.Integer)
-    correct_answers = db.Column(db.Boolean)
+    user_score = db.Column(db.Integer)
     user_id = db.Column(db.Integer, db.ForeignKey("users.user_id"))
     
 
