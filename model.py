@@ -27,27 +27,28 @@ class Score(db.Model):
     score_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
     user_score = db.Column(db.Integer)
     user_id = db.Column(db.Integer, db.ForeignKey("users.user_id"))
+    test_result_id = db.Column(db.Integer, db.ForeignKey("test_results.test_result_id"))
     
 
     user = db.relationship("User", back_populates="scores")
-    test_result = db.relationship("Test_result", back_populates="scores")
+    test_result = db.relationship("TestResult", back_populates="scores")
 
     def __repr__(self):
         return f"<Score user_score={self.user_score}>"
 
-class QuestionOverview(db.Model):
+class QuestionAnswer(db.Model):
     """Questions and Answers for the test"""
 
     __tablename__ = "questions_answers"
 
-    question_overview_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
-    question_id = db.Column(db.String)
-    answer_id = db.Column(db.String)
+    question_answer_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
+    question = db.Column(db.String)
+    answer = db.Column(db.String)
 
-    test_results = db.relationship("Test_result", back_populates="question_overview")
+    test_results = db.relationship("TestResult", back_populates="question_answer")
 
     def __repr__(self):
-        return f"<QuestionOverview question={self.question} answer={self.answer}>"
+        return f"<QuestionAnswer question={self.question} answer={self.answer}>"
 
 class TestResult(db.Model):
     """Test results"""
@@ -56,13 +57,10 @@ class TestResult(db.Model):
 
     test_result_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
     is_correct = db.Column(db.Boolean)
-    question_id = db.Column(db.Integer, db.ForeignKey("questions_answers.question_overview_id"))
-    answer_id = db.Column(db.Integer, db.ForeignKey("questions_answers.question_overview_id"))
+    question_answer_id = db.Column(db.Integer, db.ForeignKey("questions_answers.question_answer_id"))
 
-    question_overview = db.relationship("QuestionOverview", foreign_keys=[question_id], back_populates="test_results")
-    answer_overview = db.relationship("QuestionOverview", foreign_keys=[answer_id], back_populates="test_results")
-
-    scores = db.relationship("Score", back_populates="test_result")
+    question_answer = db.relationship("QuestionAnswer", back_populates="test_results")
+    scores = db.relationship("Score", back_populates="test_results")
 
     def __repr__(self):
         return f"<TestResult correct={self.is_correct}>"
