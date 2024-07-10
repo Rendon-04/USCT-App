@@ -22,17 +22,18 @@ with open("data /practiceTest.json") as f:
     test_data = json.loads(f.read())
 
 #test users
+# Test users
 users = [
-    {"email": "test@test.com", "password":"test"}
+    {"user_name": "Test User", "email": "test@test.com", "password": "test"}
 ]
 #create user
 created_users = []
 
 for user in users:
-    user = crud.create_user(user["email"], user["password"])
-    db.session.add(user)
-    created_users.append(user)
-    print(f"User created: {user}")
+    new_user = crud.create_user(user["user_name"], user["email"], user["password"])
+    db.session.add(new_user)
+    created_users.append(new_user)
+    print(f"User created: {new_user}")
 
     
 db.session.commit()
@@ -41,7 +42,7 @@ db.session.commit()
 created_questions = []
 
 for question in test_data["practiceTest"]:
-    question = crud.create_question_answer(question["question"], question["answer"])
+    question = crud.create_question(question["question"], question["answer"])
     db.session.add(question)
     created_questions.append(question)
     print(f"{question}")
@@ -49,19 +50,22 @@ for question in test_data["practiceTest"]:
 db.session.commit()
 
 #create test results for the questions 
-for question in created_questions:
-    is_correct = question.answer in [option for question in test_data["practiceTest"] if question["question"] == question.question for option in question["options"]]
-    test_result = crud.create_test_result(is_correct, question.question_answer_id)
-    db.session.add(test_result)
-    print(f"Score: {test_result}")
-    
+for created_question in created_questions:
+    for preactice_test_question in test_data["practiceTest"]:
+        if preactice_test_question["question"] == created_question.question:
+            is_correct = created_question.answer in preactice_test_question["options"]
+            test_result = crud.create_test_result(is_correct, created_question.question_answer_id)
+            db.session.add(test_result)
+            print(f"Test Result: {test_result}")
 db.session.commit()
 
 #create scores for the users
 for user in created_users:
     for question in created_questions: 
-        score = crud.create_score(user_score=randint(1, 100), user_id=user.user_id, test_result_id=test_result.test_result_id)
-        db.session.add(score)
-        print(f"You scored: {score}")
+       test_result = crud.create_test_result(is_correct=False, question_answer_id=question.question_answer_id)
+       db.session.add(test_result)
+       score = crud.create_score(user_score=randint(1, 100), user_id=user.user_id, test_result_id=test_result.question_answer_id)
+       db.session.add(score)
+       print(f"You scored: {score}")
 
 db.session.commit()

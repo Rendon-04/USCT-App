@@ -2,10 +2,12 @@
 
 from model import db, User, Score, QuestionAnswer, TestResult, connect_to_db
 
-def create_user(email, password):
+def create_user(user_name,email, password):
     """Create and Return a new user"""
 
-    user = User(email=email, password=password)
+    user = User(user_name=user_name,
+                email=email, 
+                password=password)
 
     return user 
 
@@ -20,7 +22,7 @@ def create_score(user_score,user_id, test_result_id):
 
     return score 
 
-def create_question_answer(question, answer):
+def create_question(question, answer):
     """Create and return a question and answer"""
 
     question_answer = QuestionAnswer(

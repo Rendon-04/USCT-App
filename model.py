@@ -1,6 +1,7 @@
 """Models United States Citizenship Test Practice App"""
 
 from flask_sqlalchemy import SQLAlchemy
+from flask import Flask
 
 db = SQLAlchemy()
 
@@ -21,14 +22,13 @@ class User(db.Model):
 
 class Score(db.Model):
     """A users score"""
-    
+
     __tablename__ = "scores"
 
     score_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
     user_score = db.Column(db.Integer)
     user_id = db.Column(db.Integer, db.ForeignKey("users.user_id"))
     test_result_id = db.Column(db.Integer, db.ForeignKey("test_results.test_result_id"))
-    
 
     user = db.relationship("User", back_populates="scores")
     test_result = db.relationship("TestResult", back_populates="scores")
@@ -60,23 +60,28 @@ class TestResult(db.Model):
     question_answer_id = db.Column(db.Integer, db.ForeignKey("questions_answers.question_answer_id"))
 
     question_answer = db.relationship("QuestionAnswer", back_populates="test_results")
-    scores = db.relationship("Score", back_populates="test_results")
+    scores = db.relationship("Score", back_populates="test_result")
 
     def __repr__(self):
         return f"<TestResult correct={self.is_correct}>"
 
 
+def connect_to_db(flask_app, db_uri="postgresql:///citizenship_test", echo=True):
+    flask_app.config["SQLALCHEMY_DATABASE_URI"] = db_uri
+    flask_app.config["SQLALCHEMY_ECHO"] = echo = False
+    flask_app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+    db.app = flask_app
+    db.init_app(flask_app)
 
+    with flask_app.app_context():
+        db.create_all()
+        print("Connected to the db!")
+
+# if __name__ == "__main__":
+#     from server import app
+#     connect_to_db(app)
+#     app.run(debug=True)
 
 if __name__ == "__main__":
-    from server import app
-
-    # Call connect_to_db(app, echo=False) if your program output gets
-    # too annoying; this will tell SQLAlchemy not to print out every
-    # query it executes.
-
+    app = Flask(__name__)
     connect_to_db(app)
-
-    # Call this here so we don't have to worry about calling it every time
-    # we run model.py interactively.
-    app.app_context().push()
