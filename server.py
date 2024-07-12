@@ -7,10 +7,13 @@ import crud
 from jinja2 import StrictUndefined
 
 app = Flask(__name__)
+app.secret_key = "dev"  # CHANGE!!
+app.jinja_env.undefined = StrictUndefined
 
-
-# Replace this with routes and view functions!
-
+@app.route("/")
+def homepage():
+    """View homepage."""
+    return render_template("homepage.html")
 
 if __name__ == "__main__":
     connect_to_db(app)

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}Homepage - USCT{% endblock %}
+
+{% block body %}
+<h1>Welcome to your United States Citizenship Test Practice home</h1>
+<a href="{{ url_for('register') }}">Register</a>
+<a href="{{ url_for('login') }}">Login</a>
+<a href="{{ url_for('practice_test') }}">Take a Practice Test</a>
+<a href="{{ url_for('study') }}">Study For The Test</a>
+<a href="{{ url_for('view_scores') }}">View Your Scores</a>
+{% if session.get("user_id") %}
+    <a href="{{ url_for('logout') }}">Logout</a>
+{% endif %}
+{% endblock %}
