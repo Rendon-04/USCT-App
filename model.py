@@ -44,11 +44,12 @@ class QuestionAnswer(db.Model):
     question_answer_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
     question = db.Column(db.String)
     answer = db.Column(db.String)
+    options = db.Column(db.ARRAY(db.String))
 
     test_results = db.relationship("TestResult", back_populates="question_answer")
 
     def __repr__(self):
-        return f"<QuestionAnswer question={self.question} answer={self.answer}>"
+        return f"<QuestionAnswer question={self.question} answer={self.answer} options={self.options}>"
 
 class TestResult(db.Model):
     """Test results"""

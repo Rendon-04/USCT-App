@@ -42,7 +42,7 @@ db.session.commit()
 created_questions = []
 
 for question in test_data["practiceTest"]:
-    question = crud.create_question(question["question"], question["answer"])
+    question = crud.create_question(question["question"], question["answer"], question["options"])
     db.session.add(question)
     created_questions.append(question)
     print(f"{question}")
@@ -51,9 +51,9 @@ db.session.commit()
 
 #create test results for the questions 
 for created_question in created_questions:
-    for preactice_test_question in test_data["practiceTest"]:
-        if preactice_test_question["question"] == created_question.question:
-            is_correct = created_question.answer in preactice_test_question["options"]
+    for data_test_question in test_data["practiceTest"]:
+        if data_test_question["question"] == created_question.question:
+            is_correct = created_question.answer in data_test_question["options"]
             test_result = crud.create_test_result(is_correct, created_question.question_answer_id)
             db.session.add(test_result)
             print(f"Test Result: {test_result}")

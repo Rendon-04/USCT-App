@@ -22,12 +22,13 @@ def create_score(user_score,user_id, test_result_id):
 
     return score 
 
-def create_question(question, answer):
+def create_question(question, answer, options):
     """Create and return a question and answer"""
 
     question_answer = QuestionAnswer(
         question=question,
-        answer=answer
+        answer=answer,
+        options=options
     )
 
     return question_answer
@@ -41,6 +42,10 @@ def create_test_result(is_correct, question_answer_id):
     )
 
     return result 
+
+def get_all_questions():
+    """Get test questions"""
+    return QuestionAnswer.query.all()
 
 
 
