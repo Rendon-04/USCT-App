@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}View Scores{% endblock %}
+
+{% block body%}
+<h1>Your Scores</h1>
+{% if scores %}
+    <ul>
+        {% for score in scores %}
+        <li>Score: {{ score.user_score }}</li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No scores available to view.</p>
+{% endif %}
+{% endblock %}

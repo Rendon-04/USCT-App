@@ -42,10 +42,10 @@ db.session.commit()
 created_questions = []
 
 for question in test_data["practiceTest"]:
-    question = crud.create_question(question["question"], question["answer"], question["options"])
-    db.session.add(question)
-    created_questions.append(question)
-    print(f"{question}")
+    new_question = crud.create_question(question["question"], question["answer"], question["options"])
+    db.session.add(new_question)
+    created_questions.append(new_question)
+    print(f"{new_question}")
 
 db.session.commit()
 
@@ -61,11 +61,11 @@ db.session.commit()
 
 #create scores for the users
 for user in created_users:
-    for question in created_questions: 
-       test_result = crud.create_test_result(is_correct=False, question_answer_id=question.question_answer_id)
-       db.session.add(test_result)
-       score = crud.create_score(user_score=randint(1, 100), user_id=user.user_id, test_result_id=test_result.question_answer_id)
-       db.session.add(score)
-       print(f"You scored: {score}")
+    for question in created_questions:
+        test_result = crud.create_test_result(is_correct=False, question_answer_id=question.question_answer_id)
+        db.session.add(test_result)
+        score = crud.create_score(user_score=randint(1, 100), user_id=user.user_id, test_result_id=test_result.question_answer_id)
+        db.session.add(score)
+        print(f"You scored: {score}")
 
 db.session.commit()

@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %}Study{% endblock %}
+
+{% block body%}
+<h1>Study For The Test</h1>
+{% for question in questions %}
+    <div>
+        <p>{{ question.question }}</p>
+        <P><strong>Answer:</strong> {{ question.answer }}</P>
+    </div>
+{% endfor %}
+{% endblock %}

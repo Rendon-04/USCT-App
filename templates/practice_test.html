@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}Practice Test{% endblock %}
+
+{% block body %}
+<h1>Practice Test</h1>
+
+<form method="POST" action="/submit_practice_test">
+    {% for question in questions%}
+    <div>
+        <p>{{ question.question }}</p>
+        {% for option in question.options %}
+            <input type="radio" name="question_{{ question.id }}" value="{{ option }}"> {{ option }}<br>
+        {% endfor %}
+    </div>
+    {% endfor %}
+    <br>
+    <button type="submit">Submit</button>
+</form>
+{% endblock %}
