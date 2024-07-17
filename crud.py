@@ -13,7 +13,7 @@ def create_user(user_name,email, password):
 
 def get_user_by_email(email):
     """Get user by email"""
-    
+    #Query the User table to find the first user with specified email 
     return User.query.filter_by(email=email).first()
 
 def create_score(user_score,user_id, test_result_id):
@@ -50,10 +50,12 @@ def create_test_result(is_correct, question_answer_id):
 
 def get_all_questions():
     """Get test questions"""
+    #Query the QuestionAnswer table to get all the questions 
     return QuestionAnswer.query.all()
 
 def get_scores_by_user_id(user_id):
     """Get scores by user ID"""
+    #Query the Score table to find all scores for the specified user ID 
     return Score.query.filter_by(user_id=user_id).all() 
 
 

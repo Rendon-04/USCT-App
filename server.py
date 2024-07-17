@@ -15,7 +15,7 @@ app.jinja_env.undefined = StrictUndefined
 def load_test_data():
     """Load test data from JSON file."""
     with open("data /practiceTest.json") as f:
-        return json.loads(f.read())
+        return json.loads(f.read()) #parse the JSON data and return it as a Python dictionary 
 
 @app.route("/")
 def homepage():
@@ -30,13 +30,16 @@ def show_registration_form():
 @app.route("/register", methods=["POST"])
 def register():
     """Register a new user"""
+    #Get the email and password from the submitted form 
     email = request.form.get("email")
     password = request.form.get("password")
 
+    #Check if a user with the given email already exist 
     user =  crud.get_user_by_email(email)
     if user: 
         flash("Account with that email already exists. Please login.")
     else: 
+        #If a user does not exist, create a new user
         user = crud.create_user(request.form.get("user_name"), email, password)
         flash("Account created! Please login.")
     return redirect("/login")
@@ -49,10 +52,13 @@ def show_login_form():
 @app.route("/login", methods=["POST"])
 def login():
     """Log in a user"""
+    #Get the email and password from the submitted form 
     email = request.form.get("email")
     password =request.form.get("password")
+    #Grab the user with the xgiven email 
     user =  crud.get_user_by_email(email)
-
+    
+    #If the user exists and the password mathches, set the user_id in the session 
     if user and user.password == password: 
         session["user_id"] = user.user_id
         flash("Logged in!")
@@ -65,6 +71,7 @@ def login():
 @app.route("/logout")
 def logout():
     """Log out a user"""
+    #Remove user_id from session 
     session.pop("user_id", None)
     flash("Successfully logged out.")
     return redirect("/")
@@ -72,45 +79,69 @@ def logout():
 @app.route("/practice_test")
 def practice_test():
     """Take a practice test"""
+    #Load the Test data from JSON file 
     test_data = load_test_data()
+    #Grab the questions from the test data
     questions = test_data["practiceTest"]
     return render_template('practice_test.html', questions=questions)
 
 @app.route("/submit_practice_test", methods=["POST"])
 def submit_practice_test():
     """Handle practice test submission."""
+    #Get the user_id from the session 
     user_id = session.get("user_id")
+    #Get the test_result_id from the session
+    test_result_id=session.get("test_result_id")
+    #Load the test data from the JSON file 
     test_data = load_test_data()
     score = 0
+    #Get the total number of the questions 
+    total_questions = len(test_data["practiceTest"])
+    
     for question in test_data["practiceTest"]:
+        #Get the selected option for the current question from the form 
         selected_option = request.form.get(f"question_{question['id']}")
+        #Check if the selected option matches the correct answer
         if selected_option == question["answer"]:
+            #increment the score if the answer is correct 
             score += 1
 
-
+    #If the user is logged in 
     if user_id:
-        crud.create_score(user_score=score, user_id=user_id, test_result_id=None)  
-        flash(f"You scored {score} out of {len(test_data['practiceTest'])}")
+        #Create a new score for the user
+        crud.create_score(user_score=score, user_id=user_id, test_result_id=test_result_id)
+        flash(f"You scored {score} out of {total_questions}")
         return redirect("/view_scores")
     else:
-        flash(f"You scored {score} out of {len(test_data['practiceTest'])}. Register or log in to save your scores.")
-        return redirect("/practice_test")
+        flash(f"You scored {score} out of {total_questions}. Register or log in to see all your scores.")
+        return redirect("/practice_test_score")
+
+@app.route("/practice_test_score") 
+def practice_test_score():
+    """Display one score after a practice test."""
+    #Get the score and total from the query parameters 
+    score = request.args.get("score")
+    total = request.args.get("total")
+    return render_template("practice_test_score.html", score=score, total=total)
 
 @app.route("/study")
 def study():
     """Study for the test"""
+    #Get all the questions from the databse using the CRUD function 
     questions = crud.get_all_questions()
     return render_template("study.html", questions=questions)
 
 @app.route("/view_scores")
 def view_scores():
     """View user scores"""
+    #Get the user_id from the session 
     user_id = session.get("user_id")
     if user_id:
+        #If the user is logged in, get their scores from the databse using the CRUD function 
         scores = crud.get_scores_by_user_id(user_id)
         return render_template("view_scores.html", scores=scores)
     else: 
-        flash("PLease lon in to view your score history.")
+        flash("Please lon in to view your score history.")
         return redirect("/login")
     
 

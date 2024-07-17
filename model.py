@@ -78,11 +78,6 @@ def connect_to_db(flask_app, db_uri="postgresql:///citizenship_test", echo=True)
         db.create_all()
         print("Connected to the db!")
 
-# if __name__ == "__main__":
-#     from server import app
-#     connect_to_db(app)
-#     app.run(debug=True)
-
 if __name__ == "__main__":
     app = Flask(__name__)
     connect_to_db(app)
