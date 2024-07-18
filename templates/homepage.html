@@ -10,6 +10,7 @@
 <a href="/practice_test">Take a Practice Test</a>
 <a href="/study">Study For The Test</a>
 <a href="/view_scores">View Your Scores</a>
+<!-- If the user is logged in, show the logout link -->
 {% if session.get("user_id") %}
     <a href="/logout">Logout</a>
 {% endif %}

@@ -4,7 +4,11 @@
 
 {% block body %}
 <h1>Your Score</h1>
-<p>You scored {{ score }} out of {{ total }}.</p> 
+<!-- Paragraph displaying the user's score, using the score and total variables passed from the backend -->
+<div>
+<p>You scored {{ score }} out of {{ total }}.</p>
+</div>
+<a href="/">Home</a>
 <a href="/practice_test">Take another test.</a>
 <a href="/view_scores">View your score history.</a>
 {% endblock %}

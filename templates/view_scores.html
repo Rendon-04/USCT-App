@@ -4,6 +4,8 @@
 
 {% block body%}
 <h1>Your Scores</h1>
+<a href="/">Home</a>
+<!-- Checks if the 'scores' list is not empty -->
 {% if scores %}
     <ul>
         {% for score in scores %}

@@ -2,7 +2,7 @@
 
 from flask import (Flask, render_template, request, flash, session,
                    redirect)
-from model import connect_to_db
+from model import connect_to_db, db
 import crud
 import json
 
@@ -41,6 +41,8 @@ def register():
     else: 
         #If a user does not exist, create a new user
         user = crud.create_user(request.form.get("user_name"), email, password)
+        db.session.add(user) #add a user to the session 
+        db.session.commit()
         flash("Account created! Please login.")
     return redirect("/login")
 
@@ -61,12 +63,11 @@ def login():
     #If the user exists and the password mathches, set the user_id in the session 
     if user and user.password == password: 
         session["user_id"] = user.user_id
-        flash("Logged in!")
+        flash("Logged in successfully!")
         return redirect("/")
     else: 
         flash("Invalid email or password.")
-
-    return redirect("/login")
+        return redirect("/login")
 
 @app.route("/logout")
 def logout():
@@ -90,8 +91,6 @@ def submit_practice_test():
     """Handle practice test submission."""
     #Get the user_id from the session 
     user_id = session.get("user_id")
-    #Get the test_result_id from the session
-    test_result_id=session.get("test_result_id")
     #Load the test data from the JSON file 
     test_data = load_test_data()
     score = 0
@@ -105,24 +104,20 @@ def submit_practice_test():
         if selected_option == question["answer"]:
             #increment the score if the answer is correct 
             score += 1
+ 
 
     #If the user is logged in 
     if user_id:
         #Create a new score for the user
-        crud.create_score(user_score=score, user_id=user_id, test_result_id=test_result_id)
+        new_score = crud.create_score(user_score=score, user_id=user_id, test_result_id=None)
+        db.session.add(new_score)#Add new score to the session
+        db.session.commit()
         flash(f"You scored {score} out of {total_questions}")
         return redirect("/view_scores")
     else:
-        flash(f"You scored {score} out of {total_questions}. Register or log in to see all your scores.")
-        return redirect("/practice_test_score")
+        #View one score if the user is not logged in 
+        return render_template("practice_test_score.html", score=score, total=total_questions)
 
-@app.route("/practice_test_score") 
-def practice_test_score():
-    """Display one score after a practice test."""
-    #Get the score and total from the query parameters 
-    score = request.args.get("score")
-    total = request.args.get("total")
-    return render_template("practice_test_score.html", score=score, total=total)
 
 @app.route("/study")
 def study():
@@ -141,7 +136,7 @@ def view_scores():
         scores = crud.get_scores_by_user_id(user_id)
         return render_template("view_scores.html", scores=scores)
     else: 
-        flash("Please lon in to view your score history.")
+        flash("Please log in to view your score history.")
         return redirect("/login")
     
 

@@ -4,12 +4,15 @@
 
 {% block body %}
 <h1>Practice Test</h1>
-
+<a href="/">Home</a>
 <form method="POST" action="/submit_practice_test">
     {% for question in questions%}
     <div>
+        <!-- Display the question text -->
         <p>{{ question.question }}</p>
+        <!-- Loop through each option for the current question -->
         {% for option in question.options %}
+        <!-- Question ID set as name attirbute -->
             <input type="radio" name="question_{{ question.id }}" value="{{ option }}"> {{ option }}<br>
         {% endfor %}
     </div>

@@ -4,9 +4,12 @@
 
 {% block body%}
 <h1>Study For The Test</h1>
+<a href="/">Home</a>
 {% for question in questions %}
     <div>
+        <!-- Display the question text -->
         <p>{{ question.question }}</p>
+        <!-- Display the correct answer for the question -->
         <P><strong>Answer:</strong> {{ question.answer }}</P>
     </div>
 {% endfor %}

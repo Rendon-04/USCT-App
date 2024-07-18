@@ -73,7 +73,7 @@ for user in created_users:
         #Create a test result for the question with a default incorrect answer
         test_result = crud.create_test_result(is_correct=False, question_answer_id=question.question_answer_id)
         db.session.add(test_result)
-        score = crud.create_score(user_score=score, user_id=user.user_id, test_result_id=test_result.scores)
+        score = crud.create_score(user_score=score, user_id=user.user_id, test_result_id=test_result.question_answer_id)
         db.session.add(score)
         print(f"You scored: {score}")
 
