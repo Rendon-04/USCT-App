@@ -38,11 +38,11 @@
       "question": "What is an amendment?",
       "options": [
         "a change (to the Constitution)",
-        "an addition (to the Constitution)",
+        "rewriting (to the Constitution)",
         "a law",
         "a bill"
       ],
-      "answer": "a change (to the Constitution), an addition (to the Constitution)"
+      "answer": "a change (to the Constitution)"
     },
     {
       "id": 5,

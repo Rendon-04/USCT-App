@@ -1,0 +1,30 @@
+{
+    "study": [
+      {
+        "id": 1,
+        "s_question": "What is the supreme law of the land?",
+        "s_answer": "the Constitution"
+      },
+      {
+        "id": 2,
+        "s_question": "What does the Constitution do?",
+        "s_answer": "Sets up the government, Defines the government, Protects basic rights of Americans"
+      },
+      {
+        "id": 3,
+        "s_question": "The idea of self-government is in the first three words of the Constitution. What are these words?",
+        "s_answer": "We the People"
+      },
+      {
+        "id": 4,
+        "s_question": "What is an amendment?",
+        "s_answer": "a change (to the Constitution), an addition (to the Constitution)"
+      },
+      {
+        "id": 5,
+        "s_question": "What do we call the first ten amendments to the Constitution?",
+        "s_answer": "the Bill of Rights"
+      } 
+    ]
+}
+ 

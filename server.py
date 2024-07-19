@@ -12,10 +12,16 @@ app = Flask(__name__)
 app.secret_key = "dev"  # CHANGE!!
 app.jinja_env.undefined = StrictUndefined
 
+#Parse the JSON data and return it as a Python dictionary 
 def load_test_data():
     """Load test data from JSON file."""
     with open("data /practiceTest.json") as f:
-        return json.loads(f.read()) #parse the JSON data and return it as a Python dictionary 
+        return json.loads(f.read()) 
+def load_study_data():
+    """Load test data from JSON file."""
+    with open("data /study.json") as f:
+        return json.loads(f.read())
+
 
 @app.route("/")
 def homepage():
@@ -61,19 +67,21 @@ def login():
     user =  crud.get_user_by_email(email)
     
     #If the user exists and the password mathches, set the user_id in the session 
-    if user and user.password == password: 
-        session["user_id"] = user.user_id
-        flash("Logged in successfully!")
-        return redirect("/")
-    else: 
-        flash("Invalid email or password.")
+    if not user or user.password != password:
+        flash("The email or password you entered was incorrect")
         return redirect("/login")
+    else: 
+        #Log in the user by storing the user's email in sesson
+        session["user_email"] = user.email
+        # flash(f"Welcome back, {user.user_name}!")
+
+    return redirect("/") 
 
 @app.route("/logout")
 def logout():
     """Log out a user"""
     #Remove user_id from session 
-    session.pop("user_id", None)
+    session.pop("user_email", None)
     flash("Successfully logged out.")
     return redirect("/")
     
@@ -118,13 +126,17 @@ def submit_practice_test():
         #View one score if the user is not logged in 
         return render_template("practice_test_score.html", score=score, total=total_questions)
 
+@app.route("/study_for_the_test")
+def study_for_the_test():
+    """Display the study page"""
+    return render_template("study_for_the_test.html")
 
-@app.route("/study")
-def study():
+@app.route("/overview_study_page")
+def overview_study_page():
     """Study for the test"""
-    #Get all the questions from the databse using the CRUD function 
-    questions = crud.get_all_questions()
-    return render_template("study.html", questions=questions)
+    #Load the study data
+    study_data = load_study_data()
+    return render_template("overview_study_page.html", questions=study_data["study"])
 
 @app.route("/view_scores")
 def view_scores():

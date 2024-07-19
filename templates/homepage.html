@@ -5,13 +5,19 @@
 {% block body %}
 <h1>Welcome</h1>
 <h2> Learn and Practice for United States Citizenship Test</h2>
-<a href="/register">Register</a>
-<a href="/login">Login</a>
-<a href="/practice_test">Take a Practice Test</a>
-<a href="/study">Study For The Test</a>
-<a href="/view_scores">View Your Scores</a>
-<!-- If the user is logged in, show the logout link -->
-{% if session.get("user_id") %}
+
+<!-- If the user is logged in, show the logout link and a welcome message -->
+{% if session.get("user_email") %}
+    <p>Welcome back, {{ session.get("user_name") }}!</p>
     <a href="/logout">Logout</a>
+{% else %}
+    <!-- If the user is not logged in, show the login and register links -->
+    <a href="/register">Sign Up</a>
+    <a href="/login">Login</a>
 {% endif %}
+
+<a href="/practice_test">Take a Practice Test</a>
+<a href="/study_for_the_test">Study For The Test</a>
+<a href="/additional_resources">Find Additional Resources</a>
+<a href="/view_scores">View Your Scores</a>
 {% endblock %}

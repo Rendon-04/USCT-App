@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}overview_study_page{% endblock %}
+
+{% block body%}
+<h1>Overview Study Page</h1>
+<a href="/">Home</a>
+{% for question in questions %}
+    <div>
+        <!-- Display the question text -->
+        <p><strong>Question:</strong> 
+            {{ question.s_question }}</p>
+        <!-- Display the correct answer for the question -->
+        <P><strong>Answer:</strong> 
+            {{ question.s_answer }}</P>
+    </div>
+{% endfor %}
+{% endblock %} 
+
