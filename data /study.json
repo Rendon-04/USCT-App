@@ -24,7 +24,484 @@
         "id": 5,
         "s_question": "What do we call the first ten amendments to the Constitution?",
         "s_answer": "the Bill of Rights"
-      } 
+      },
+      {
+        "id": 6,
+        "s_question": "What is one right or freedom from the First Amendment?",
+        "s_answer": "speech, religion, assembly, press, petition the government"
+      },
+      {
+        "id": 7,
+        "s_question": "How many amendments does the Constitution have?",
+        "s_answer": "twenty-seven (27)"
+      },
+      {
+        "id": 8,
+        "s_question": "What did the Declaration of Independence do?",
+        "s_answer": "announced our independence (from Great Britain), declared our independence (from Great Britain), said that the United States is free (from Great Britain)"
+      },
+      {
+        "id": 9,
+        "s_question": "What are two rights in the Declaration of Independence?",
+        "s_answer": "life, liberty, pursuit of happiness"
+      },
+      {
+        "id": 10,
+        "s_question": "What is freedom of religion?",
+        "s_answer": "You can practice any religion, or not practice a religion."
+      },
+      {
+        "id": 11,
+        "s_question": "What is the economic system in the United States?",
+        "s_answer": "capitalist economy, market economy"
+      },
+      {
+        "id": 12,
+        "s_question": "What is the rule of law?",
+        "s_answer": "Everyone must follow the law. Leaders must obey the law. Government must obey the law. No one is above the law."
+      },
+      {
+        "id": 13,
+        "s_question": "Name one branch or part of the government.",
+        "s_answer": "Congress, legislative, President, executive, the courts, judicial"
+      },
+      {
+        "id": 14,
+        "s_question": "What stops one branch of government from becoming too powerful?",
+        "s_answer": "checks and balances, separation of powers"
+      },
+      {
+        "id": 15,
+        "s_question": "Who is in charge of the executive branch?",
+        "s_answer": "the President"
+      },
+      {
+        "id": 16,
+        "s_question": "Who makes federal laws?",
+        "s_answer": "Congress, Senate and House (of Representatives), (U.S. or national) legislature"
+      },
+      {
+        "id": 17,
+        "s_question": "What are the two parts of the U.S. Congress?",
+        "s_answer": "the Senate and House (of Representatives)"
+      },
+      {
+        "id": 18,
+        "s_question": "How many U.S. Senators are there?",
+        "s_answer": "one hundred (100)"
+      },
+      {
+        "id": 19,
+        "s_question": "We elect a U.S. Senator for how many years?",
+        "s_answer": "six (6)"
+      },
+      {
+        "id": 20,
+        "s_question": "Who is one of your states U.S. Senators now?",
+        "s_answer": "s_Answers will vary, please research your state. [District of Columbia residents and residents of U.S. territories should s_answer that D.C. (or the territory where the applicant lives) has no U.S. Senators.]"
+      },
+      {
+        "id": 21,
+        "s_question": "The House of Representatives has how many voting members?",
+        "s_answer": "four hundred thirty-five (435)"
+      },
+      {
+        "id": 22,
+        "s_question": "We elect a U.S. Representative for how many years?",
+        "s_answer": "two (2)"
+      },
+      {
+        "id": 23,
+        "s_question": "Name your U.S. Representative.",
+        "s_answer": "s_Answers will vary, please research your state. [Residents of territories with nonvoting Delegates or Resident Commissioners may provide the name of that Delegate or Commissioner. Also acceptable is any statement that the territory has no (voting) Representatives in Congress.]"
+      },
+      {
+        "id": 24,
+        "s_question": "Who does a U.S. Senator represent?",
+        "s_answer": "all people of the state"
+      },
+      {
+        "id": 25,
+        "s_question": "Why do some states have more Representatives than other states?",
+        "s_answer": "(because of) the states population, (because) they have more people, (because) some states have more people"
+      },
+      {
+        "id": 26,
+        "s_question": "We elect a President for how many years?",
+        "s_answer": "four (4)"
+      },
+      {
+        "id": 27,
+        "s_question": "In what month do we vote for President?",
+        "s_answer": "November"
+      },
+      {
+        "id": 28,
+        "s_question": "What is the name of the President of the United States now?",
+        "s_answer": "Visit uscis.gov/citizenship/testupdates for the name of the President of the United States."
+      },
+      {
+        "id": 29,
+        "s_question": "What is the name of the Vice President of the United States now?",
+        "s_answer": "Visit uscis.gov/citizenship/testupdates for the name of the Vice President of the United States."
+      },
+      {
+        "id": 30,
+        "s_question": "If the President can no longer serve, who becomes President?",
+        "s_answer": "the Vice President"
+      },
+      {
+        "id": 31,
+        "s_question": "If both the President and the Vice President can no longer serve, who becomes President?",
+        "s_answer": "the Speaker of the House"
+      },
+      {
+        "id": 32,
+        "s_question": "Who is the Commander in Chief of the military?",
+        "s_answer": "the President"
+      },
+      {
+        "id": 33,
+        "s_question": "Who signs bills to become laws?",
+        "s_answer": "the President"
+      },
+      {
+        "id": 34,
+        "s_question": "Who vetoes bills?",
+        "s_answer": "the President"
+      },
+      {
+        "id": 35,
+        "s_question": "What does the Presidents Cabinet do?",
+        "s_answer": "advises the President"
+      },
+      {
+        "id": 36,
+        "s_question": "What are two Cabinet-level positions?",
+        "s_answer": "Secretary of Agriculture, Secretary of Commerce, Secretary of Defense, Secretary of Education, Secretary of Energy, Secretary of Health and Human Services, Secretary of Homeland Security, Secretary of Housing and Urban Development, Secretary of the Interior, Secretary of Labor, Secretary of State, Secretary of Transportation, Secretary of the Treasury, Secretary of Veterans Affairs, Attorney General, Vice President"
+      },
+      {
+        "id": 37,
+        "s_question": "What does the judicial branch do?",
+        "s_answer": "reviews laws, explains laws, resolves disputes (disagreements), decides if a law goes against the Constitution"
+      },
+      {
+        "id": 38,
+        "s_question": "What is the highest court in the United States?",
+        "s_answer": "the Supreme Court"
+      },
+      {
+        "id": 39,
+        "s_question": "How many justices are on the Supreme Court?",
+        "s_answer": "nine (9)"
+      },
+      {
+        "id": 40,
+        "s_question": "Who is the Chief Justice of the United States now?",
+        "s_answer": "Visit uscis.gov/citizenship/testupdates for the name of the Chief Justice of the United States."
+      },
+      {
+        "id": 41,
+        "s_question": "Under our Constitution, some powers belong to the federal government. What is one power of the federal government?",
+        "s_answer": "to print money, to declare war, to create an army, to make treaties"
+      },
+      {
+        "id": 42,
+        "s_question": "Under our Constitution, some powers belong to the states. What is one power of the states?",
+        "s_answer": "provide schooling and education, provide protection (police), provide safety (fire departments), give a driver’s license, approve zoning and land use"
+      },
+      {
+        "id": 43,
+        "s_question": "Who is the Governor of your state now?",
+        "s_answer": "s_Answers will vary, please research your state. [District of Columbia residents should s_answer that D.C. does not have a Governor.]"
+      },
+      {
+        "id": 44,
+        "s_question": "What is the capital of your state?",
+        "s_answer": "s_Answers will vary, please research your state. [District of Columbia residents should s_answer that D.C. is not a state and does not have a capital. Residents of U.S. territories should name the capital of the territory.]"
+      },
+      {
+        "id": 45,
+        "s_question": "What are the two major political parties in the United States?",
+        "s_answer": "Democratic and Republican"
+      },
+      {
+        "id": 46,
+        "s_question": "What is the political party of the President now?",
+        "s_answer": "Visit uscis.gov/citizenship/testupdates for the political party of the President."
+      },
+      {
+        "id": 47,
+        "s_question": "What is the name of the Speaker of the House of Representatives now?",
+        "s_answer": "Visit uscis.gov/citizenship/testupdates for the name of the Speaker of the House of Representatives."
+      },
+      {
+        "id": 48,
+        "s_question": "There are four amendments to the Constitution about who can vote. Describe one of them.",
+        "s_answer": "Citizens eighteen (18) and older (can vote). You don’t have to pay (a poll tax) to vote. Any citizen can vote. (Women and men can vote.) A male citizen of any race (can vote.)"
+      },
+      {
+        "id": 49,
+        "s_question": "What is one responsibility that is only for United States citizens?",
+        "s_answer": "serve on a jury, vote in a federal election"
+      },
+      {
+        "id": 50,
+        "s_question": "Name one right only for United States citizens.",
+        "s_answer": "vote in a federal election, run for federal office"
+      },
+      {
+        "id": 51,
+        "s_question": "What are two rights of everyone living in the United States?",
+        "s_answer": "freedom of expression, freedom of speech, freedom of assembly, freedom to petition the government, freedom of religion, the right to bear arms"
+      },
+      {
+        "id": 52,
+        "s_question": "What do we show loyalty to when we say the Pledge of Allegiance?",
+        "s_answer": "the United States, the flag"
+      },
+      {
+        "id": 53,
+        "s_question": "What is one promise you make when you become a United States citizen?",
+        "s_answer": "give up loyalty to other countries, defend the Constitution and laws of the United States, obey the laws of the United States, serve in the U.S. military (if needed), serve (do important work for) the nation (if needed), be loyal to the United States"
+      },
+      {
+        "id": 54,
+        "s_question": "How old do citizens have to be to vote for President?",
+        "s_answer": "eighteen (18) and older"
+      },
+      {
+        "id": 55,
+        "s_question": "What are two ways that Americans can participate in their democracy?",
+        "s_answer": "vote, join a political party, help with a campaign, join a civic group, join a community group, give an elected official your opinion on an issue, call Senators and Representatives, publicly support or oppose an issue or policy, run for office, write to a newspaper"
+      },
+      {
+        "id": 56,
+        "s_question": "When is the last day you can send in federal income tax forms?",
+        "s_answer": "April 15"
+      },
+      {
+        "id": 57,
+        "s_question": "When must all men register for the Selective Service?",
+        "s_answer": "at age eighteen (18), between eighteen (18) and twenty-six (26)"
+      },
+      {
+        "id": 58,
+        "s_question": "What is one reason colonists came to America?",
+        "s_answer": "freedom, political liberty, religious freedom, economic opportunity, practice their religion, escape persecution"
+      },
+      {
+        "id": 59,
+        "s_question": "Who lived in America before the Europeans arrived?",
+        "s_answer": "American Indians, Native Americans"
+      },
+      {
+        "id": 60,
+        "s_question": "What group of people was taken to America and sold as slaves?",
+        "s_answer": "Africans, people from Africa"
+      },
+      {
+        "id": 61,
+        "s_question": "Why did the colonists fight the British?",
+        "s_answer": "because of high taxes (taxation without representation), because the British army stayed in their houses (boarding, quartering), because they didn’t have self-government"
+      },
+      {
+        "id": 62,
+        "s_question": "Who wrote the Declaration of Independence?",
+        "s_answer": "(Thomas) Jefferson"
+      },
+      {
+        "id": 63,
+        "s_question": "When was the Declaration of Independence adopted?",
+        "s_answer": "July 4, 1776"
+      },
+      {
+        "id": 64,
+        "s_question": "There were 13 original states. Name three.",
+        "s_answer": "New Hampshire, Massachusetts, Rhode Island, Connecticut, New York, New Jersey, Pennsylvania, Delaware, Maryland, Virginia, North Carolina, South Carolina, Georgia"
+      },
+      {
+        "id": 65,
+        "s_question": "What happened at the Constitutional Convention?",
+        "s_answer": "The Constitution was written. The Founding Fathers wrote the Constitution."
+      },
+      {
+        "id": 66,
+        "s_question": "When was the Constitution written?",
+        "s_answer": "1787"
+      },
+      {
+        "id": 67,
+        "s_question": "The Federalist Papers supported the passage of the U.S. Constitution. Name one of the writers.",
+        "s_answer": "(James) Madison, (Alexander) Hamilton, (John) Jay, Publius"
+      },
+      {
+        "id": 68,
+        "s_question": "What is one thing Benjamin Franklin is famous for?",
+        "s_answer": "U.S. diplomat, oldest member of the Constitutional Convention, first Postmaster General of the United States, writer of Poor Richard’s Almanac, started the first free libraries"
+      },
+      {
+        "id": 69,
+        "s_question": "Who is the “Father of Our Country”?",
+        "s_answer": "(George) Washington"
+      },
+      {
+        "id": 70,
+        "s_question": "Who was the first President?",
+        "s_answer": "(George) Washington"
+      },
+      {
+        "id": 71,
+        "s_question": "What territory did the United States buy from France in 1803?",
+        "s_answer": "the Louisiana Territory, Louisiana"
+      },
+      {
+        "id": 72,
+        "s_question": "Name one war fought by the United States in the 1800s.",
+        "s_answer": "War of 1812, Mexican-American War, Civil War, Spanish-American War"
+      },
+      {
+        "id": 73,
+        "s_question": "Name the U.S. war between the North and the South.",
+        "s_answer": "the Civil War, the War between the States"
+      },
+      {
+        "id": 74,
+        "s_question": "Name one problem that led to the Civil War.",
+        "s_answer": "slavery, economic reasons, states rights"
+      },
+      {
+        "id": 75,
+        "s_question": "What was one important thing that Abraham Lincoln did?",
+        "s_answer": "freed the slaves (Emancipation Proclamation), saved (or preserved) the Union, led the United States during the Civil War"
+      },
+      {
+        "id": 76,
+        "s_question": "What did the Emancipation Proclamation do?",
+        "s_answer": "freed the slaves, freed slaves in the Confederacy, freed slaves in the Confederate states, freed slaves in most Southern states"
+      },
+      {
+        "id": 77,
+        "s_question": "What did Susan B. Anthony do?",
+        "s_answer": "fought for womens rights, fought for civil rights"
+      },
+      {
+        "id": 78,
+        "s_question": "Name one war fought by the United States in the 1900s.",
+        "s_answer": "World War I, World War II, Korean War, Vietnam War, (Persian) Gulf War"
+      },
+      {
+        "id": 79,
+        "s_question": "Who was President during World War I?",
+        "s_answer": "(Woodrow) Wilson"
+      },
+      {
+        "id": 80,
+        "s_question": "Who was President during the Great Depression and World War II?",
+        "s_answer": "(Franklin) Roosevelt"
+      },
+      {
+        "id": 81,
+        "s_question": "Who did the United States fight in World War II?",
+        "s_answer": "Japan, Germany, and Italy"
+      },
+      {
+        "id": 82,
+        "s_question": "Before he was President, Eisenhower was a general. What war was he in?",
+        "s_answer": "World War II"
+      },
+      {
+        "id": 83,
+        "s_question": "During the Cold War, what was the main concern of the United States?",
+        "s_answer": "Communism"
+      },
+      {
+        "id": 84,
+        "s_question": "What movement tried to end racial discrimination?",
+        "s_answer": "civil rights (movement)"
+      },
+      {
+        "id": 85,
+        "s_question": "What did Martin Luther King, Jr. do?",
+        "s_answer": "fought for civil rights, worked for equality for all Americans"
+      },
+      {
+        "id": 86,
+        "s_question": "What major event happened on September 11, 2001, in the United States?",
+        "s_answer": "Terrorists attacked the United States."
+      },
+      {
+        "id": 87,
+        "s_question": "Name one American Indian tribe in the United States.",
+        "s_answer": "Cherokee, Navajo, Sioux, Chippewa, Choctaw, Pueblo, Apache, Iroquois, Creek, Blackfeet, Seminole, Cheyenne, Arawak, Shawnee, Mohegan, Huron, Oneida, Lakota, Crow, Teton, Hopi, Inuit"
+      },
+      {
+        "id": 88,
+        "s_question": "Name one of the two longest rivers in the United States.",
+        "s_answer": "Missouri (River), Mississippi (River)"
+      },
+      {
+        "id": 89,
+        "s_question": "What ocean is on the West Coast of the United States?",
+        "s_answer": "Pacific (Ocean)"
+      },
+      {
+        "id": 90,
+        "s_question": "What ocean is on the East Coast of the United States?",
+        "s_answer": "Atlantic (Ocean)"
+      },
+      {
+        "id": 91,
+        "s_question": "Name one U.S. territory.",
+        "s_answer": "Puerto Rico, U.S. Virgin Islands, American Samoa, Northern Mariana Islands, Guam"
+      },
+      {
+        "id": 92,
+        "s_question": "Name one state that borders Canada.",
+        "s_answer": "Maine, New Hampshire, Vermont, New York, Pennsylvania, Ohio, Michigan, Minnesota, North Dakota, Montana, Idaho, Washington, Alaska"
+      },
+      {
+        "id": 93,
+        "s_question": "Name one state that borders Mexico.",
+        "s_answer": "California, Arizona, New Mexico, Texas"
+      },
+      {
+        "id": 94,
+        "s_question": "What is the capital of the United States?",
+        "s_answer": "Washington, D.C."
+      },
+      {
+        "id": 95,
+        "s_question": "Where is the Statue of Liberty?",
+        "s_answer": "New York (Harbor), Liberty Island [Also acceptable are New Jersey, near New York City, and on the Hudson (River).]"
+      },
+      {
+        "id": 96,
+        "s_question": "Why does the flag have 13 stripes?",
+        "s_answer": "because there were 13 original colonies, because the stripes represent the original colonies"
+      },
+      {
+        "id": 97,
+        "s_question": "Why does the flag have 50 stars?",
+        "s_answer": "because there is one star for each state, because each star represents a state, because there are 50 states"
+      },
+      {
+        "id": 98,
+        "s_question": "What is the name of the national anthem?",
+        "s_answer": "The Star-Spangled Banner"
+      },
+      {
+        "id": 99,
+        "s_question": "When do we celebrate Independence Day?",
+        "s_answer": "July 4"
+      },
+      {
+        "id": 100,
+        "s_question": "Name two national U.S. holidays.",
+        "s_answer": "New Years Day, Martin Luther King, Jr. Day, Presidents Day, Memorial Day, Independence Day, Labor Day, Columbus Day, Veterans Day, Thanksgiving, Christmas"
+      }
     ]
-}
+  }
+ 
+
  

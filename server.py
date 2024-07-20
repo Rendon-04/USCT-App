@@ -12,7 +12,7 @@ app = Flask(__name__)
 app.secret_key = "dev"  # CHANGE!!
 app.jinja_env.undefined = StrictUndefined
 
-#Parse the JSON data and return it as a Python dictionary 
+# Parse the JSON data and return it as a Python dictionary 
 def load_test_data():
     """Load test data from JSON file."""
     with open("data /practiceTest.json") as f:
@@ -20,8 +20,7 @@ def load_test_data():
 def load_study_data():
     """Load test data from JSON file."""
     with open("data /study.json") as f:
-        return json.loads(f.read())
-
+        return json.loads(f.read()) 
 
 @app.route("/")
 def homepage():
@@ -65,13 +64,14 @@ def login():
     password =request.form.get("password")
     #Grab the user with the xgiven email 
     user =  crud.get_user_by_email(email)
-    
+
     #If the user exists and the password mathches, set the user_id in the session 
     if not user or user.password != password:
         flash("The email or password you entered was incorrect")
         return redirect("/login")
     else: 
-        #Log in the user by storing the user's email in sesson
+        #Log in the user by storing the user's user_id and email in sesson
+        session["user_id"] = user.user_id 
         session["user_email"] = user.email
         # flash(f"Welcome back, {user.user_name}!")
 
@@ -80,7 +80,8 @@ def login():
 @app.route("/logout")
 def logout():
     """Log out a user"""
-    #Remove user_id from session 
+    #Remove user_name and user_id from session 
+    session.pop("user_id", None)
     session.pop("user_email", None)
     flash("Successfully logged out.")
     return redirect("/")
@@ -112,8 +113,7 @@ def submit_practice_test():
         if selected_option == question["answer"]:
             #increment the score if the answer is correct 
             score += 1
- 
-
+            
     #If the user is logged in 
     if user_id:
         #Create a new score for the user

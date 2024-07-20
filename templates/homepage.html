@@ -8,7 +8,7 @@
 
 <!-- If the user is logged in, show the logout link and a welcome message -->
 {% if session.get("user_email") %}
-    <p>Welcome back, {{ session.get("user_name") }}!</p>
+    <p>Welcome back, {{ session.get("user_email") }}!</p>
     <a href="/logout">Logout</a>
 {% else %}
     <!-- If the user is not logged in, show the login and register links -->
