@@ -70,8 +70,9 @@ def login():
         flash("The email or password you entered was incorrect")
         return redirect("/login")
     else: 
-        #Log in the user by storing the user's user_id and email in sesson
+        #Log in the user by storing the user's user_id, user_name and email in sesson
         session["user_id"] = user.user_id 
+        session["user_name"] = user.user_name
         session["user_email"] = user.email
         # flash(f"Welcome back, {user.user_name}!")
 
@@ -82,6 +83,7 @@ def logout():
     """Log out a user"""
     #Remove user_name and user_id from session 
     session.pop("user_id", None)
+    session.pop("user_name", None)
     session.pop("user_email", None)
     flash("Successfully logged out.")
     return redirect("/")

@@ -7,8 +7,8 @@
 <h2> Learn and Practice for United States Citizenship Test</h2>
 
 <!-- If the user is logged in, show the logout link and a welcome message -->
-{% if session.get("user_email") %}
-    <p>Welcome back, {{ session.get("user_email") }}!</p>
+{% if session.get("user_name") %}
+    <p>Welcome back, {{ session.get("user_name") }}!</p>
     <a href="/logout">Logout</a>
 {% else %}
     <!-- If the user is not logged in, show the login and register links -->
