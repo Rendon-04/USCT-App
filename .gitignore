@@ -1,0 +1,4 @@
+env/
+.DS_Store
+Backend/__pycache__/
+Frontend/package-lock.json
