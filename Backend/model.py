@@ -80,4 +80,4 @@ def connect_to_db(flask_app, db_uri="postgresql:///citizenship_test", echo=True)
 
 if __name__ == "__main__":
     app = Flask(__name__)
-    connect_to_db(app)
+    connect_to_db(app) 
