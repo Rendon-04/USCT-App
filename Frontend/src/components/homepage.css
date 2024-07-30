@@ -1,0 +1,124 @@
+/* General styling for the homepage */
+.homepage-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px;
+  }
+  
+  /* Content and Image Container */
+  .content-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 32px;
+    align-self: stretch;
+    max-width: 50%;
+  }
+  
+  .main-heading {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #1B6CB3; /* Primary blue color */
+  }
+  
+  .description {
+    font-size: 1.125rem;
+    color: #333;
+    margin: 20px 0;
+  }
+  
+  .get-started-button {
+    display: inline-block;
+    padding: 10px 20px;
+    border: 2px solid #1B6CB3;
+    color: #1B6CB3;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .get-started-button:hover {
+    background-color: #1B6CB3;
+    color: #fff;
+  }
+  
+  .learners-section {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .learners-img {
+    border-radius: 50%;
+    height: 40px;
+    margin-right: 10px;
+  }
+  
+  .learners-text {
+    font-size: 1rem;
+    color: #1B6CB3;
+    font-weight: bold;
+  }
+  
+  .image-container-flags {
+    max-width: 40%;
+  }
+  
+  .main-image {
+    width: 100%;
+    border-radius: 8px;
+  }
+  
+  /* Card Container and Cards */
+  .card-container {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin-top: 40px;
+  }
+  
+  .card {
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    width: 30%;
+    text-align: center;
+  }
+  
+  .card-icon {
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+  
+  .card-title {
+    font-size: 1.5rem;
+    color: #1B6CB3;
+    margin-bottom: 10px;
+  }
+  
+  .card-description {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 20px;
+  }
+  
+  .card-link {
+    color: #1B6CB3;
+    text-decoration: none;
+    font-weight: bold;
+    border: 1px solid #1B6CB3;
+    padding: 10px 15px;
+    border-radius: 6px;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .card-link:hover {
+    background-color: #1B6CB3;
+    color: #fff;
+  }
+  
+  
+  

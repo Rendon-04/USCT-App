@@ -1,0 +1,75 @@
+/* General styling for the navbar */
+.navbar-custom {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 28px 80px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+
+/* Styling for the brand/logo */
+.navbar-custom .navbar-logo {
+  font-size: 14;
+  font-weight: bold;
+  color: #1B6CB3; /* Primary blue color */
+}
+
+/* Adjust margin for navbar items */
+.navbar-custom .navbar-nav .nav-item {
+  margin-left: 1rem;
+}
+
+/* Style links */
+.navbar-custom .nav-link {
+  display: flex;
+  padding: 7px var(--Spacing-spacing-12, 12px);
+  align-items: center;
+  gap: var(--Spacing-spacing-4, 4px); 
+  border-radius: 6px;
+  background: var(--Button-background-subtle, rgba(0, 0, 0, 0.00));
+}
+
+.navbar-custom .nav-link:hover {
+  color: #1B6CB3; /* Primary blue color on hover */
+}
+
+/* Styling for right-aligned buttons */
+.navbar-custom .primary-buttons {
+  margin-left: auto;
+}
+
+.primary-buttons .signup-button {
+  color: #216097;
+  border: 1px solid #1B6CB3;
+  margin-right: 0.5rem;
+  padding: 11px;
+  align-items: center;
+  border-radius: 6px;
+  gap: var(--Spacing-spacing-4, 4px)
+}
+
+.primary-buttons .signup-button:hover {
+  border-radius: 8px;
+  background: rgba(55, 23, 23, 0.03);
+  color: #216097;
+  ;
+}
+
+.primary-buttons .login-button{
+  padding: 12px var(--Spacing-spacing-12, 12px);
+  align-items: center;
+  gap: var(--Spacing-spacing-4, 4px);
+  border: 6px;
+  background: #2077C3;
+  color: #ffffff;
+
+}
+
+.primary-buttons .login-button {
+  background-color: #1B6CB3; /* Darker blue on hover */
+  color: #ffffff;
+}
+  

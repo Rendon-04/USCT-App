@@ -1,7 +1,7 @@
 """Server for United States Citizenship Test Practice App"""
 
 from flask import (Flask, render_template, request, flash, session,
-                   redirect)
+                   redirect,jsonify)
 from model import connect_to_db, db
 import crud
 import json
@@ -59,24 +59,31 @@ def show_login_form():
 @app.route("/login", methods=["POST"])
 def login():
     """Log in a user"""
-    #Get the email and password from the submitted form 
-    email = request.form.get("email")
-    password =request.form.get("password")
+    #Get the email and password from the submitted JSON data 
+    email = request.json.get("email")
+    password =request.json.get("password")
     #Grab the user with the xgiven email 
     user =  crud.get_user_by_email(email)
 
-    #If the user exists and the password mathches, set the user_id in the session 
-    if not user or user.password != password:
-        flash("The email or password you entered was incorrect")
-        return redirect("/login")
-    else: 
-        #Log in the user by storing the user's user_id, user_name and email in sesson
-        session["user_id"] = user.user_id 
+    if user and user.password == password:
+        session["user_id"] = user.userid
         session["user_name"] = user.user_name
-        session["user_email"] = user.email
-        # flash(f"Welcome back, {user.user_name}!")
+        return jsonify({"success": True, "message": "Login successful"})
+    else:
+        return jsonify({"success": False, "message": "Invalid email or password"})
 
-    return redirect("/") 
+    # #If the user exists and the password mathches, set the user_id in the session 
+    # if not user or user.password != password:
+    #     flash("The email or password you entered was incorrect")
+    #     return redirect("/login")
+    # else: 
+    #     #Log in the user by storing the user's user_id, user_name and email in sesson
+    #     session["user_id"] = user.user_id 
+    #     session["user_name"] = user.user_name
+    #     session["user_email"] = user.email
+    #     # flash(f"Welcome back, {user.user_name}!")
+
+    # return redirect("/") 
 
 @app.route("/logout")
 def logout():
