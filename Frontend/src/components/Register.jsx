@@ -1,45 +1,106 @@
-import React from "react";
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import "/src/components/register.css";
 
-//  Register component 
+export default function Register() {
+    //states for registration
+    const[userName, setUserName] = useState('');
+    const[email, setEmail] = useState('');
+    const[password, setPassword] = useState('');
 
+    //states for checking for errors 
+    const [submitted, setSubmitted] = useState(false);
+    const [error, setError] = useState(false); 
 
-function Register () {
-    // State variables for username, email, and password 
-    const [userName, setUserName] = useState('');
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    //Navigate
+    const navigate = useNavigate(); 
 
-    // Form submission event handler 
+    //handle the name change 
+    const handleUserName = (evt) => {
+        setUserName(evt.target.value);
+        setSubmitted(false); 
+    };
+
+    //handle the email change 
+    const handleEmail = (evt) => {
+        setEmail(evt.target.value);
+        setSubmitted(false); 
+    };
+
+    //handle the password change 
+    const handlePassword = (evt) => {
+        setPassword(evt.target.value);
+        setSubmitted(false);
+    };
+
+    //handle the form submission
     const handleSubmit = (evt) => {
         evt.preventDefault();
-        // Add code to handle registration
-        console.log('Username:', userName, 'Email:', email, 'Password:', password);
+        if (userName === '' || email === '' || password === ''){
+            setError(true);
+        } else {
+            setSubmitted(true);
+            setError(false);
+            //redirect to the login page after succesful registration 
+            navigate('/login')
+        }
     };
-    // Render the registration form 
+
+    //Show a success message 
+    const successMessage = () => {
+        return (
+            <div className="success"
+                 style= {{ display: submitted ? "" : "none",}} >
+                    <h3>User {userName} successfully registered!</h3>
+                 </div>
+        );
+    };
+
+    //Show error message 
+    const errorMessage = () => {
+        return (
+            <div className="error"
+                 style={{ display: error ? "" : "none",}} >
+                    <h3>PLease fill in all fields</h3>
+                 </div>
+        );
+    };
+
     return (
-        <div>
-            <h1>Register</h1>
-            {/* Set the event handler */}
-            <form onSubmit={handleSubmit}>
-                <div>
-                    <label htmlFor="username">Username:</label>
-                    {/* Update the state variable 'userName' with the new value of the input field */}
-                    <input type="text" id="username" value={userName} onChange={(evt) => setUserName(evt.target.value)} />
-                </div>
-                <div>
-                    <label htmlFor="email">Email:</label>
-                    {/* Update the state variable 'email' with the new value of the input field */}
-                    <input type="email" id="email" value={email} onChange={(evt) => setEmail(evt.target.value)} />
-                </div>
-                <div>
-                    <label htmlFor="password">Password:</label>
-                    {/* Update the state variable 'password' with the new value of the input field */}
-                    <input type="password" id="password" value={password} onChange={(evt) => setPassword(evt.target.value)}/>
-                </div>
-                <button type="submit">Register</button>
+        <div className='form'>
+            <div>
+                <h1>User Sign-Up</h1>
+            </div>
+            {/* call methods */}
+            <div className='messages'>
+                {errorMessage()}
+                {successMessage()}
+            </div>
+
+            <form>
+                {/* form data */} 
+                <label className='label'>Name</label>
+                <input 
+                    onChange={handleUserName}
+                    className='input'
+                    value={userName}
+                    type='text' />
+                <label className='label'>Email</label>
+                <input 
+                    onChange={handleEmail}
+                    className='input'
+                    value={email}
+                    type='email' />
+                <label className='label'>Password</label>
+                <input 
+                    onChange={handlePassword}
+                    className='input'
+                    value={password}
+                    type='password' /> 
+                <button onClick={handleSubmit} className='button' type='submit'>Submit</button>
             </form>
+
         </div>
     );
-};
 
-export default Register;
+}

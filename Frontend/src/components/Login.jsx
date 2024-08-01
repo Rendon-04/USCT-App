@@ -13,31 +13,34 @@ const Login = ({ onLogin }) => {
     // Form submission event handler 
     const handleSubmit = async (evt) => {
         evt.preventDefault();
-        setError(''); //clear all previous errors 
-
+        setError(''); // Clear all previous errors
+    
         try {
-            // Send a POST request to /login with email and password 
-            const response = await fetch('/login', {
+            // Send a POST request to /login with email and password
+            const response = await fetch('/api/login', {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({ email, password }),
-
             });
-            // Parse the JSON response from the server 
-            const result = await response.json()
-
-            if(response.ok) {
+    
+            // Debugging: Log the raw response and status
+            console.log('Response status:', response.status);
+    
+            // Parse the JSON response from the server
+            const result = await response.json();
+    
+            if (response.ok) {
                 // Handle successful login
-                onLogin(result.userName)
+                onLogin(result.userName);
                 navigate('/');
             } else {
-                setError(result.message)
+                setError(result.message);
             }
-        }   catch (error) {
-            console.error("Error during login:", error);
-            setError("An error occured. Please try again.")
+        } catch (error) {
+            console.error('Error during login:', error);
+            setError('An error occurred. Please try again.');
         }
     };
     

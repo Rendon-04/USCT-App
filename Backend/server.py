@@ -9,6 +9,7 @@ import json
 from jinja2 import StrictUndefined
 
 app = Flask(__name__)
+
 app.secret_key = "dev"  # CHANGE!!
 app.jinja_env.undefined = StrictUndefined
 
@@ -32,24 +33,51 @@ def show_registration_form():
     """Display the registraion form."""
     return render_template("register.html")
 
+# @app.route("/register", methods=["POST"])
+# def register():
+#     """Register a new user"""
+#     #Get the email and password from the submitted form 
+#     email = request.json.get("email")
+#     password = request.form.get("password")
+#     user_name = request.json.get("userName")
+
+#     if not email or not password or not user_name:
+#         return jsonify({"success": False, "message": "Missing required fields."}), 400
+
+#     #Check if a user with the given email already exist 
+#     user =  crud.get_user_by_email(email)
+#     if user: 
+#         # flash("Account with that email already exists. Please login.")
+#         return jsonify({"success": False, "message": "Account with that email already exists. Please login." }), 400
+#     else: 
+#         #If a user does not exist, create a new user
+#         user = crud.create_user(request.form.get(user_name, email, password))
+#         db.session.add(user) #add a user to the session 
+#         db.session.commit()
+#         # flash("Account created! Please login.")
+#         return jsonify({"success": True, "message": "Account created! Please login."}), 201
+#     # return redirect("/login")
 @app.route("/register", methods=["POST"])
 def register():
     """Register a new user"""
-    #Get the email and password from the submitted form 
-    email = request.form.get("email")
-    password = request.form.get("password")
+    email = request.json.get("email")
+    password = request.json.get("password")
+    user_name = request.json.get("userName")
 
-    #Check if a user with the given email already exist 
-    user =  crud.get_user_by_email(email)
-    if user: 
-        flash("Account with that email already exists. Please login.")
-    else: 
-        #If a user does not exist, create a new user
-        user = crud.create_user(request.form.get("user_name"), email, password)
-        db.session.add(user) #add a user to the session 
-        db.session.commit()
-        flash("Account created! Please login.")
-    return redirect("/login")
+    # Check for missing fields
+    if not email or not password or not user_name:
+        return jsonify({"success": False, "message": "Missing required fields."}), 400
+
+    # Check if a user with the given email already exists
+    user = crud.get_user_by_email(email)
+    if user:
+        return jsonify({"success": False, "message": "Account with that email already exists. Please login."}), 400
+
+    # If a user does not exist, create a new user
+    user = crud.create_user(user_name, email, password)
+    db.session.add(user)
+    db.session.commit()
+    return jsonify({"success": True, "message": "Account created! Please login."}), 201
 
 @app.route("/login", methods=["GET"])
 def show_login_form():
@@ -62,7 +90,7 @@ def login():
     #Get the email and password from the submitted JSON data 
     email = request.json.get("email")
     password =request.json.get("password")
-    #Grab the user with the xgiven email 
+    #Grab the user with the given email 
     user =  crud.get_user_by_email(email)
 
     if user and user.password == password:
