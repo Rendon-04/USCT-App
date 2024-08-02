@@ -1,6 +1,6 @@
 /* homepage.css */
-
-General styles */
+/* 
+General styles */ */
 /* /* body, html {
   margin: 0;
   padding: 0;
@@ -10,13 +10,14 @@ General styles */
 
 /* Container for the entire homepage */
 .homepage-container {
-  display: flex;
-  width: auto;
-  /* padding: 32px 80px var(--Spacing-spacing-48, 48px) 80px; */
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
   flex-direction: column;
-  align-items: flex-start;
-  gap: 120px;
-  flex-shrink: 0;
+  /* align-items: flex-start;
+  gap: 120px; */
+
 }
 
 /* Container for the main content (heading, description, button) */

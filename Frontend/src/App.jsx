@@ -9,6 +9,7 @@ import Resources from './components/Resources';
 import ViewScores from './components/ViewScores';
 import Login from './components/Login'; 
 import Register from './components/Register';
+import CategoryPage from './components/CategoryPage'; 
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -33,6 +34,7 @@ const App = () => {
             <Route path="/login" element={<Login onLogin={handleLogin} />} />
           <Route path="/register" element={<Register />} />
           <Route path="/footer" element={<Footer />} />
+          <Route path="/category/:categoryName" element={<CategoryPage />} />
           </Routes>
       </div>
     </Router>

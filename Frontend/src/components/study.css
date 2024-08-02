@@ -1,13 +1,10 @@
 /* General Styling */
 body, html {
-    display: flex;
-    width: 1728px;
-    padding: 32px 80px var(--Spacing-spacing-48, 48px) 80px;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
     flex-direction: column;
-    align-items: flex-start;
-    gap: 68px;
-    flex-shrink: 0;
-    background: white;
     }
 
 h1, h2, h5, h6 {
