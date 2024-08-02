@@ -6,65 +6,74 @@ import { useNavigate } from 'react-router-dom';
 
 const Login = ({ onLogin }) => {
     // State variables for email and passsword 
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [error, setError] = useState('');
-    const navigate = useNavigate(); 
-    // Form submission event handler 
-    const handleSubmit = async (evt) => {
-        evt.preventDefault();
-        setError(''); // Clear all previous errors
-    
-        try {
-            // Send a POST request to /login with email and password
-            const response = await fetch('/api/login', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ email, password }),
-            });
-    
-            // Debugging: Log the raw response and status
-            console.log('Response status:', response.status);
-    
-            // Parse the JSON response from the server
-            const result = await response.json();
-    
-            if (response.ok) {
-                // Handle successful login
-                onLogin(result.userName);
-                navigate('/');
-            } else {
-                setError(result.message);
-            }
-        } catch (error) {
-            console.error('Error during login:', error);
-            setError('An error occurred. Please try again.');
-        }
-    };
-    
-    // Render the Login form
-    return(
-    <div>
-            <h1>Login</h1>
-            {/* Event handler */}
-        <form onSubmit={handleSubmit}>
-            <div>
-                <label htmlFor="email">Email:</label>
-                {/* Update the state variable 'email' with the new value of the input field */}
-                <input type="email" id="email" value={email} onChange={(evt)=> setEmail(evt.target.value)}/>
-            </div>
-            <div>
-                <label htmlFor="password">Password</label>
-                {/* Update the state variable 'password' with the new value of the input field */}
-                <input type="password" id="password" value={password} onChange={(evt) => setPassword(evt.target.value)}/>
-            </div>
-            <button type="submit">Login</button>
-            {error && <p style={{ color: 'red' }}>{error}</p>}
-        </form>
-    </div>
-    );
-};
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+    const [emailError, setEmailError] = useState('')
+    const [passwordError, setPasswordError] = useState('')
 
+    const navigate = useNavigate() 
+
+    const onButtonClick = () => {
+        //set initial error values to be empty
+        setEmailError('')
+        setPasswordError('')
+
+        //check if the user entered both fields correctly 
+        if ('' === email) {
+            setEmailError('Please enter your email')
+            return
+        }
+
+        if (!/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(email)) {
+            setEmailError("Please enter a valid email")
+            return
+        }
+
+        if ('' === password) {
+            setPasswordError("Please enter your password")
+            return
+        }
+
+        if (password.length < 4) {
+            setPasswordError("Password must be 4 characters or longer")
+            return
+        }
+
+        onLogin(email);
+        navigate('/');
+
+    };
+
+    return (
+        <div className="mainContainer">
+          <div className="titleContainer">
+            <div>Login</div>
+          </div>
+          <br />
+          <div className="inputContainer">
+            <input
+              value={email}
+              placeholder="Enter your email here"
+              onChange={(evt) => setEmail(evt.target.value)}
+              className="inputBox"
+            />
+            <label className="errorLabel">{emailError}</label>
+          </div>
+          <br />
+          <div className="inputContainer">
+            <input
+              value={password}
+              placeholder="Enter your password here"
+              onChange={(evt) => setPassword(evt.target.value)}
+              className="inputBox"
+            />
+            <label className="errorLabel">{passwordError}</label>
+          </div>
+          <br />
+          <div className="inputContainer">
+            <input className="inputButton" type="button" onClick={onButtonClick} value={'Log in'} />
+          </div>
+        </div>
+      )
+    }
 export default Login;

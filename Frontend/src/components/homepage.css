@@ -11,9 +11,12 @@ General styles */
 /* Container for the entire homepage */
 .homepage-container {
   display: flex;
+  width: auto;
+  /* padding: 32px 80px var(--Spacing-spacing-48, 48px) 80px; */
   flex-direction: column;
-  align-items: center;
-  padding: 20px;
+  align-items: flex-start;
+  gap: 120px;
+  flex-shrink: 0;
 }
 
 /* Container for the main content (heading, description, button) */

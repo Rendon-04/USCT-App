@@ -1,0 +1,33 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+.title h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #216097;
+}
+
+.description p {
+    font-size: 1.125rem;
+    color: #333;
+}
+
+.selection h2 {
+    margin-bottom: 20px;
+}
+
+.option {
+    cursor: pointer;
+    width: 200px;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.option input[type="radio"] {
+    display: none;
+}
+
+.option input[type="radio"]:checked + .card {
+    background-color: #

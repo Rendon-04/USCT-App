@@ -31,8 +31,8 @@ const App = () => {
             <Route path="/additional_resources" element={<Resources />} />
             <Route path="/view_scores" element={<ViewScores />} />
             <Route path="/login" element={<Login onLogin={handleLogin} />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/footer" element={<Footer />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/footer" element={<Footer />} />
           </Routes>
       </div>
     </Router>
