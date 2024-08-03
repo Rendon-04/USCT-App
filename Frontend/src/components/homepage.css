@@ -1,60 +1,70 @@
 /* homepage.css */
 /* 
 General styles */ */
-/* /* body, html {
+body, html {
+  font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  font-family: Arial, sans-serif;
-  box-sizing: border-box;
-} */
+}
 
 /* Container for the entire homepage */
 .homepage-container {
-  margin: 0;
-  padding: 0;
+  margin-top: 32px; 
   width: 100%;
   height: 100%;
+  display: flex;
   flex-direction: column;
-  /* align-items: flex-start;
-  gap: 120px; */
-
+  align-items: center;
 }
 
-/* Container for the main content (heading, description, button) */
+/* Container for the main content (heading, description, button, image) */
 .content-container {
-  text-align: center;
-  max-width: 800px;
-  margin-bottom: 40px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  flex-wrap: wrap; /* For responsiveness */
+  width: 100%;
+}
+
+/* Text content container */
+.div-content-container {
+  flex: 1;
+  max-width: 600px;
 }
 
 /* Main heading style */
 .main-heading {
   font-size: 2.5rem;
-  color: #2c3e50;
-  margin-bottom: 20px;
+  color: #1B6CB3;
+  margin: 0;
 }
 
 /* Description text style */
 .description {
   font-size: 1.125rem;
-  color: #7f8c8d;
-  margin-bottom: 30px;
+  color: #000000;
+  margin: 20px 0;
 }
 
 /* 'Get Started' button style */
 .get-started-button {
-  display: inline-block;
-  padding: 10px 20px;
-  background-color: #3498db;
-  color: #fff;
-  border-radius: 5px;
-  text-decoration: none;
-  font-size: 1rem;
-  transition: background-color 0.3s;
+  font-size: 14px;
+  color: #1B6CB3; /* Primary blue color */
+  border: 1px solid #1B6CB3; /* Blue border */
+  background: transparent; /* Transparent background */
+  margin-right: 0.5rem;
+  padding: 8px 16px; /* Adjust padding for consistency */
+  border-radius: 6px;
+  transition: background 0.3s, color 0.3s; 
 }
 
 .get-started-button:hover {
-  background-color: #2980b9;
+  background: rgba(27, 108, 179, 0.1); 
+  color: #1B6CB3; /* Primary blue color */
+
 }
 
 /* Learners section */
@@ -78,9 +88,11 @@ General styles */ */
 
 /* Container for the image with flags */
 .image-container-flags {
+  flex: 1;
+  max-width: 600px;
+  text-align: right;
   display: flex;
-  justify-content: center;
-  margin-bottom: 40px;
+  justify-content: flex-end;
 }
 
 .main-image {
@@ -96,6 +108,7 @@ General styles */ */
   flex-wrap: wrap;
   max-width: 1200px;
   width: 100%;
+  margin: 40px auto 0;
 }
 
 /* Individual card styles */
@@ -137,3 +150,4 @@ General styles */ */
 .card-link:hover {
   color: #2980b9;
 }
+

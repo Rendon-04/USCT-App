@@ -9,6 +9,7 @@ import Resources from './components/Resources';
 import ViewScores from './components/ViewScores';
 import Login from './components/Login';
 import Register from './components/Register';
+import Test from './components/Test';
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -34,6 +35,7 @@ const App = () => {
           <Route path="/register" element={<Register />} />
           <Route path="/footer" element={<Footer />} />
           <Route path="/category/:categoryName" element={<Study />} /> {/* Dynamic routing for categories using Study */}
+          <Route path="/test" element={<Test />} />
         </Routes>
       </div>
     </Router>

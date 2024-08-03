@@ -6,7 +6,7 @@ import './homepage.css'; // Custom CSS for HomePage
 const Homepage = () => {
     return (
         <div className="homepage-container">
-          <div className="content-container">
+          <div className="content-container div-content-container">
             <h1 className="main-heading">Ace the U.S. Civic test</h1>
             <p className="description">
               Preparing can be tough, but you don't have to do it alone. Our study guides, practice tests, and resources help you master U.S. history, government, and civic responsibilities. Track your progress, build your confidence, and join a community of learners!

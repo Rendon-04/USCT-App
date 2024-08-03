@@ -3,17 +3,21 @@ import { Link, useNavigate } from 'react-router-dom';
 import './study.css';
 
 function Study() {
-  const [data, setData] = useState([]);
-  const [error, setError] = useState(null);
-  const [selectedCategory, setSelectedCategory] = useState(null);
-  const navigate = useNavigate();
+    //States
+    //store the questions from the data fetched from the json file
+    const [data, setData] = useState([]);
+    //state to store any error that occurs during the data fetching
+    const [error, setError] = useState(null);
+    //state to store the selected category of questions 
+    const [selectedCategory, setSelectedCategory] = useState(null);
+    const navigate = useNavigate();
 
-  useEffect(() => {
-    fetch('/src/components/questionsNaturalizationTest.json')
-      .then(response => response.json())
-      .then(data => setData(data))
-      .catch(error => setError(error));
-  }, []);
+    useEffect(() => {
+        fetch('/src/components/questionsNaturalizationTest.json')
+        .then(response => response.json())
+        .then(data => setData(data)) //set the fetched data to the state 
+        .catch(error => setError(error)); // set error if the fetching fails 
+    }, []);
 
   useEffect(() => {
     if (selectedCategory) {
@@ -25,11 +29,12 @@ function Study() {
     }
   }, [selectedCategory]);
 
+  //handle category selection
   const handleCategorySelect = (category) => {
-    setSelectedCategory(category);
-    navigate(`#${category.replace(/\s+/g, '-')}`);
+    setSelectedCategory(category); //set the selected category 
+    navigate(`#${category.replace(/\s+/g, '-')}`); // navoagte to the selected category
   };
-
+  //if error occurs 
   if (error) {
     return <div>Error: {error.message}</div>;
   }

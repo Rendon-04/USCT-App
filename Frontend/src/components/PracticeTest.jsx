@@ -1,6 +1,7 @@
 import React from 'react';
 import './testPage.css'; // Import your CSS file
 // Practice Test component 
+import { Link } from 'react-router-dom';
 
 const PracticeTest = () => {
     return (
@@ -101,7 +102,9 @@ const PracticeTest = () => {
                 </div>
                 <div>
                     <br />
-                    <button type="button" class="btn btn-primary">Start Test</button>
+                    <Link to="/test">
+                    <button type="button" className="btn btn-primary">Start Test</button>
+                    </Link>
                 </div>
         </div>
         
