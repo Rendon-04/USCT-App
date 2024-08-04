@@ -1,8 +1,6 @@
-/* homepage.css */
-/* 
-General styles */ */
+/* General styles */
 body, html {
-  font-family: Arial, sans-serif;
+  font-family: Arial, sans-serif, Hind Siliguri;
   margin: 0;
   padding: 0;
 }
@@ -17,22 +15,16 @@ body, html {
   align-items: center;
 }
 
-/* Container for the main content (heading, description, button, image) */
-.content-container {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
+/* Content container for main heading, description, button, and learners section */
+.content {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
-  flex-wrap: wrap; /* For responsiveness */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
   width: 100%;
-}
-
-/* Text content container */
-.div-content-container {
-  flex: 1;
-  max-width: 600px;
 }
 
 /* Main heading style */
@@ -52,19 +44,18 @@ body, html {
 /* 'Get Started' button style */
 .get-started-button {
   font-size: 14px;
-  color: #1B6CB3; /* Primary blue color */
-  border: 1px solid #1B6CB3; /* Blue border */
-  background: transparent; /* Transparent background */
+  color: #1B6CB3;
+  border: 1px solid #1B6CB3;
+  background: transparent;
   margin-right: 0.5rem;
-  padding: 8px 16px; /* Adjust padding for consistency */
+  padding: 8px 16px;
   border-radius: 6px;
   transition: background 0.3s, color 0.3s; 
 }
 
 .get-started-button:hover {
   background: rgba(27, 108, 179, 0.1); 
-  color: #1B6CB3; /* Primary blue color */
-
+  color: #1B6CB3;
 }
 
 /* Learners section */
@@ -87,10 +78,8 @@ body, html {
 }
 
 /* Container for the image with flags */
-.image-container-flags {
-  flex: 1;
+.image-container {
   max-width: 600px;
-  text-align: right;
   display: flex;
   justify-content: flex-end;
 }
@@ -129,8 +118,9 @@ body, html {
 }
 
 .card-title {
+  font: "Hind Siliguri";
   font-size: 1.5rem;
-  color: #2c3e50;
+  color: #216097;
   margin-bottom: 10px;
 }
 
@@ -150,4 +140,3 @@ body, html {
 .card-link:hover {
   color: #2980b9;
 }
-

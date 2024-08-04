@@ -10,6 +10,7 @@ import ViewScores from './components/ViewScores';
 import Login from './components/Login';
 import Register from './components/Register';
 import Test from './components/Test';
+import ScoreDisplay from './components/ScoreDisplay';
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -28,7 +29,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<HomePage isLoggedIn={isLoggedIn} userName={userName} />} />
           <Route path="/practice_test" element={<PracticeTest />} />
-          <Route path="/study_for_the_test" element={<Study />} /> {/* Updated to use Study */}
+          <Route path="/study_for_the_test" element={<Study />} /> 
           <Route path="/additional_resources" element={<Resources />} />
           <Route path="/view_scores" element={<ViewScores />} />
           <Route path="/login" element={<Login onLogin={handleLogin} />} />
@@ -36,7 +37,9 @@ const App = () => {
           <Route path="/footer" element={<Footer />} />
           <Route path="/category/:categoryName" element={<Study />} /> {/* Dynamic routing for categories using Study */}
           <Route path="/test" element={<Test />} />
+          <Route path="/score_display" element={<ScoreDisplay />} />
         </Routes>
+        <Footer />
       </div>
     </Router>
   );

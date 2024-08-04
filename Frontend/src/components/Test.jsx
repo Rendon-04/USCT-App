@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import questionsData from '/src/components/practiceTest.json'; // Import the data
+import { useNavigate } from 'react-router-dom';
 
-const PracticeTest = () => {
+const Test = () => {
   const [selectedOptions, setSelectedOptions] = useState({});
+  const navigate = useNavigate();
 
   const handleOptionChange = (questionId, option) => {
     setSelectedOptions(prevSelectedOptions => ({
@@ -11,10 +13,18 @@ const PracticeTest = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Handle form submission logic here
-    console.log(selectedOptions);
+  const handleSubmit = (evt) => {
+    evt.preventDefault();
+
+    let score = 0;
+    questionsData.forEach((question) => {
+      if (selectedOptions[question.id] === question.answer) {
+        score += 1;
+      }
+    });
+
+    const total = questionsData.length;
+    navigate("/score_display", { state: { score, total } });
   };
 
   return (
@@ -46,4 +56,4 @@ const PracticeTest = () => {
   );
 };
 
-export default PracticeTest;
+export default Test;

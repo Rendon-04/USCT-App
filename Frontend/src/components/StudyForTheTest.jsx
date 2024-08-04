@@ -40,106 +40,75 @@ function Study() {
   }
 
   return (
-    <div className="container py-5">
-      <h1 className="text-center text-primary mb-4">Study</h1>
-      <div className="text-center mb-5">
-        <p>Get ready for the U.S. citizenship test. On the day of your interview, you'll answer 10 questions from a list of 100. Use our tools to study all 100 questions, 10 random questions, or focus on key themes.</p>
-      </div>
+    <div className="study-container">
+      <h1 className="main-heading">Study</h1>
+      <p className="intro-text">
+        Get ready for the U.S. citizenship test. On the day of your interview, you'll answer 10 questions from a list of 100. Use our tools to study all 100 questions, 10 random questions, or focus on key themes.
+      </p>
 
-      <div className="mb-5">
-        <h2 className="h5">Get started with random questions</h2>
-        <div className="row">
-          <div className="col-sm-6 mb-3 mb-sm-0">
-            <div className="card border-0 shadow-sm h-100">
-              <div className="card-body">
-                <Link to="#" onClick={() => handleCategorySelect('all')}>
-                  Study 100 questions
-                </Link>
-                <p className="card-text">Get started by studying all 100 questions in all categories.</p>
-              </div>
-            </div>
+      <div className="card-group">
+        <div className="card" onClick={() => handleCategorySelect('all')}>
+          <div className="card-body">
+            <Link to="#">Study 100 questions</Link>
+            <p>Get started by studying all 100 questions in all categories.</p>
           </div>
-          <div className="col-sm-6">
-            <div className="card border-0 shadow-sm h-100">
-              <div className="card-body">
-                <Link to="#" onClick={() => handleCategorySelect('Random Questions')}>
-                  Study 10 random questions
-                </Link>
-                <p className="card-text">Try studying questions like you would in the real interview.</p>
-              </div>
-            </div>
+        </div>
+        <div className="card" onClick={() => handleCategorySelect('Random Questions')}>
+          <div className="card-body">
+            <Link to="#">Study 10 random questions</Link>
+            <p>Try studying questions like you would in the real interview.</p>
           </div>
         </div>
       </div>
 
-      <div className="mb-4">
-        <h2 className="h5">Get started by theme</h2>
-        <div className="row">
-          {Object.keys(data).map((category, index) => (
-            <div className="col-md-4 mb-3" key={index}>
-              <div className="card border-0 shadow-sm h-100 theme-card">
-                <div className="row no-gutters">
-                  <div className="col-md-4">
-                    <img src={`/src/img/${category.replace(/\s+/g, '')}.png`} className="img-fluid rounded-start" alt={category} />
-                  </div>
-                  <div className="col-md-8">
-                    <div className="card-body">
-                      <Link to="#" className="card-title h6 text-decoration-none text-primary" onClick={() => handleCategorySelect(category)}>
-                        {category}
-                      </Link>
-                      <p className="card-text">Learn about {category.toLowerCase()}.</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
+      <div className="category-group">
+        {Object.keys(data).map((category) => (
+          <div className="category-card" key={category}>
+            <img src={`/src/img/${category.replace(/\s+/g, '')}.png`} alt={category} className="category-image" />
+            <div className="card-body">
+              <Link to="#" className="category-link" onClick={() => handleCategorySelect(category)}>
+                {category}
+              </Link>
+              <p className="category-description">Learn about {category.toLowerCase()}.</p>
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
       </div>
 
       {selectedCategory && (
-        <div id={selectedCategory.replace(/\s+/g, '-')} className="category-content">
+        <div id={selectedCategory.replace(/\s+/g, '-')} className="questions">
           <h2>{selectedCategory === 'all' ? 'All Questions' : selectedCategory}</h2>
           {selectedCategory === 'all'
-            ? Object.keys(data).flatMap((category, categoryIndex) =>
-                data[category].map((questionItem, index) => (
-                  <div key={`${categoryIndex}-${index}`}>
-                    <h5>Question {questionItem.number}</h5>
-                    <p>{questionItem.question}</p>
-                    {Array.isArray(questionItem.answers) ? (
-                      <div>
-                        <p><strong>Answers:</strong></p>
-                        <ul>
-                          {questionItem.answers.map((answer, idx) => (
-                            <li key={idx}>{answer}</li>
-                          ))}
-                        </ul>
-                      </div>
-                    ) : (
-                      <p><strong>Answer:</strong> {questionItem.answer}</p>
-                    )}
-                  </div>
+            ? Object.keys(data).flatMap((category) =>
+                data[category].map((questionItem) => (
+                  <QuestionItem key={questionItem.number} questionItem={questionItem} />
                 ))
               )
-            : data[selectedCategory].map((questionItem, index) => (
-                <div key={index}>
-                  <h5>Question {questionItem.number}</h5>
-                  <p>{questionItem.question}</p>
-                  {Array.isArray(questionItem.answers) ? (
-                    <div>
-                      <p><strong>Answers:</strong></p>
-                      <ul>
-                        {questionItem.answers.map((answer, idx) => (
-                          <li key={idx}>{answer}</li>
-                        ))}
-                      </ul>
-                    </div>
-                  ) : (
-                    <p><strong>Answer:</strong> {questionItem.answer}</p>
-                  )}
-                </div>
+            : data[selectedCategory].map((questionItem) => (
+                <QuestionItem key={questionItem.number} questionItem={questionItem} />
               ))}
         </div>
+      )}
+    </div>
+  );
+}
+
+function QuestionItem({ questionItem }) {
+  return (
+    <div className="question-item">
+      <h5>Question {questionItem.number}</h5>
+      <p>{questionItem.question}</p>
+      {Array.isArray(questionItem.answers) ? (
+        <>
+          <strong>Answers:</strong>
+          <ul>
+            {questionItem.answers.map((answer, idx) => (
+              <li key={idx}>{answer}</li>
+            ))}
+          </ul>
+        </>
+      ) : (
+        <p><strong>Answer:</strong> {questionItem.answer}</p>
       )}
     </div>
   );
