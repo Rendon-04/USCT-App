@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import "/src/components/register.css";
 
-export default function Register() {
+export default function Register () {
     //states for registration
     const[userName, setUserName] = useState('');
     const[email, setEmail] = useState('');

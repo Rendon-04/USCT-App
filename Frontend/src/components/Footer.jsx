@@ -2,7 +2,7 @@ import React from 'react';
 
 // Footer 
 
-const Footer = () => {
+export default function Footer () {
     return(
         <footer>
             <p>&copy; {new Date().getFullYear()} U.S. Civics Test. All rights reserved.</p>
@@ -10,4 +10,3 @@ const Footer = () => {
     );
 };
 
-export default Footer; 

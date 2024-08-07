@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 // Login component 
 
 
-const Login = ({ onLogin }) => {
+export default function  Login ({ onLogin }) {
     // State variables for email and passsword 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
@@ -76,4 +76,3 @@ const Login = ({ onLogin }) => {
         </div>
       )
     }
-export default Login;

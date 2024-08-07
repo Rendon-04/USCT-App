@@ -2,7 +2,7 @@ import React from 'react';
 
 // View Scores component 
 
-const ViewScores = () => {
+export default function  ViewScores () {
     return(
         <div>
             <h1>View Scores</h1>
@@ -11,4 +11,3 @@ const ViewScores = () => {
     );
 };
 
-export default ViewScores; 

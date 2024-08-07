@@ -2,7 +2,7 @@ import React from 'react';
 
 // Resources component 
 
-const Resources = () => {
+export default function Resources ()  {
     return( 
         <div>
             <h1>Resources</h1>
@@ -11,4 +11,3 @@ const Resources = () => {
     );
 };
 
-export default Resources;

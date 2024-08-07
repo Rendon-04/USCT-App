@@ -1,0 +1,50 @@
+/* Card container styles */
+.card-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    width: 100%;
+    margin: 40px auto 0;
+  }
+  
+  /* Individual card styles */
+  .card {
+    background-color: #ecf0f1;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 300px;
+    margin: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card-icon {
+    font-size: 2rem;
+    color: #3498db;
+    margin-bottom: 15px;
+  }
+  
+  .card-title {
+    font: "Hind Siliguri";
+    font-size: 1.5rem;
+    color: #216097;
+    margin-bottom: 10px;
+  }
+  
+  .card-description {
+    font-size: 1rem;
+    color: #7f8c8d;
+    margin-bottom: 20px;
+  }
+  
+  .card-link {
+    font-size: 1rem;
+    color: #3498db;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  
+  .card-link:hover {
+    color: #2980b9;
+  }

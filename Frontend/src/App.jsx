@@ -2,21 +2,24 @@ import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import HomePage from './components/HomePage';
-import PracticeTest from './components/PracticeTest';
 import Footer from './components/Footer';
-import Study from './components/StudyForTheTest'; // Import the function from the correct file
+import Practice from "./components/Practice";
+import Study from './components/Study';
+import StudyCategories from './components/StudyCategories';
+import AllQuestions from './components/AllQuestions';
 import Resources from './components/Resources';
 import ViewScores from './components/ViewScores';
 import Login from './components/Login';
 import Register from './components/Register';
 import Test from './components/Test';
 import ScoreDisplay from './components/ScoreDisplay';
+import Cards from './components/Cards'; 
+import RandomQuestions from './components/RandomQuestions';
 
-const App = () => {
+export default function App () {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userName, setUserName] = useState('');
 
-  // Handle the login, set the login state and user info
   const handleLogin = (name) => {
     setIsLoggedIn(true);
     setUserName(name);
@@ -28,21 +31,42 @@ const App = () => {
         <Navbar />
         <Routes>
           <Route path="/" element={<HomePage isLoggedIn={isLoggedIn} userName={userName} />} />
-          <Route path="/practice_test" element={<PracticeTest />} />
+          <Route path="/practice_test" element={<Practice />} /> 
           <Route path="/study_for_the_test" element={<Study />} /> 
+          <Route path="/study_for_the_test/all" element={<AllQuestions />} />
+          <Route path="/study_for_the_test/random" element={<RandomQuestions />} />
+          <Route path="/study/:category" element={<StudyCategories />} />
           <Route path="/additional_resources" element={<Resources />} />
           <Route path="/view_scores" element={<ViewScores />} />
           <Route path="/login" element={<Login onLogin={handleLogin} />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/footer" element={<Footer />} />
-          <Route path="/category/:categoryName" element={<Study />} /> {/* Dynamic routing for categories using Study */}
           <Route path="/test" element={<Test />} />
           <Route path="/score_display" element={<ScoreDisplay />} />
+          <Route path="/cards" element={<Cards />} />
+          <Route path="/footer" element={<Footer />} />
         </Routes>
         <Footer />
       </div>
     </Router>
   );
-};
+}
 
-export default App;
+
+// return (
+//     <div>
+//       <Navbar />
+//         <HomePage isLoggedIn={isLoggedIn} userName={userName} />
+//         <PracticeTest />
+//         <Study />
+//         <Resources />
+//         <ViewScores />
+//         <Login onLogin={handleLogin} />
+//         <Register />
+//         <Footer />
+//         <Study />
+//         <Test />
+//         <ScoreDisplay />
+//       <Footer />
+//     </div>
+// );
+// };

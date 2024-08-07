@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './navbar.css'; // Import your CSS file
 
-const Navbar = ({ loggedIn, email, onLogout }) => {
+export default function Navbar ({ loggedIn, email, onLogout }) {
   const navigate = useNavigate();
 
   const onButtonClick = () => {
@@ -58,5 +58,4 @@ const Navbar = ({ loggedIn, email, onLogout }) => {
   );
 };
 
-export default Navbar;
 

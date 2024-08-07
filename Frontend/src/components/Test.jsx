@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import questionsData from '/src/components/practiceTest.json'; // Import the data
 import { useNavigate } from 'react-router-dom';
 
-const Test = () => {
+export default function Test () {
   const [selectedOptions, setSelectedOptions] = useState({});
   const navigate = useNavigate();
 
@@ -56,4 +56,3 @@ const Test = () => {
   );
 };
 
-export default Test;

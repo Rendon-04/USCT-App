@@ -19,15 +19,7 @@ body, html {
     margin-bottom: 20px;
 }
 
-.option {
-    cursor: pointer;
-    width: 200px;
-    transition: background-color 0.3s, border-color 0.3s;
+.col-12 {
+    margin-top: 5px;
+    color: BLACK;
 }
-
-.option input[type="radio"] {
-    display: none;
-}
-
-.option input[type="radio"]:checked + .card {
-    background-color: #

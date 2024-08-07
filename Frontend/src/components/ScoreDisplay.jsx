@@ -3,7 +3,7 @@ import { useLocation, Link } from 'react-router-dom';
 
 
 
-const ScoreDisplay = () => {
+export default function ScoreDisplay  ()  {
     const location = useLocation();
     const { score, total } = location.state; 
 
@@ -22,5 +22,5 @@ const ScoreDisplay = () => {
     );
 };
 
-export default ScoreDisplay; 
+
 
