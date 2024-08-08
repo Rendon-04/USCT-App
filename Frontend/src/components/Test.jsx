@@ -1,58 +1,66 @@
 import React, { useState } from 'react';
 import questionsData from '/src/components/practiceTest.json'; // Import the data
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 
 export default function Test () {
-  const [selectedOptions, setSelectedOptions] = useState({});
-  const navigate = useNavigate();
+  //States to hold the questions and users answers 
+  const [questions, setQuestions] = useState ([]);
+  const [userAnswers, setUserAnswers] = useState({});
+  const [score, setScore] = useState(null);
 
-  const handleOptionChange = (questionId, option) => {
-    setSelectedOptions(prevSelectedOptions => ({
-      ...prevSelectedOptions,
-      [questionId]: option,
+  // Fetch the questions from the server
+  React.useEffect(() => {
+    fetch("/practice_test")
+    .then(response => response.json())
+    .then(data => setQuestions(data.questions));
+  }, []);
+
+  
+
+  //Handle selecting an answer 
+  const handleSelectAnswer = (questionId, answer) => {
+    setUserAnswers(prev => ({
+      ...prev,
+      [questionId]: answer
     }));
   };
 
+  //Handle form submission 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-
-    let score = 0;
-    questionsData.forEach((question) => {
-      if (selectedOptions[question.id] === question.answer) {
-        score += 1;
-      }
-    });
-
-    const total = questionsData.length;
-    navigate("/score_display", { state: { score, total } });
+    fetch('/submit_practice_test', {
+      method: 'POST',
+      heaaders: {
+        'Content-Type': 'application/json',
+      },
+      body:JSON.stringify(userAnswers)
+    })
+    .then(response => response.json())
+    .then(data => setScore(data.score));
   };
 
-  return (
-    <div>
-      <h1>Practice Test</h1>
-      <a href="/">Home</a>
-      <form onSubmit={handleSubmit}>
-        {questionsData.map((question) => (
-          <div key={question.id}>
-            <p>{question.question}</p>
-            {question.options.map((option) => (
-              <div key={option}>
-                <input
-                  type="radio"
-                  name={`question_${question.id}`}
-                  value={option}
-                  checked={selectedOptions[question.id] === option}
-                  onChange={() => handleOptionChange(question.id, option)}
-                />
-                {option}
-              </div>
-            ))}
-          </div>
-        ))}
-        <br />
-        <button type="submit">Submit</button>
-      </form>
-    </div>
-  );
-};
+  if (score !== null)
+    return <div>You scored {score} out of {questions.length}!</div>
 
+  return (
+    <form onSubmit={handleSubmit}>
+      {questions.map((question, index) => (
+        <div key={index}>
+          <p>{question.text}</p>
+          {question.options.map((option, i) => (
+            <div key={i}>
+              <input
+                type="radio"
+                name={`question_${question.id}`}
+                value={option}
+                onChange={() => handleSelectAnswer(question.id, option)}
+              />
+              <label>{option}</label>
+            </div>
+          ))}
+        </div>
+      ))}
+      <button type="submit">Submit</button>
+    </form>
+  );
+}

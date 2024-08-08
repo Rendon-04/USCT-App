@@ -5,6 +5,7 @@ from flask import (Flask, render_template, request, flash, session,
 from model import connect_to_db, db
 import crud
 import json
+import random 
 
 from jinja2 import StrictUndefined
 
@@ -16,11 +17,11 @@ app.jinja_env.undefined = StrictUndefined
 # Parse the JSON data and return it as a Python dictionary 
 def load_test_data():
     """Load test data from JSON file."""
-    with open("data /practiceTest.json") as f:
+    with open("./data/practiceTest.json") as f:
         return json.loads(f.read()) 
 def load_study_data():
     """Load test data from JSON file."""
-    with open("data /study.json") as f:
+    with open("./data /study.json") as f:
         return json.loads(f.read()) 
 
 @app.route("/")
@@ -125,12 +126,15 @@ def logout():
     
 @app.route("/practice_test")
 def practice_test():
-    """Take a practice test"""
-    #Load the Test data from JSON file 
+    """Take a practice test."""
+    # Load the test data from JSON file
     test_data = load_test_data()
-    #Grab the questions from the test data
-    questions = test_data["practiceTest"]
-    return render_template('practice_test.html', questions=questions)
+    # Grab the questions from the test data
+    all_questions = test_data["practiceTest"]
+    # Select 10 random questions
+    random_questions = random.sample(all_questions, 10)
+    # Return the questions as JSON
+    return jsonify({"questions": random_questions})
 
 @app.route("/submit_practice_test", methods=["POST"])
 def submit_practice_test():
