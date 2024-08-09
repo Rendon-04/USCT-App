@@ -5,7 +5,6 @@ export default function RandomQuestions() {
   const [questions, setQuestions] = useState([]); // Store all questions
   const [randomQuestions, setRandomQuestions] = useState([]); // Store 10 random questions
   const [error, setError] = useState(null); // Store error messages
-
   useEffect(() => {
     // Fetch all questions when the component mounts
     fetch('/src/components/questionsNaturalizationTest.json')

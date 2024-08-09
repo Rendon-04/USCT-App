@@ -17,7 +17,7 @@ app.jinja_env.undefined = StrictUndefined
 # Parse the JSON data and return it as a Python dictionary 
 def load_test_data():
     """Load test data from JSON file."""
-    with open("./data/practiceTest.json") as f:
+    with open("/Users/rendon/src/USCT-App/Frontend/src/components/testQuestions.json") as f:
         return json.loads(f.read()) 
 def load_study_data():
     """Load test data from JSON file."""
@@ -129,12 +129,14 @@ def practice_test():
     """Take a practice test."""
     # Load the test data from JSON file
     test_data = load_test_data()
-    # Grab the questions from the test data
-    all_questions = test_data["practiceTest"]
-    # Select 10 random questions
-    random_questions = random.sample(all_questions, 10)
+    # Get the list of questions
+    questions_list = test_data.get("questions", [])  
+    random_questions = random.sample(questions_list, 10)
+    # # Select 10 random questions
+    # random_questions = random.sample(test_data, 10)
     # Return the questions as JSON
     return jsonify({"questions": random_questions})
+
 
 @app.route("/submit_practice_test", methods=["POST"])
 def submit_practice_test():
@@ -162,11 +164,11 @@ def submit_practice_test():
         db.session.add(new_score)#Add new score to the session
         db.session.commit()
         flash(f"You scored {score} out of {total_questions}")
-        return redirect("/view_scores")
+        return jsonify({"score": score, "total": total_questions})
     else:
         #View one score if the user is not logged in 
-        return render_template("practice_test_score.html", score=score, total=total_questions)
-
+        return jsonify({"score": score, "total": total_questions})
+    
 @app.route("/study_for_the_test")
 def study_for_the_test():
     """Display the study page"""
@@ -182,15 +184,18 @@ def overview_study_page():
 @app.route("/view_scores")
 def view_scores():
     """View user scores"""
-    #Get the user_id from the session 
+    # Get the user_id from the session 
     user_id = session.get("user_id")
+    
     if user_id:
-        #If the user is logged in, get their scores from the databse using the CRUD function 
+        # If the user is logged in, get their scores from the database using the CRUD function 
         scores = crud.get_scores_by_user_id(user_id)
-        return render_template("view_scores.html", scores=scores)
-    else: 
-        flash("Please log in to view your score history.")
-        return redirect("/login")
+        # Convert scores to a format that can be returned as JSON
+        scores_list = [{"user_score": score.user_score} for score in scores]
+        return jsonify({"scores": scores_list})
+    else:
+        # If the user is not logged in, return an error message as JSON
+        return jsonify({"error": "Please log in to view your score history."}), 401
     
 
 

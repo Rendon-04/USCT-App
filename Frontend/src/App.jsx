@@ -32,6 +32,7 @@ export default function App () {
         <Routes>
           <Route path="/" element={<HomePage isLoggedIn={isLoggedIn} userName={userName} />} />
           <Route path="/practice_test" element={<Practice />} /> 
+          <Route path="/view_scores" element={<ViewScores />} />
           <Route path="/study_for_the_test" element={<Study />} /> 
           <Route path="/study_for_the_test/all" element={<AllQuestions />} />
           <Route path="/study_for_the_test/random" element={<RandomQuestions />} />
