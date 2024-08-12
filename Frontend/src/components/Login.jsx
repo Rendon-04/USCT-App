@@ -10,13 +10,16 @@ export default function  Login ({ onLogin }) {
     const [password, setPassword] = useState('')
     const [emailError, setEmailError] = useState('')
     const [passwordError, setPasswordError] = useState('')
+    const [loginError, setLoginError] = useState(''); // To handle login-specific errors
+
 
     const navigate = useNavigate() 
 
     const onButtonClick = () => {
-        //set initial error values to be empty
+        //set initial error values to be empty    
         setEmailError('')
         setPasswordError('')
+        setLoginError(''); // Clear previous login errors
 
         //check if the user entered both fields correctly 
         if ('' === email) {
@@ -29,7 +32,7 @@ export default function  Login ({ onLogin }) {
             return
         }
 
-        if ('' === password) {
+        if (password === '') {
             setPasswordError("Please enter your password")
             return
         }
@@ -39,21 +42,38 @@ export default function  Login ({ onLogin }) {
             return
         }
 
-        onLogin(email);
-        navigate('/');
-
+        fetch('/login', {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json',
+              'Accept': 'application/json'
+          },
+          body: JSON.stringify({ email, password })  // Ensure body is a JSON string
+      })
+      .then(response => response.json())
+      .then(data => {
+          if (data.success) {
+              onLogin(email);
+              navigate('/');  // Redirect on successful login
+          } else {
+              setLoginError(data.message);
+          }
+      })
+      .catch(error => {
+          console.error("Login error:", error);
+          setLoginError("An error occurred during login. Please try again.");
+      });
     };
-
     return (
         <div className="mainContainer">
           <div className="titleContainer">
-            <div>Login</div>
+            <h2>Login</h2>
           </div>
           <br />
           <div className="inputContainer">
             <input
               value={email}
-              placeholder="Enter your email here"
+              placeholder="Enter email"
               onChange={(evt) => setEmail(evt.target.value)}
               className="inputBox"
             />
@@ -63,7 +83,7 @@ export default function  Login ({ onLogin }) {
           <div className="inputContainer">
             <input
               value={password}
-              placeholder="Enter your password here"
+              placeholder="Enter password"
               onChange={(evt) => setPassword(evt.target.value)}
               className="inputBox"
             />

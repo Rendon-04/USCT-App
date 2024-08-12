@@ -16,7 +16,7 @@ export default function ScoreDisplay  ()  {
         <div>
             <Link to="/practice_test">Take Another Test</Link>
             <br />
-            <Link to="/view_score">View Your Score History</Link>
+            <Link to="/view_scores">View Your Score History</Link>
         </div>
     </div>
     );

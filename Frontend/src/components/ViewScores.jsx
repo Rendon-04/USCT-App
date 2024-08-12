@@ -6,8 +6,15 @@ export default function ViewScores() {
 
   // Fetch the user's scores when the component mounts
   useEffect(() => {
-    fetch('/view_scores')
+    fetch("/view_scores", {
+      headers: {
+        accept: 'application/json'
+      }
+    })
       .then(response => {
+        if (response.status === 401) {
+          throw new Error('Unauthorized: Please log in to view your scores.');
+        }
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
@@ -16,14 +23,10 @@ export default function ViewScores() {
       .then(data => setScores(data.scores))
       .catch(error => {
         console.error('Error fetching scores:', error);
-        setError('Failed to load scores. Please log in to view your scores.');
+        setError(error.message);
       });
   }, []);
-
-  if (error) {
-    return <div>{error}</div>;
-  }
-
+  
   if (scores.length === 0) {
     return <div>No scores available to view.</div>;
   }

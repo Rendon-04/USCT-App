@@ -28,8 +28,8 @@ export default function AllQuestions() {
               <>
                 <strong>Answers:</strong>
                 <ul>
-                  {questionItem.answers.map((answer, idx) => (
-                    <li key={idx}>{answer}</li>
+                  {questionItem.answers.map((answer, index) => (
+                    <li key={index}>{answer}</li>
                   ))}
                 </ul>
               </>

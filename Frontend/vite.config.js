@@ -9,6 +9,20 @@ export default defineConfig({
         target: "http://localhost:6060",
         changeOrigin: true,
       },
+      "/submit_practice_test": {
+        target: "http://localhost:6060",
+        changeOrigin: true,
+      },
+        "/view_scores": {
+        target: "http://localhost:6060",
+        changeOrigin: true,
+      },
+      "/login": {
+        target: "http://localhost:6060",
+        changeOrigin: true,
+      },
     },
   },
 });
+
+

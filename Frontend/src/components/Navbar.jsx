@@ -3,11 +3,12 @@ import { Link, useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './navbar.css'; // Import your CSS file
 
-export default function Navbar ({ loggedIn, email, onLogout }) {
+export default function Navbar ({ isLoggedIn, onLogout, email }) {
+   
   const navigate = useNavigate();
 
   const onButtonClick = () => {
-    if (loggedIn) {
+    if (isLoggedIn) {
       onLogout(); // Call the logout function passed as a prop
       navigate('/'); // Navigate to the home page after logging out
     } else {
@@ -41,15 +42,15 @@ export default function Navbar ({ loggedIn, email, onLogout }) {
             </li>
           </ul>
           <div className="primary-buttons">
-            {!loggedIn && <Link to="/register" className="signup-button">Sign up</Link>}
+            {!isLoggedIn && <Link to="/register" className="signup-button">Sign up</Link>}
             <div className="buttonContainer">
               <input
                 className="inputButton"
                 type="button"
                 onClick={onButtonClick}
-                value={loggedIn ? 'Log out' : 'Log in'}
+                value={isLoggedIn ? 'Log out' : 'Log in'}
               />
-              {loggedIn && <div>Email: {email}</div>}
+              {isLoggedIn && <div>Email: {email}</div>}
             </div>
           </div>
         </div>

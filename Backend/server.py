@@ -6,6 +6,8 @@ from model import connect_to_db, db
 import crud
 import json
 import random 
+from flask_cors import CORS
+
 
 from jinja2 import StrictUndefined
 
@@ -13,6 +15,9 @@ app = Flask(__name__)
 
 app.secret_key = "dev"  # CHANGE!!
 app.jinja_env.undefined = StrictUndefined
+
+# Initialize CORS with your app
+CORS(app, resources={r"/*": {"origins": "http://localhost:5173"}}) 
 
 # Parse the JSON data and return it as a Python dictionary 
 def load_test_data():
@@ -89,17 +94,18 @@ def show_login_form():
 def login():
     """Log in a user"""
     #Get the email and password from the submitted JSON data 
-    email = request.json.get("email")
-    password =request.json.get("password")
+    email = request.get_json().get("email")
+    password = request.get_json().get("password")                                   
     #Grab the user with the given email 
     user =  crud.get_user_by_email(email)
 
     if user and user.password == password:
-        session["user_id"] = user.userid
+        session["user_id"] = user.user_id
         session["user_name"] = user.user_name
         return jsonify({"success": True, "message": "Login successful"})
     else:
-        return jsonify({"success": False, "message": "Invalid email or password"})
+        return jsonify({"success": False, "message": "Invalid email or password"}), 401
+
 
     # #If the user exists and the password mathches, set the user_id in the session 
     # if not user or user.password != password:
@@ -141,32 +147,34 @@ def practice_test():
 @app.route("/submit_practice_test", methods=["POST"])
 def submit_practice_test():
     """Handle practice test submission."""
-    #Get the user_id from the session 
+    # Get the user_id from the session 
     user_id = session.get("user_id")
-    #Load the test data from the JSON file 
+
+    # Load the test data from the JSON file 
     test_data = load_test_data()
     score = 0
-    #Get the total number of the questions 
-    total_questions = len(test_data["practiceTest"])
-    
-    for question in test_data["practiceTest"]:
-        #Get the selected option for the current question from the form 
-        selected_option = request.form.get(f"question_{question['id']}")
-        #Check if the selected option matches the correct answer
+    total_questions = len(test_data["questions"])
+
+    # Get the submitted answers as JSON
+    submitted_answers = request.json
+
+    for question in test_data["questions"]:
+        question_id = str(question['id'])
+        selected_option = submitted_answers.get(question_id)
+        
         if selected_option == question["answer"]:
-            #increment the score if the answer is correct 
             score += 1
             
-    #If the user is logged in 
+    # If the user is logged in 
     if user_id:
-        #Create a new score for the user
+        # Create a new score for the user
         new_score = crud.create_score(user_score=score, user_id=user_id, test_result_id=None)
-        db.session.add(new_score)#Add new score to the session
+        db.session.add(new_score)
         db.session.commit()
         flash(f"You scored {score} out of {total_questions}")
         return jsonify({"score": score, "total": total_questions})
     else:
-        #View one score if the user is not logged in 
+        # Return the score if the user is not logged in 
         return jsonify({"score": score, "total": total_questions})
     
 @app.route("/study_for_the_test")
