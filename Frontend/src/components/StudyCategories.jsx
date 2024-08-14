@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './studyCategories.css';
 
 export default function StudyCategories() {
     const [data, setData] = useState([]);
     const [error, setError] = useState(null);
     const [selectedCategory, setSelectedCategory] = useState(null);
-    const navigate = useNavigate();
 
     useEffect(() => {
         fetch('/src/components/questionsNaturalizationTest.json')
@@ -15,18 +14,25 @@ export default function StudyCategories() {
             .catch(error => setError(error));
     }, []);
 
-    useEffect(() => {
-        if (selectedCategory) {
-            const element = document.getElementById(selectedCategory.replace(/\s+/g, '-'));
-            if (element) {
-                element.scrollIntoView({ behavior: 'smooth' });
-            }
-        }
-    }, [selectedCategory]);
-
+    // category selection
     const handleCategorySelect = (category) => {
         setSelectedCategory(category);
-        navigate(`#${category.replace(/\s+/g, '-')}`);
+    };
+
+    // render selected category
+    const renderQuestions = () => {
+        if (selectedCategory === 'all') {
+            return Object.keys(data).flatMap((category) =>
+                data[category].map((questionItem) => (
+                    <QuestionItem key={questionItem.number} questionItem={questionItem} />
+                ))
+            );
+        } else if (selectedCategory) {
+            return data[selectedCategory].map((questionItem) => (
+                <QuestionItem key={questionItem.number} questionItem={questionItem} />
+            ));
+        }
+        return null;
     };
 
     return (
@@ -44,16 +50,8 @@ export default function StudyCategories() {
             ))}
 
             {selectedCategory && (
-                <div id={selectedCategory.replace(/\s+/g, '-')} className="questions">
-                    {selectedCategory === 'all'
-                        ? Object.keys(data).flatMap((category) =>
-                            data[category].map((questionItem) => (
-                                <QuestionItem key={questionItem.number} questionItem={questionItem} />
-                            ))
-                        )
-                        : data[selectedCategory].map((questionItem) => (
-                            <QuestionItem key={questionItem.number} questionItem={questionItem} />
-                        ))}
+                <div className="questions">
+                    {renderQuestions()}
                 </div>
             )}
         </div>
@@ -80,5 +78,3 @@ function QuestionItem({ questionItem }) {
         </div>
     );
 }
-
-    

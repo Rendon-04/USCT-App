@@ -24,3 +24,4 @@ export default function ScoreDisplay  ()  {
 
 
 
+// Fix this showing history of scores even is user is not logged in

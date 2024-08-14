@@ -17,21 +17,25 @@ export default function RandomQuestions() {
   }, []);
 
   const selectRandomQuestions = (data) => {
+    // Convert the data into an array of all questions
     const allQuestions = Object.values(data).flat();
     const selectedQuestions = [];
-
+    const usedIndices = new Set(); // A set to keep track of used indices
+  
     // Pick 10 random questions
-    while (selectedQuestions.length < 10 && allQuestions.length > 0) {
+    while (selectedQuestions.length < 10 && usedIndices.size < allQuestions.length) {
       const randomIndex = Math.floor(Math.random() * allQuestions.length);
-      selectedQuestions.push(allQuestions.splice(randomIndex, 1)[0]);
+  
+      //Add the question if it hasn't been selected yet
+      if (!usedIndices.has(randomIndex)) {
+        selectedQuestions.push(allQuestions[randomIndex]);
+        usedIndices.add(randomIndex); // Mark this index as used
+      }
     }
-
+  
+    // Set the selected random questions
     setRandomQuestions(selectedQuestions);
   };
-
-  if (error) {
-    return <div>Error: {error}</div>;
-  }
 
   return (
     <div>

@@ -1,106 +1,60 @@
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import "/src/components/register.css";
+// User Registration
+import React, { useState } from 'react';
 
 export default function Register () {
-    //states for registration
-    const[userName, setUserName] = useState('');
-    const[email, setEmail] = useState('');
-    const[password, setPassword] = useState('');
+    const [userName, setUserName] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [message, setMessage] = useState('');
 
-    //states for checking for errors 
-    const [submitted, setSubmitted] = useState(false);
-    const [error, setError] = useState(false); 
-
-    //Navigate
-    const navigate = useNavigate(); 
-
-    //handle the name change 
-    const handleUserName = (evt) => {
-        setUserName(evt.target.value);
-        setSubmitted(false); 
-    };
-
-    //handle the email change 
-    const handleEmail = (evt) => {
-        setEmail(evt.target.value);
-        setSubmitted(false); 
-    };
-
-    //handle the password change 
-    const handlePassword = (evt) => {
-        setPassword(evt.target.value);
-        setSubmitted(false);
-    };
-
-    //handle the form submission
-    const handleSubmit = (evt) => {
+    const handleRegister = async (evt) => {
         evt.preventDefault();
-        if (userName === '' || email === '' || password === ''){
-            setError(true);
+
+        const response = await fetch("/register", {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ user_name: userName, email: email, password: password }),
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+            setMessage('Registration successful! Please log in.');
         } else {
-            setSubmitted(true);
-            setError(false);
-            //redirect to the login page after succesful registration 
-            navigate('/login')
+            setMessage(data.message || 'User already exists. Please login.');
         }
     };
 
-    //Show a success message 
-    const successMessage = () => {
-        return (
-            <div className="success"
-                 style= {{ display: submitted ? "" : "none",}} >
-                    <h3>User {userName} successfully registered!</h3>
-                 </div>
-        );
-    };
-
-    //Show error message 
-    const errorMessage = () => {
-        return (
-            <div className="error"
-                 style={{ display: error ? "" : "none",}} >
-                    <h3>PLease fill in all fields</h3>
-                 </div>
-        );
-    };
-
     return (
-        <div className='form'>
-            <div>
-                <h1>User Sign-Up</h1>
-            </div>
-            {/* call methods */}
-            <div className='messages'>
-                {errorMessage()}
-                {successMessage()}
-            </div>
-
-            <form>
-                {/* form data */} 
-                <label className='label'>Name</label>
-                <input 
-                    onChange={handleUserName}
-                    className='input'
+        <div>
+            <h2>Register</h2>
+            <form onSubmit={handleRegister}>
+                <input
+                    type="text"
+                    placeholder="Username"
                     value={userName}
-                    type='text' />
-                <label className='label'>Email</label>
-                <input 
-                    onChange={handleEmail}
-                    className='input'
+                    onChange={(evt) => setUserName(evt.target.value)}
+                    required
+                />
+                <input
+                    type="email"
+                    placeholder="Email"
                     value={email}
-                    type='email' />
-                <label className='label'>Password</label>
-                <input 
-                    onChange={handlePassword}
-                    className='input'
+                    onChange={(evt) => setEmail(evt.target.value)}
+                    required
+                />
+                <input
+                    type="password"
+                    placeholder="Password"
                     value={password}
-                    type='password' /> 
-                <button onClick={handleSubmit} className='button' type='submit'>Submit</button>
+                    onChange={(evt) => setPassword(evt.target.value)}
+                    required
+                />
+                <button type="submit">Register</button>
             </form>
-
+            {message && <p>{message}</p>}
         </div>
     );
-
 }

@@ -2,6 +2,7 @@
 
 from flask_sqlalchemy import SQLAlchemy
 from flask import Flask
+from werkzeug.security import generate_password_hash, check_password_hash
 
 db = SQLAlchemy()
 
@@ -10,12 +11,18 @@ class User(db.Model):
 
     __tablename__ = "users"
 
-    user_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
+    id = db.Column(db.Integer, autoincrement=True, primary_key=True)
     user_name = db.Column(db.String, unique=True)
     email = db.Column(db.String, unique=True)
     password = db.Column(db.String)
 
     scores = db.relationship("Score", back_populates="user")
+
+    def set_password(self, password):
+        self.password = generate_password_hash(password)
+
+    def check_password(self, password):
+        return check_password_hash(self.password, password)
 
     def __repr__(self):
         return f"<User user_name={self.user_name}>"
@@ -27,7 +34,7 @@ class Score(db.Model):
 
     score_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
     user_score = db.Column(db.Integer)
-    user_id = db.Column(db.Integer, db.ForeignKey("users.user_id"))
+    user_id = db.Column(db.Integer, db.ForeignKey("users.id"))
     test_result_id = db.Column(db.Integer, db.ForeignKey("test_results.test_result_id"))
 
     user = db.relationship("User", back_populates="scores")

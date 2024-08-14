@@ -11,24 +11,21 @@ export default function ViewScores() {
         accept: 'application/json'
       }
     })
-      .then(response => {
-        if (response.status === 401) {
-          throw new Error('Unauthorized: Please log in to view your scores.');
-        }
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        return response.json();
-      })
-      .then(data => setScores(data.scores))
-      .catch(error => {
-        console.error('Error fetching scores:', error);
-        setError(error.message);
-      });
+    .then(response => {
+      if (response.status === 401) {
+        throw new Error('Please log in to view your Dashboard.');
+      }
+      return response.json();
+    })
+    .then(data => setScores(data.scores))
+    .catch(error => {
+      console.error('Error fetching scores:', error);
+      setError(error.message);
+    });
   }, []);
-  
+
   if (scores.length === 0) {
-    return <div>No scores available to view.</div>;
+    return <div>Please log in to view your Dashboard.</div>;
   }
 
   return (
@@ -44,4 +41,6 @@ export default function ViewScores() {
   );
 }
 
+
+// THIS IS NOT WORKING!!!!!!!//////// IT IS NOT READING THAT YOU HAVE LOGGED OUT
 

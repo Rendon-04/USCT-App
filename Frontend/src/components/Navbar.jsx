@@ -50,7 +50,8 @@ export default function Navbar ({ isLoggedIn, onLogout, email }) {
                 onClick={onButtonClick}
                 value={isLoggedIn ? 'Log out' : 'Log in'}
               />
-              {isLoggedIn && <div>Email: {email}</div>}
+              {/* FIX THIS PART!!!!!!!!!!!!!!!!!!!!!!! */}
+              {isLoggedIn && <div>Email: {email}</div>}  
             </div>
           </div>
         </div>

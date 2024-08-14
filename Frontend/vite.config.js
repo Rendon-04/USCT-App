@@ -21,6 +21,10 @@ export default defineConfig({
         target: "http://localhost:6060",
         changeOrigin: true,
       },
+        "/register": {
+        target: "http://localhost:6060",
+        changeOrigin: true,
+      },
     },
   },
 });
