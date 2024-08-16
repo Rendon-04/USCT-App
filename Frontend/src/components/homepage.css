@@ -1,22 +1,22 @@
-/* General styles */
+/* General styles
 body, html {
   font-family: Arial, sans-serif, Hind Siliguri;
   margin: 0;
   padding: 0;
-}
+} */
 
 /* Container for the entire homepage */
-.homepage-container {
+/* .homepage-container {
   margin-top: 32px; 
   width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-}
+} */
 
 /* Content container for main heading, description, button, and learners section */
-.content {
+/* .content {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
@@ -25,24 +25,24 @@ body, html {
   justify-content: space-between;
   align-items: flex-start;
   width: 100%;
-}
+} */
 
 /* Main heading style */
-.main-heading {
+/* .main-heading {
   font-size: 2.5rem;
   color: #1B6CB3;
   margin: 0;
-}
+} */
 
 /* Description text style */
-.description {
+/* .description {
   font-size: 1.125rem;
   color: #000000;
   margin: 20px 0;
-}
+} */
 
 /* 'Get Started' button style */
-.get-started-button {
+/* .get-started-button {
   font-size: 14px;
   color: #1B6CB3;
   border: 1px solid #1B6CB3;
@@ -51,44 +51,309 @@ body, html {
   padding: 8px 16px;
   border-radius: 6px;
   transition: background 0.3s, color 0.3s; 
-}
+} */
 
-.get-started-button:hover {
+/* .get-started-button:hover {
   background: rgba(27, 108, 179, 0.1); 
   color: #1B6CB3;
-}
+} */
 
 /* Learners section */
-.learners-section {
+/* .learners-section {
   display: flex;
   align-items: center;
   margin-top: 20px;
-}
+} */
 
-.learners-img {
+/* .learners-img {
   width: 50px;
   height: 50px;
   border-radius: 50%;
   margin-right: 10px;
-}
+} */
 
-.learners-text {
+/* .learners-text {
   font-size: 1rem;
   color: #2c3e50;
-}
+} */
 
 /* Container for the image with flags */
-.image-container {
+/* .image-container {
   max-width: 600px;
   display: flex;
   justify-content: flex-end;
-}
-
+} */
+/* 
 .main-image {
   max-width: 100%;
   height: auto;
   border-radius: 10px;
   display: flex;
   align-items: right;
+} */
+
+
+@import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=SF+Pro+Text:ital,wght@0,500;1,500&display=swap');
+body {
+  	margin: 0; line-height: normal;
+}
+
+.aceTheUs {
+  align-self: stretch;
+  position: relative;
+  letter-spacing: -0.19px;
+  line-height: 71.5px;
+  font-weight: 500;
+}
+.preparingCanBe {
+  align-self: stretch;
+  position: relative;
+  font-size: 24px;
+  letter-spacing: -0.19px;
+  line-height: 39px;
+  color: #000;
+}
+.aceTheUsCivicTestParent {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 16px;
+}
+.text {
+  position: relative;
+  letter-spacing: -0.21px;
+  line-height: 33px;
+}
+.secondarybutton {
+  border-radius: 8.25px;
+  border: 1.4px solid #216097;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 9.6px 15.1px;
+  font-size: 22px;
+}
+.frameGroup {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 32px;
+}
+.avatarIcon {
+  width: 54px;
+  position: relative;
+  border-radius: 10383.58px;
+  height: 54px;
+  overflow: hidden;
+  flex-shrink: 0;
+  object-fit: cover;
+}
+.avatarIcon1 {
+  width: 54px;
+  position: relative;
+  border-radius: 10383.58px;
+  height: 54px;
+  overflow: hidden;
+  flex-shrink: 0;
+  object-fit: cover;
+  margin-left: -13px;
+}
+.screenshot20240728At851Icon {
+  position: absolute;
+  top: calc(50% - 21px);
+  left: calc(50% - 18px);
+  width: 40.9px;
+  height: 52.9px;
+  object-fit: cover;
+}
+.avatar {
+  width: 54px;
+  position: relative;
+  border-radius: 10383.58px;
+  background-color: #b4bbc6;
+  border: 1px solid #fff;
+  box-sizing: border-box;
+  height: 54px;
+  overflow: hidden;
+  flex-shrink: 0;
+  margin-left: -13px;
+}
+.avatarParent {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+.join100Learners {
+  position: relative;
+  letter-spacing: -0.19px;
+  line-height: 43px;
+  font-weight: 500;
+}
+.learnersValueProp {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 13px;
+  font-size: 24px;
+  font-family: 'SF Pro Text';
+}
+.content {
+  width: 580px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 50px;
+}
+.photoChild {
+  align-self: stretch;
+  position: relative;
+  max-width: 100%;
+  overflow: hidden;
+  height: 362.3px;
+  flex-shrink: 0;
+  object-fit: cover;
+}
+.image5Icon {
+  align-self: stretch;
+  position: relative;
+  max-width: 100%;
+  overflow: hidden;
+  height: 324.2px;
+  flex-shrink: 0;
+  object-fit: cover;
+}
+.photo {
+  width: 684px;
+  border-radius: 16.58px;
+  overflow: hidden;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+.contentParent {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 45px 0px 0px;
+}
+.art32Icon {
+  width: 46px;
+  position: relative;
+  height: 46px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.bookenhancedicon {
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.study {
+  align-self: stretch;
+  position: relative;
+  letter-spacing: -0.21px;
+  line-height: 33px;
+  font-weight: 500;
+}
+.bookenhancediconParent {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0px 12px;
+  gap: 5px;
+}
+.text1 {
+  position: relative;
+  letter-spacing: -0.15px;
+  line-height: 22px;
+  font-weight: 500;
+}
+.rIcon16px {
+  width: 16px;
+  position: relative;
+  height: 16px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.subtlebutton {
+  border-radius: 6px;
+  background-color: rgba(0, 0, 0, 0);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 7px 12px;
+  gap: 4px;
+  font-size: 14px;
+  color: #6d6e6f;
+  font-family: 'SF Pro Text';
+}
+.frameContainer {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 5px;
+}
+.cardsInner {
+  flex: 1;
+  border-radius: 10px;
+  background-color: #eaeff4;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: 32px 12px;
+}
+.testYourKnowledge {
+  align-self: stretch;
+  position: relative;
+  font-size: 16px;
+  letter-spacing: -0.21px;
+  line-height: 30px;
+  color: #000;
+}
+.cards {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 34px;
+  font-size: 24px;
+}
+.frameParent {
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 32px 80px 48px;
+  box-sizing: border-box;
+  gap: 120px;
+  text-align: left;
+  font-size: 61.29px;
+  color: #216097;
+  font-family: 'Hind Siliguri';
 }
 

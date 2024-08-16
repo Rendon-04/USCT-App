@@ -2,15 +2,11 @@
 
 from model import db, User, Score, QuestionAnswer, TestResult, connect_to_db
 
-def create_user(user_name,email, password):
-    """Create and Return a new user"""
-
-    user = User(user_name=user_name,
-                email=email, 
-                )
-    user.set_password(password)
-
-    return user 
+def create_user(user_name, email, password):
+    """Create and return a new user with a hashed password"""
+    user = User(user_name=user_name, email=email)
+    user.set_password(password)  # This hashes the password and stores it
+    return user
 
 def get_user_by_email(email):
     """Get user by email"""
