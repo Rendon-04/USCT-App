@@ -19,86 +19,47 @@ import StudyCategoryPage from './components/StudyCategoryPage';
 export default function App () {
   const [email, setEmail] = useState(''); 
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [userName, setUserName] = useState('');
+  const [userName] = useState('')
 
-
-//   const setUser = (userEmail) => {
-//     setIsLoggedIn(true);
-//     setEmail(userEmail);
-// };
-
-// useEffect(() => {
-//   // Check if the user is logged in when the component mounts
-//   const checkSession = async () => {
-//     try {
-//       const response = await fetch("/check_session");
-//       if (response.ok) {
-//         const data = await response.json();
-//         if (data.is_logged_in) {
-//           setIsLoggedIn(true);
-//           setEmail(data.email);  // Assuming your session check also returns the email
-//         }
-//       }
-//     } catch (error) {
-//       console.error('Error checking session:', error);
-//     }
-//   };
-
-//   checkSession();
-// }, []);
-useEffect(() => {
-  // Check if the user is logged in when the component mounts
-  const checkSession = async () => {
-    try {
+  useEffect(() => {
+    // Check if the user is logged in 
+    const checkSession = async () => {
       const response = await fetch("/check_session");
       if (response.ok) {
         const data = await response.json();
         if (data.is_logged_in) {
           setIsLoggedIn(true);
-          setEmail(data.email);  // Assuming your session check also returns the email
+          setEmail(data.email);  
         } else {
           setIsLoggedIn(false);
           setEmail('');
         }
       }
-    } catch (error) {
-      console.error('Error checking session:', error);
+    };
+  
+    if (isLoggedIn) {
+      checkSession();
+    }
+  }, [isLoggedIn]);
+  
+  const setUser = (userEmail) => {
+    setIsLoggedIn(true);
+    setEmail(userEmail);
+  };
+  
+  const handleLogout = async () => {
+    const response = await fetch("/logout", {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+  
+    if (response.ok) {
+      setIsLoggedIn(false);
+      setEmail('');
     }
   };
-
-  if (isLoggedIn) {
-    checkSession();
-  }
-}, [isLoggedIn]);
-
-const setUser = (userEmail) => {
-  setIsLoggedIn(true);
-  setEmail(userEmail);
-
-};
-
-const handleLogout = async () => {
-  try {
-      const response = await fetch("/logout", {
-          method: 'GET',
-          headers: {
-              'Content-Type': 'application/json',
-          },
-      });
-
-      if (response.ok) {
-          setIsLoggedIn(false);
-          setEmail('');
-      } else {
-          console.error('Logout failed');
-      }
-  } catch (error) {
-      console.error('An error occurred during logout', error);
-  }
-};
-
-  
-  
 
   return (
     <Router>
