@@ -43,7 +43,7 @@ export default function Test() {
     .then(response => response.json())
     .then(data => {
       setScore(data.score);  // Save the score
-      navigate('/score_display', { state: { score: data.score, total: questions.length } });
+  navigate('/score_display', { state: { score: data.score, total: questions.length } });
     })
     .catch(error => console.error("Error submitting test:", error));
   };

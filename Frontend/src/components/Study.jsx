@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import StudyCategories from "/src/components/StudyCategories.jsx"
 import './study.css';
 
 export default function Study() {
   const [data, setData] = useState([]);
   const [error, setError] = useState(null);
-  const navigate = useNavigate();
 
   useEffect(() => {
     // Fetch the questions data
@@ -15,14 +13,6 @@ export default function Study() {
       .then((data) => setData(data))
       .catch((error) => setError(error));
   }, []);
-
-  const handleCategorySelect = (category) => {
-    navigate(`/study_for_the_test#${category.replace(/\s+/g, '-')}`);
-  };
-
-  if (error) {
-    return <div>Error: {error.message}</div>;
-  }
 
   return (
     <div className="study-container">
@@ -45,8 +35,20 @@ export default function Study() {
           </div>
         </Link>
       </div>
-
-      <StudyCategories data={data} handleCategorySelect={handleCategorySelect} />
+      <div className="card-group">
+              {Object.keys(data).map((category) => (
+                <Link 
+                  key={category} 
+                  to={`/study_for_the_test/${category.replace(/\s+/g, '-')}`} 
+                  className="card"
+                >
+                  <div className="card-body">
+                    <h2>{category}</h2>
+                    <p>Learn about {category.toLowerCase()}.</p>
+                  </div>
+                </Link>
+        ))}
+      </div>
     </div>
   );
 }

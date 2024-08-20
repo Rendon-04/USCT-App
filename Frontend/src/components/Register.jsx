@@ -10,23 +10,30 @@ export default function Register () {
     const handleRegister = async (evt) => {
         evt.preventDefault();
 
+        // Create the data object with user inputs
+        const data = {
+            user_name: userName,
+            email: email,
+            password: password,
+        };
+
         const response = await fetch("/register", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ user_name: userName, email: email, password: password }),
+            body: JSON.stringify(data),
         });
 
-        const data = await response.json();
+        const result = await response.json();
 
         if (response.ok) {
             setMessage('Registration successful! Please log in.');
         } else {
-            setMessage(data.message || 'User already exists. Please login.');
+            setMessage(result.message || 'User already exists. Please login.');
         }
     };
-
+       
     return (
         <div>
             <h2>Register</h2>

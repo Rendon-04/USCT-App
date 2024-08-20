@@ -12,9 +12,6 @@ export default function AllQuestions() {
       .catch(error => setError(error));
   }, []);
 
-  if (error) {
-    return <div>Error: {error.message}</div>;
-  }
 
   return (
     <div className="all-questions-container">

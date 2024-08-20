@@ -9,25 +9,28 @@ export default function Login ({ setUser }) {
     const handleLogin = async (evt) => {
         evt.preventDefault();
 
+        const data = {
+            email: email,
+            password: password,
+        };
 
         const response = await fetch("/login", {
-          method: 'POST',
-          headers: {
-              'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ email: email, password: password }),
-      });
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+        });
 
-        const data = await response.json();
-
-        if (response.ok) {
-            setUser(data);
-            window.location.href = '/';  // Redirect to the homepage 
+        if (!response.ok) {
+            setMessage('Invalid email or password. Please try again.');
         } else {
-            setMessage(data.message || 'Login failed.');
+            const result = await response.json();
+            setMessage(`Welcome back, ${result.message}`);
+            setUser(email);
         }
     };
-
+            
     return (
         <div>
             <h2>Login</h2>

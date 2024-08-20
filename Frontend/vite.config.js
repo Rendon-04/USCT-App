@@ -25,6 +25,10 @@ export default defineConfig({
         target: "http://localhost:6060",
         changeOrigin: true,
       },
+      "/check_session": {
+        target: "http://localhost:6060",
+        changeOrigin: true,
+      },
     },
   },
 });

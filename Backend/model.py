@@ -2,7 +2,7 @@
 
 from flask_sqlalchemy import SQLAlchemy
 from flask import Flask
-from werkzeug.security import generate_password_hash, check_password_hash
+
 
 db = SQLAlchemy()
 
@@ -17,12 +17,6 @@ class User(db.Model):
     password = db.Column(db.String)
 
     scores = db.relationship("Score", back_populates="user")
-
-    def set_password(self, password):
-        self.password = generate_password_hash(password)
-
-    def check_password(self, password):
-        return check_password_hash(self.password, password)
 
     def __repr__(self):
         return f"<User user_name={self.user_name}>"

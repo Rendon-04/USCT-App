@@ -1,7 +1,7 @@
 """Server for United States Citizenship Test Practice App"""
 
 from flask import (Flask, render_template, request, flash, session,
-                   redirect,jsonify)
+                   jsonify)
 from model import connect_to_db, db
 import crud
 import json
@@ -47,24 +47,14 @@ def register():
     password = request.json.get("password")
     user_name = request.json.get("user_name")
 
-    if not email or not password or not user_name:
-        return jsonify({"success": False, "message": "Missing required fields."}), 400
-
-    user_exists = crud.get_user_by_email(email)
-    if user_exists:
-        return jsonify({"error": "User already exists"}), 409    
-
-    new_user = crud.create_user(user_name, email, password)
-    
-    db.session.add(new_user)
-    db.session.commit()
-
-    session["user_id"] = new_user.id
-
-    return jsonify(
-        user_id=new_user.id,
-        email=new_user.email
-    )
+    user = crud.get_user_by_email(email)
+    if user:
+        return jsonify({"success": False, "message": "Username or email already exists. Please try again."}), 400
+    else:
+        user = crud.create_user(email, password, user_name)
+        db.session.add(user)
+        db.session.commit()
+        return jsonify({"success": True, "message": "Account created! Please log in."}), 201
 
 @app.route("/login", methods=["GET"])
 def show_login_form():
@@ -75,31 +65,27 @@ def show_login_form():
 def login():
     """Log in a user"""
     #Get the email and password from the submitted JSON data 
-    email = request.get_json().get("email")
-    password = request.get_json().get("password")                                   
+    email = request.json.get("email")
+    password = request.json.get("password")                                   
     #Grab the user with the given email 
-    user =  crud.get_user_by_email(email)
 
-    if user is None:
-        return jsonify({"error": "No User Found"}), 401
+    user = crud.get_user_by_email(email)
+
+    if user and user.password == password:
+        session['user_id'] = user.id  # Set session ID here
+        session['user_email'] = user.email  # Set session here
+        return jsonify({"message": "Login successful"}), 200
+    else:
+        return jsonify({"message": "Invalid credentials"}), 401
     
-    if not user.check_password(password):
-        return jsonify({"error": "Unauthorized"}), 401
-    
-    session["user_id"] = user.id
-
-    return jsonify(
-        user_id=user.id,
-        email=user.email
-    )
-
-@app.route("/logout")
+ 
+@app.route('/logout', methods=['GET'])
 def logout():
-    """Log out a user"""
-    #Remove user_name and id from session 
-    session.pop("user_id", None)
-    
+    session.clear()  # This clears all session data
     return jsonify({"message": "Successfully logged out"}), 200
+
+    
+    # return jsonify({"message": "Successfully logged out"}), 200
     
 @app.route("/practice_test")
 def practice_test():
@@ -117,7 +103,9 @@ def practice_test():
 def submit_practice_test():
     """Handle practice test submission."""
     # Get the user_id from the session 
-    id = session.get("id")
+    user_id = session.get("user_id")
+    if not user_id:
+        return jsonify({"error": "User not logged in"}), 401 
 
     # Load the test data from the JSON file 
     test_data = load_test_data()
@@ -126,25 +114,20 @@ def submit_practice_test():
 
     # Get the submitted answers as JSON
     submitted_answers = request.json
-
+    # Compare each submitted answer with the correct answer
     for question in test_data["questions"]:
         question_id = str(question['id'])
         selected_option = submitted_answers.get(question_id)
-        
         if selected_option == question["answer"]:
             score += 1
-            
-    # If the user is logged in 
-    if id:
-        # Create a new score for the user
-        new_score = crud.create_score(user_score=score, id=id, test_result_id=None)
-        db.session.add(new_score)
-        db.session.commit()
-        flash(f"You scored {score} out of {total_questions}")
-        return jsonify({"score": score, "total": total_questions})
-    else:
-        # Return the score if the user is not logged in 
-        return jsonify({"score": score, "total": total_questions})
+
+      # Create a new score entry for the user
+    new_score = crud.create_score(user_score=score, user_id=user_id, test_result_id=None)
+    db.session.add(new_score)
+    db.session.commit()
+
+    # Return the score and total number of questions
+    return jsonify({"score": score, "total": total_questions})
     
 @app.route("/study_for_the_test")
 def study_for_the_test():
@@ -160,21 +143,21 @@ def overview_study_page():
 
 @app.route("/view_scores")
 def view_scores():
-    """View user scores"""
-    # Get the id from the session 
-    id = session.get("id")
+    user_id = session.get("user_id")
     
-    if id:
-        # If the user is logged in, get their scores from the database using the CRUD function 
-        scores = crud.get_scores_by_user_id(id)
-        # Convert scores to a format that can be returned as JSON
+    if user_id:
+        scores = crud.get_scores_by_user_id(user_id)
         scores_list = [{"user_score": score.user_score} for score in scores]
         return jsonify({"scores": scores_list})
     else:
-        # If the user is not logged in, return an error message as JSON
         return jsonify({"error": "Please log in to view your score history."}), 401
-    
 
+@app.route('/check_session', methods=['GET'])
+def check_session():
+    if 'user_id' in session:
+        return jsonify({"is_logged_in": True, "email": session['user_email']})
+    else:
+        return jsonify({"is_logged_in": False})
 
 if __name__ == "__main__":
     connect_to_db(app)
