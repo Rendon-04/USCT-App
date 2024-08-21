@@ -1,0 +1,246 @@
+/* Overall test container */
+.test {
+    width: 100%;
+    min-height: 100vh;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-family: 'SF Pro Text', sans-serif;
+}
+  
+ /* Progress Bar and Navbar */
+.navBar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 40px;
+    background-color: #fff;
+    position: relative;
+}
+  
+.progressContainer {
+    display: flex;
+    align-items: center;
+    width: 80%;
+    margin: 0 auto;
+}
+  
+.progressWrapper {
+    flex: 1;
+    background-color: #d9d9d9;
+    height: 8px;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-right: 8px; /* Adds space between progress bar and text */
+}
+  
+.progressBar {
+    height: 100%;
+    background-color: #4aa6f6;
+    border-radius: 4px;
+    transition: width 0.3s ease;
+}
+  
+.progressText {
+    font-weight: 500;
+    font-size: 16px;
+    color: #4aa6f6;
+    white-space: nowrap;
+    margin-right: 16px; /* Adds space between progress text and the X icon */
+}
+  
+.iconWrapper {
+    position: relative;
+    padding: 20px;
+    cursor: pointer;
+}
+  
+.icon {
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+}
+
+.xicon16px {
+    width: 20px; /* Adjust the size of the icon */
+    height: 20px; /* Adjust the size of the icon */
+    object-fit: contain; /* Makes sure the image maintains its aspect ratio */
+}
+  
+/* Main test question and options container */
+.frameGroup {
+    flex: 1;
+    padding: 20px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+  
+.frameContainer {
+    max-width: 768px;
+    margin: 0 auto;
+}
+  
+.questionWrapper {
+    margin-bottom: 30px;
+}
+  
+.questionText {
+    position: relative;
+    font-size: 48px;
+    letter-spacing: -0.19px;
+    line-height: 71.5px;
+    font-weight: 500;
+    font-family: 'Hind Siliguri';
+    color: #216097;
+    text-align: left;
+}
+  
+.optionsContainer {
+    width: 868px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 23.7px;
+    text-align: left;
+    font-size: 20.74px;
+    color: #1e1f21;
+    font-family: 'SF Pro Text';
+}
+  
+.optionCard {
+    width: 100%;
+    position: relative;
+    border-radius: 11.73px;
+    background-color: #f1f2fc;
+    height: 94px;
+    overflow: hidden;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 23.5px;
+    gap: 23.5px;
+    text-align: left;
+    font-size: 20.53px;
+    color: #1e1f21;
+    font-family: 'SF Pro Text';
+}
+    
+.selectedOption {
+    background-color: #F1F2FC;
+    border-color: #2E76F6;
+    border: 1.5px solid #2E76F6;
+    box-sizing: border-box;
+}
+  
+.radioWrapper {
+    position: relative;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+  
+.radio {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 2px solid #2E76F6;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+}
+
+.radioSelected::before {
+    content: '';
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #2E76F6;
+}
+  
+.optionContent {
+    height: 23px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+}
+  
+.optionLabel {
+    align-self: stretch;
+    position: relative;
+    letter-spacing: -0.22px;
+    line-height: 32.59px;
+    font-weight: 500;
+}
+  
+/* Footer */
+.footer {
+    width: 100%;
+    position: relative;
+    background-color: #f8f9fa;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    border-top: 1px solid #e1e1e1;
+}
+  
+.buttonWrapper {
+    display: flex;
+    gap: 16px;
+}
+  
+.secondaryButton {
+    border-radius: 6px;
+    background-color: #fff;
+    border: 1px solid #cfcbcb;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 32px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+  
+.primaryButton {
+    border-radius: 6px;
+    background-color: #216097;
+    color: #fff;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 32px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+  
+.buttonText {
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: -0.15px;
+    line-height: 24px;
+    z-index: 0;
+}
+  
+.secondaryButton:hover {
+    background-color: #f0f0f0;
+    border-color: #b3b3b3;
+}
+  
+.primaryButton:hover {
+    background-color: #1a4a7b;
+}

@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+
+import '/src/components/Test.css';
 
 export default function Test() {
   // States to hold the questions, user's answers, and score
   const [questions, setQuestions] = useState([]);
   const [userAnswers, setUserAnswers] = useState({});
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [score, setScore] = useState(null);
   const navigate = useNavigate();  // Hook to navigate between pages
 
@@ -53,26 +56,104 @@ export default function Test() {
     return <div>You scored {score} out of {questions.length}!</div>
   }
 
+  const handleBack = () => {
+    if (currentQuestionIndex > 0) {
+      setCurrentQuestionIndex(currentQuestionIndex - 1);
+    }
+  };
+
+  const handleNext = () => {
+    if (currentQuestionIndex < questions.length - 1) {
+      setCurrentQuestionIndex(currentQuestionIndex + 1);
+    }
+  };
+
+  const isLastQuestion = currentQuestionIndex === questions.length - 1;
+
   // Render the questions 
-  return (
-    <form onSubmit={handleSubmit}>
-      {questions.map((question, index) => (
-        <div key={index}>
-          <p>{question.question}</p>
-          {question.options.map((option, i) => (
-            <div key={i}>
-              <input
-                type="radio"
-                name={`question_${question.id}`}
-                value={option}
-                onChange={() => handleSelectAnswer(question.id, option)}
-              />
-              <label>{option}</label>
+//   return (
+//     <form onSubmit={handleSubmit}>
+//       {questions.map((question, index) => (
+//         <div key={index}>
+//           <p>{question.question}</p>
+//           {question.options.map((option, i) => (
+//             <div key={i}>
+//               <input
+//                 type="radio"
+//                 name={`question_${question.id}`}
+//                 value={option}
+//                 onChange={() => handleSelectAnswer(question.id, option)}
+//               />
+//               <label>{option}</label>
+//             </div>
+//           ))}
+//         </div>
+//       ))}
+//       <button type="submit">Submit</button>
+//     </form>
+//   );
+// }
+
+return (
+  <div className="test">
+    {/* Progress Bar */}
+    <div className="navBar">
+      <div className="progressContainer">
+        <div className="progressWrapper">
+          <div
+            className="progressBar"
+            style={{
+              width: `${((currentQuestionIndex + 1) / questions.length) * 100}%`,
+            }}
+          />
+        </div>
+        <div className="progressText">{currentQuestionIndex + 1}/{questions.length}</div>
+      </div>
+      <Link to="/practice_test" className="iconWrapper">
+        <div className="icon">
+          <img className="xicon16px" alt="Close" src="/src/img/Xicon.png" />
+        </div>
+      </Link>
+    </div>
+
+    {/* Test Content */}
+    <div className="frameGroup">
+      <div className="frameContainer">
+        <div className="questionWrapper">
+          <div className="questionText">{questions[currentQuestionIndex]?.question}</div>
+        </div>
+        <div className="optionsContainer">
+          {questions[currentQuestionIndex]?.options.map((option, i) => (
+            <div key={i} className={`optionCard ${userAnswers[questions[currentQuestionIndex]?.id] === option ? 'selectedOption' : ''}`} onClick={() => handleSelectAnswer(questions[currentQuestionIndex]?.id, option)}>
+              <div className="radioWrapper">
+                <div className={`radio ${userAnswers[questions[currentQuestionIndex]?.id] === option ? 'radioSelected' : ''}`} />
+              </div>
+              <div className="optionContent">
+                <div className="optionLabel">{option}</div>
+              </div>
             </div>
           ))}
         </div>
-      ))}
-      <button type="submit">Submit</button>
-    </form>
-  );
+      </div>
+    </div>
+
+    {/* Footer */}
+    <div className="footer">
+      <div className="buttonWrapper">
+        <div className="secondaryButton" onClick={handleBack}>
+          <div className="buttonText">Back</div>
+        </div>
+        {isLastQuestion ? (
+          <div className="primaryButton" onClick={handleSubmit}>
+            <div className="buttonText">Submit</div>
+          </div>
+        ) : (
+          <div className="primaryButton" onClick={handleNext}>
+            <div className="buttonText">Next</div>
+          </div>
+        )}
+      </div>
+    </div>
+  </div>
+);
 }
