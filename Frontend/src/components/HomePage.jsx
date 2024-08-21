@@ -20,13 +20,13 @@ export default function HomePage() {
           </div>
           <div className="learnersValueProp">
             <div className="avatarParent">
-              <img className="avatarIcon" alt="" src="Avatar.png" />
-              <img className="avatarIcon1" alt="" src="Avatar.png" />
+              <img className="avatarIcon" alt="" src="/src/img/learner1.png" />
+              <img className="avatarIcon1" alt="" src="/src/img/learner2.png" />
               <div className="avatar">
                 <img
-                  className="screenshot20240728At851Icon"
+                  className="learner3"
                   alt=""
-                  src="/src/img/homepage.png"
+                  src="/src/img/learner3.png"
                 />
               </div>
             </div>
@@ -43,7 +43,7 @@ export default function HomePage() {
           <div className="frameContainer">
             <div className="bookenhancediconParent">
               <div className="bookenhancedicon">
-                <img className="art32Icon" alt="" src="Art-32.svg" />
+                <img className="art32Icon" alt="" src="/src/img/BookEnhancedIcon.png" />
               </div>
               <div className="study">Study</div>
               <div className="testYourKnowledge">
@@ -52,7 +52,7 @@ export default function HomePage() {
             </div>
             <Link to="/study_for_the_test" className="subtlebutton">
               <div className="text1">Start learning</div>
-              <img className="rIcon16px" alt="" src="R-Icon (16px).svg" />
+              <img className="rIcon16px" alt="" src="/src/img/arrow-right-short.svg" />
             </Link>
           </div>
         </div>
@@ -60,7 +60,7 @@ export default function HomePage() {
           <div className="frameContainer">
             <div className="bookenhancediconParent">
               <div className="bookenhancedicon">
-                <img className="art32Icon" alt="" src="Art-32.svg" />
+                <img className="art32Icon" alt="" src="/src/img/ListViewEnhancedIcon.png" />
               </div>
               <div className="study">Practice</div>
               <div className="testYourKnowledge">
@@ -69,7 +69,7 @@ export default function HomePage() {
             </div>
             <Link to="/practice_test" className="subtlebutton">
               <div className="text1">Start practicing</div>
-              <img className="rIcon16px" alt="" src="R-Icon (16px).svg" />
+              <img className="rIcon16px" alt="" src="/src/img/arrow-right-short.svg" />
             </Link>
           </div>
         </div>
@@ -77,7 +77,7 @@ export default function HomePage() {
           <div className="frameContainer">
             <div className="bookenhancediconParent">
               <div className="bookenhancedicon">
-                <img className="art32Icon" alt="" src="Art-32.svg" />
+                <img className="art32Icon" alt="" src="/src/img/BoardsViewEnhancedIcon.png" />
               </div>
               <div className="study">Resources</div>
               <div className="testYourKnowledge">
@@ -86,7 +86,7 @@ export default function HomePage() {
             </div>
             <Link to="/additional_resources" className="subtlebutton">
               <div className="text1">Resources</div>
-              <img className="rIcon16px" alt="" src="R-Icon (16px).svg" />
+              <img className="rIcon16px" alt="" src="/src/img/arrow-right-short.svg" />
             </Link>
           </div>
         </div>

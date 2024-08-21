@@ -1,4 +1,5 @@
-/* General Styling */
+/* /* General Styling */
+
 body, html {
   margin: 0;
   padding: 0;
@@ -8,7 +9,7 @@ body, html {
   scroll-behavior: smooth;
 }
 
-/* Main Container */
+/* Main Container */ 
 .study-container {
   padding: 20px;
 }
@@ -58,3 +59,5 @@ body, html {
 .card-body p {
   margin-top: 10px;
 }
+
+
