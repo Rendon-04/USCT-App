@@ -5,7 +5,7 @@ import { useLocation, Link } from 'react-router-dom';
 
 export default function ScoreDisplay  ()  {
     const location = useLocation();
-    const { score, total } = location.state; 
+    const { score, total } = location.state || { score: null, total: null };
 
     return (
       <div>
@@ -24,4 +24,3 @@ export default function ScoreDisplay  ()  {
 
 
 
-// Fix this showing history of scores even is user is not logged in

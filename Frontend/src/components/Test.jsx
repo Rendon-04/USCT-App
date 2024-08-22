@@ -70,29 +70,6 @@ export default function Test() {
 
   const isLastQuestion = currentQuestionIndex === questions.length - 1;
 
-  // Render the questions 
-//   return (
-//     <form onSubmit={handleSubmit}>
-//       {questions.map((question, index) => (
-//         <div key={index}>
-//           <p>{question.question}</p>
-//           {question.options.map((option, i) => (
-//             <div key={i}>
-//               <input
-//                 type="radio"
-//                 name={`question_${question.id}`}
-//                 value={option}
-//                 onChange={() => handleSelectAnswer(question.id, option)}
-//               />
-//               <label>{option}</label>
-//             </div>
-//           ))}
-//         </div>
-//       ))}
-//       <button type="submit">Submit</button>
-//     </form>
-//   );
-// }
 
 return (
   <div className="test">

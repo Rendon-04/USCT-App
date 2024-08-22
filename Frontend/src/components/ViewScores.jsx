@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom'
 // View Scores component 
 export default function ViewScores({ isLoggedIn }) { // Accept isLoggedIn as a prop
   const [scores, setScores] = useState([]);
   const [error, setError] = useState(null);
+
+  const location = useLocation();
+  const { score, total } = location.state || { score: null, total: null };
 
   // Fetch the user's scores when the component mounts
   useEffect(() => {
@@ -21,16 +25,20 @@ export default function ViewScores({ isLoggedIn }) { // Accept isLoggedIn as a p
             }
         });
     } else {
+        if (score !== null){
+            setScores([{ user_score: score }])
+        } else {
         setError("Please log in to view your scores.");
+        }
     }
-  }, [isLoggedIn]);
+  }, [isLoggedIn, score]);
 
 return (
   <div>
       <h1>Your Scores</h1>
  
       {error ? (
-          <p>{error}</p>  // Display the error message here
+          <p>{error}</p>  
       ) : (
           <ul>
               {scores.map((score, index) => (
