@@ -1,11 +1,12 @@
 import React from 'react';
+import '/src/components/Resources.css'
 
 // Resources component 
 
 export default function Resources ()  {
     const resources = [
         {
-          title: "Interagency Strategy for Promoting Naturalization",
+          title: "Inter-agency Strategy for Promoting Naturalization",
           description: "Learn about the federal strategies in place to promote naturalization across the U.S.",
           link: "https://www.uscis.gov/promotingnaturalization"
         },
@@ -55,22 +56,22 @@ export default function Resources ()  {
           link: "https://www.uscis.gov/citizenship-resource-center/naturalization-related-data-and-statistics"
         }
       ];
-    
-      return (
-        <div>
-          <h1>Citizenship Resource Center</h1>
-          <ul>
-            {resources.map((resource, index) => (
-              <li key={index}>
-                <h2>{resource.title}</h2>
-                <p>{resource.description}</p>
-                <a href={resource.link} target="_blank" rel="noopener noreferrer">
-                  Learn More
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
-      );
-    };
+      
+    return (
+      <div className="resources-container">
+        <h1 className="resources-title">Citizenship Resource Center</h1>
+        <ul className="resources-list">
+          {resources.map((resource, index) => (
+            <li key={index} className="resource-item">
+              <h2 className="resource-title">{resource.title}</h2>
+              <p className="resource-description">{resource.description}</p>
+              <a href={resource.link} target="_blank" rel="noopener noreferrer" className="resource-link">
+                Learn More
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    );
+  };
 

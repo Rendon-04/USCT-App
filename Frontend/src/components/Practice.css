@@ -1,9 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=SF+Pro+Text:ital,wght@0,500;1,500&display=swap');
 .practiceTestYourSkills {
     align-self: stretch;
     position: relative;
     letter-spacing: -0.19px;
     line-height: 71.5px;
-    font-weight: 500;
+    font-weight: 550;
   }
   
   .practiceGetReadyFor {

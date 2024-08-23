@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=SF+Pro+Text:ital,wght@0,500;1,500&display=swap');
+/* General container for the resources page */
+/* Container for the login form */
+.login-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 40px;
+    background-color: #f8f9fa; /* Light grey background */
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-family: 'Hind Siliguri', sans-serif;
+}
+
+/* Title of the login form */
+.login-title {
+    font: 'Hind Siliguri';
+    font-size: 2rem;
+    color: #216097; /* Blue color to match your theme */
+    margin-bottom: 20px;
+    font-weight: 550;
+}
+
+/* Input fields */
+.login-input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    color: #333;
+    box-sizing: border-box;
+}
+
+/* Submit button */
+.login-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #1B6CB3; /* Blue background */
+    color: #fff; /* White text */
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login-button:hover {
+    background-color: #216097; 
+}
+/* Message display */
+.login-message {
+    margin-top: 20px;
+    font-size: 1rem;
+    color: #4a4848; /* Red color for error messages */
+}

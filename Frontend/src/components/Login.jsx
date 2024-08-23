@@ -1,5 +1,6 @@
 // Login Component
 import React, { useState } from 'react';
+import "/src/components/login.css"
 
 export default function Login ({ setUser }) {
     const [email, setEmail] = useState('');
@@ -25,34 +26,35 @@ export default function Login ({ setUser }) {
         if (!response.ok) {
             setMessage('Invalid email or password. Please try again.');
         } else {
-            const result = await response.json();
-            setMessage(`Welcome back, ${result.message}`);
+            setMessage('Welcome back! Login successful');
             setUser(email);
         }
     };
-            
-    return (
-        <div>
-            <h2>Login</h2>
-            <form onSubmit={handleLogin}>
-                <input
-                    type="email"
-                    placeholder="Email"
-                    value={email}
-                    onChange={(evt) => setEmail(evt.target.value)}
-                    required
-                />
-                <input
-                    type="password"
-                    placeholder="Password"
-                    value={password}
-                    onChange={(evt) => setPassword(evt.target.value)}
-                    required
-                />
-                <button type="submit">Login</button>
-            </form>
-            {message && <p>{message}</p>}
-        </div>
-    );
+
+return (
+    <div className="login-container">
+        <h2 className="login-title">Login</h2>
+        <form onSubmit={handleLogin} className="login-form">
+            <input
+                type="email"
+                placeholder="Email"
+                value={email}
+                onChange={(evt) => setEmail(evt.target.value)}
+                required
+                className="login-input"
+            />
+            <input
+                type="password"
+                placeholder="Password"
+                value={password}
+                onChange={(evt) => setPassword(evt.target.value)}
+                required
+                className="login-input"
+            />
+            <button type="submit" className="login-button">Login</button>
+        </form>
+        {message && <p className="login-message">{message}</p>}
+    </div>
+);
 }
 

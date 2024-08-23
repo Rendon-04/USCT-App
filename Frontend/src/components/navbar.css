@@ -6,23 +6,23 @@
   padding: 20px 80px;
   justify-content: space-between;
   align-items: center;
-  background-color: #ffffff; /* White background */
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Slight shadow for separation */
-  z-index: 1000; /* Ensure the navbar is on top */
+  background-color: #ffffff; 
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); 
+  z-index: 1000;
 }
 
 /* Styling for the brand/logo */
 .navbar-custom .navbar-logo {
-  font-size: 18px; /* Adjust font size */
+  font-size: 18px; 
   font-weight: bold;
-  color: #1B6CB3; /* Primary blue color */
+  color: #216097; 
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
 .navbar-custom .navbar-logo img {
-  height: 30px; /* Height for the logo image */
+  height: 30px;
   margin-right: 10px;
 }
 
@@ -33,18 +33,18 @@
 
 /* Style links */
 .navbar-custom .nav-link {
-  font-size: 16px; /* Increase font size for visibility */
-  color: #4A4A4A; /* Grey color */
-  padding: 10px 15px; /* Spacing around links */
+  font-size: 16px; 
+  color: #4A4A4A; 
+  padding: 10px 15px; 
   align-items: center;
   border-radius: 6px;
-  background: transparent; /* Transparent background */
-  transition: color 0.3s, background 0.3s; /* Smooth transition */
+  background: transparent; 
+  transition: color 0.3s, background 0.3s; 
 }
 
 .navbar-custom .nav-link:hover {
-  color: #1B6CB3; /* Primary blue color on hover */
-  background: rgba(27, 108, 179, 0.1); /* Light blue background on hover */
+  color: #1B6CB3;
+  background: rgba(27, 108, 179, 0.1); 
 }
 
 /* Styling for right-aligned buttons */
@@ -57,32 +57,32 @@
 /* Signup button styling */
 .primary-buttons .signup-button {
   font-size: 14px;
-  color: #1B6CB3; /* Primary blue color */
-  border: 1px solid #1B6CB3; /* Blue border */
-  background: transparent; /* Transparent background */
+  color: #1B6CB3; 
+  border: 1px solid #1B6CB3;
+  background: transparent;
   margin-right: 0.5rem;
-  padding: 8px 16px; /* Adjust padding for consistency */
+  padding: 8px 16px; 
   border-radius: 6px;
-  transition: background 0.3s, color 0.3s; /* Smooth transition */
+  transition: background 0.3s, color 0.3s; 
 }
 
 .primary-buttons .signup-button:hover {
-  background: rgba(27, 108, 179, 0.1); /* Light blue background on hover */
+  background: rgba(27, 108, 179, 0.1); 
 }
 
 /* Login button styling */
 .primary-buttons .login-button {
   font-size: 14px;
-  padding: 8px 16px; /* Adjust padding for consistency */
+  padding: 8px 16px;
   border-radius: 6px;
-  background: #1B6CB3; /* Primary blue background */
-  color: #ffffff; /* White text */
-  border: none; /* Remove border */
-  transition: background 0.3s; /* Smooth transition */
+  background: #1B6CB3; 
+  color: #ffffff; 
+  border: none; 
+  transition: background 0.3s;
 }
 
 .primary-buttons .login-button:hover {
-  background-color: #216097; /* Slightly darker blue on hover */
+  background-color: #216097; 
 }
 
 /* Container for the button and user info */
@@ -94,16 +94,16 @@
 /* Input button styling */
 .inputButton {
   font-size: 14px;
-  padding: 8px 16px; /* Adjust padding for consistency */
+  padding: 8px 16px; 
   border-radius: 6px;
-  background: #1B6CB3; /* Primary blue background */
-  color: #ffffff; /* White text */
-  border: none; /* Remove border */
-  transition: background 0.3s; /* Smooth transition */
-  cursor: pointer; /* Change cursor to pointer on hover */
+  background: #1B6CB3; 
+  color: #ffffff; 
+  border: none; 
+  transition: background 0.3s; 
+  cursor: pointer; 
 }
 
 .inputButton:hover {
-  background-color: #216097; /* Slightly darker blue on hover */
+  background-color: #216097; 
 }
   

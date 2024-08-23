@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
+
 export default function StudyCategoryPage() {
     const { category } = useParams();
     const [data, setData] = useState([]);

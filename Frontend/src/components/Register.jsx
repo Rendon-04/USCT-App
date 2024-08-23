@@ -1,5 +1,6 @@
 // User Registration
 import React, { useState } from 'react';
+import "/src/components/login.css"
 
 export default function Register () {
     const [userName, setUserName] = useState('');
@@ -35,15 +36,16 @@ export default function Register () {
     };
        
     return (
-        <div>
-            <h2>Register</h2>
-            <form onSubmit={handleRegister}>
+        <div className="login-container">  
+            <h2 className="login-title">Register</h2> 
+            <form onSubmit={handleRegister} className="login-form">  
                 <input
                     type="text"
                     placeholder="Username"
                     value={userName}
                     onChange={(evt) => setUserName(evt.target.value)}
                     required
+                    className="login-input"  
                 />
                 <input
                     type="email"
@@ -51,6 +53,7 @@ export default function Register () {
                     value={email}
                     onChange={(evt) => setEmail(evt.target.value)}
                     required
+                    className="login-input"  
                 />
                 <input
                     type="password"
@@ -58,10 +61,11 @@ export default function Register () {
                     value={password}
                     onChange={(evt) => setPassword(evt.target.value)}
                     required
+                    className="login-input" 
                 />
-                <button type="submit">Register</button>
+                <button type="submit" className="login-button">Register</button>  
             </form>
-            {message && <p>{message}</p>}
+            {message && <p className="login-message">{message}</p>}  
         </div>
     );
 }

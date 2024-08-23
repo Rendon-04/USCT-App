@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=SF+Pro+Text:ital,wght@0,500;1,500&display=swap');
+/* General container for the resources page */
+.resources-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Title of the resources page */
+.resources-title {
+    font-size: 2.5rem;
+    color: #216097; 
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: 550;
+}
+
+/* List styling */
+.resources-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+/* Individual resource item */
+.resource-item {
+    background-color: #eaeff4; 
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.resource-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Resource title */
+.resource-title {
+    font-size: 1.5rem;
+    color: #216097;
+    margin-bottom: 10px;
+}
+
+/* Resource description */
+.resource-description {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+/* Learn more link */
+.resource-link {
+    display: inline-block;
+    font-size: 1rem;
+    color: #216097;
+    text-decoration: none;
+    font-weight: 100px;
+    border: 1px solid #216097;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.resource-link:hover {
+    background-color: #216097;
+    color: #fff;
+
+}

@@ -1,0 +1,149 @@
+.flashcard-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh; /* Ensure it takes up the majority of the viewport */
+}
+
+.flashcard-title {
+    font-size: 2rem;
+    color: #1B6CB3; /* Match your theme's blue color */
+    margin-bottom: 20px;
+    font-weight: 550;
+}
+
+.generate-button{
+    font-size: 14px;
+    color: #1B6CB3; 
+    border: 1px solid #1B6CB3;
+    background: transparent;
+    margin-right: 0.5rem;
+    padding: 8px 16px; 
+    border-radius: 6px;
+    transition: background 0.3s, color 0.3s; 
+  }
+.generate-button:hover{
+    background: rgba(27, 108, 179, 0.1); 
+}
+
+.flashcard {
+    width: 500px;
+    height: 300px;
+    perspective: 1000px;
+    margin-bottom: 20px; /* Space between card and Generate button */
+}
+
+.flashcard-inner {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    cursor: pointer;
+    position: relative;
+}
+
+.flipped {
+    transform: rotateY(180deg);
+}
+
+.flashcard-front, .flashcard-back {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    background-color: #fff; /* White background for the card */
+    color: #333;
+}
+
+.flashcard-back {
+    transform: rotateY(180deg);
+}
+
+.flashcard-front h3, .flashcard-back h3 {
+    font-size: 1.5rem;
+    color: #333; /* Darker text for contrast */
+    margin-bottom: 20px;
+}
+
+.flashcard-front p, .flashcard-back p, .flashcard-back ul {
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.flashcard-back ul {
+    list-style-type: none; /* Remove bullet points */
+    padding: 0;
+    margin: 0;
+}
+
+.flashcard-back li {
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+.flashcard-navigation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.flashcard-navigation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.arrow-button {
+    width: 50px;
+    height: 50px;
+    background-color: #f0f2f5; /* Light gray background color */
+    border-radius: 50%; /* Makes the button circular */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: #7f8c8d; /* Soft shadow for the button */
+    border: 1px solid #d9d9d9; /* Light gray border */
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.arrow-button:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.arrow-button::before {
+    content: ""; /* No content by default */
+    font-size: 24px; /* Adjust the size of the arrow as needed */
+    color: #576989; /* Darker shade of gray for the arrow */
+}
+
+.arrow-button.previous::before {
+    content: "\2190"; /* Unicode for the left arrow */
+}
+
+.arrow-button.next::before {
+    content: "\2192"; /* Unicode for the right arrow */
+}
+
+.arrow-button:hover:not(:disabled) {
+    background-color: rgba(27, 108, 179, 0.1); /* Slightly darker gray on hover */
+    color: #216097; /* Blue color on hover */
+}
+
+.flashcard-counter {
+    margin: 0 20px;
+    font-size: 1.2rem;
+    color: #555;
+}

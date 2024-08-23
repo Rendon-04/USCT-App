@@ -1,0 +1,85 @@
+/* Container for all questions */
+@import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=SF+Pro+Text:ital,wght@0,500;1,500&display=swap');
+
+.all-questions-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Title of the page */
+.questions-title {
+    font-size: 2.5rem;
+    color: #216097; 
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: 550;
+}
+
+/* Individual question item */
+.question-item {
+    background-color: #f8f9fa; 
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.question-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Question number styling */
+.question-number {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 10px;
+    font-weight: 550;
+}
+
+/* Question text styling */
+.question-text {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+/* Answers container */
+.answers-container {
+    margin-top: 10px;
+}
+
+/* Answers title styling */
+.answers-title {
+    font-size: 1.1rem;
+    color: #333;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+/* Answers list styling */
+.answers-list {
+    list-style-type: disc;
+    padding-left: 20px;
+    margin: 0;
+}
+
+/* Individual answer item */
+.answer-item {
+    font-size: 1rem;
+    color: #444;
+    margin-bottom: 5px;
+}
+
+/* Single answer styling */
+.single-answer {
+    font-size: 1.1rem;
+    color: #444;
+    margin-top: 10px;
+  
+}

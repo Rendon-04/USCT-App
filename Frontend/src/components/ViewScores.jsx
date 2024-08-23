@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom'
+import { useLocation, Link } from 'react-router-dom'
+import "/src/components/ViewScores.css"
 // View Scores component 
 export default function ViewScores({ isLoggedIn }) { // Accept isLoggedIn as a prop
   const [scores, setScores] = useState([]);
@@ -33,19 +34,24 @@ export default function ViewScores({ isLoggedIn }) { // Accept isLoggedIn as a p
     }
   }, [isLoggedIn, score]);
 
+
 return (
-  <div>
-      <h1>Your Scores</h1>
+    <div className="scores-dashboard">
+      <h1 className="dashboard-title">Your Scores</h1>
  
       {error ? (
-          <p>{error}</p>  
+           <Link to="/login" className="dashboard-error-link">
+           <p className="dashboard-error">{error}</p>
+         </Link>
       ) : (
-          <ul>
+          <ul className="scores-list">
               {scores.map((score, index) => (
-                  <li key={index}>Score: {score.user_score}</li>
+                  <li key={index} className="score-item">
+                      Score: {score.user_score} out of 10 
+                  </li>
               ))}
           </ul>
       )}
-  </div>
-);
+    </div>
+  );
 }
