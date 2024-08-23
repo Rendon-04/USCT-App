@@ -5,6 +5,7 @@ import "./Practice.css"
 
 export default function Practice() {
   return (
+    <body>
     <div className="practiceFrameParent">
       <div className="practiceFrameGroup">
         <div className="practiceFrameContainer">
@@ -68,5 +69,6 @@ export default function Practice() {
       </div>
       <img className="practiceImage1Icon" alt="" src="/src/img/practice.png" />
     </div>
+    </body>
   );
 }

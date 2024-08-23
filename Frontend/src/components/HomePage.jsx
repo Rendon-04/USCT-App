@@ -4,6 +4,7 @@ import './homepage.css';
 
 export default function HomePage() {
   return (
+    <body>
     <div className="frameParent">
       <div className="contentParent">
         <div className="content">
@@ -92,5 +93,6 @@ export default function HomePage() {
         </div>
       </div>
     </div>
+    </body>
   );
 }

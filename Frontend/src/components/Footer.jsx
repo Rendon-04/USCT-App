@@ -6,11 +6,12 @@ import "/src/components/Footer.css"
 export default function Footer () {
     return(
         <body>
-        <div class="main-container">
-        </div>
-        <footer>
-            <p>&copy; 2024 U.S. Civics Test. All rights reserved.</p>
-        </footer>
-    </body>
+ <div id="page-container">
+ <div id="content-wrap">
+ </div>
+ <footer id="footer">2024 U.S. Civics Test. All rights reserved.</footer>
+</div>
+</body>
     );
 };
+

@@ -1,23 +1,22 @@
-html, body {
-    height: 100%;
-    margin: 0;
+#page-container {
+    position: relative;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
 }
 
-.main-container {
+#content-wrap {
     flex: 1;
+    padding-bottom: 1rem;  /* Adjust padding as necessary */
     display: flex;
     flex-direction: column;
-    justify-content: center; 
-    align-items: center;     
 }
 
-footer {
-    text-align: center;
-    padding: 20px 0;
-
-    color: #888;
+#footer {
     width: 100%;
-    margin-top: auto; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 1rem 0;  /* Adjust padding as needed */
 }
