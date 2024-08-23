@@ -7,7 +7,7 @@
 
 #content-wrap {
     flex: 1;
-    padding-bottom: 1rem;  /* Adjust padding as necessary */
+    padding-bottom: 1rem; 
     display: flex;
     flex-direction: column;
 }
@@ -18,5 +18,5 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 1rem 0;  /* Adjust padding as needed */
+    padding: 1rem 0; 
 }

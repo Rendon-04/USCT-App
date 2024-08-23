@@ -32,7 +32,7 @@
     height: 8px;
     border-radius: 4px;
     overflow: hidden;
-    margin-right: 8px; /* Adds space between progress bar and text */
+    margin-right: 8px;
 }
   
 .progressBar {
@@ -47,7 +47,7 @@
     font-size: 16px;
     color: #4aa6f6;
     white-space: nowrap;
-    margin-right: 16px; /* Adds space between progress text and the X icon */
+    margin-right: 16px; 
 }
   
 .iconWrapper {
@@ -65,9 +65,9 @@
 }
 
 .xicon16px {
-    width: 20px; /* Adjust the size of the icon */
-    height: 20px; /* Adjust the size of the icon */
-    object-fit: contain; /* Makes sure the image maintains its aspect ratio */
+    width: 20px; 
+    height: 20px; 
+    object-fit: contain; 
 }
   
 /* Main test question and options container */

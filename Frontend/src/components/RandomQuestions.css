@@ -3,12 +3,12 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 80vh; /* Ensure it takes up the majority of the viewport */
+    min-height: 80vh; 
 }
 
 .flashcard-title {
     font-size: 2rem;
-    color: #1B6CB3; /* Match your theme's blue color */
+    color: #1B6CB3; 
     margin-bottom: 20px;
     font-weight: 550;
 }
@@ -31,7 +31,7 @@
     width: 500px;
     height: 300px;
     perspective: 1000px;
-    margin-bottom: 20px; /* Space between card and Generate button */
+    margin-bottom: 20px; 
 }
 
 .flashcard-inner {
@@ -60,7 +60,7 @@
     border-radius: 12px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 20px;
-    background-color: #fff; /* White background for the card */
+    background-color: #fff; 
     color: #333;
 }
 
@@ -70,7 +70,7 @@
 
 .flashcard-front h3, .flashcard-back h3 {
     font-size: 1.5rem;
-    color: #333; /* Darker text for contrast */
+    color: #333; 
     margin-bottom: 20px;
 }
 
@@ -80,7 +80,7 @@
 }
 
 .flashcard-back ul {
-    list-style-type: none; /* Remove bullet points */
+    list-style-type: none; 
     padding: 0;
     margin: 0;
 }
@@ -107,13 +107,13 @@
 .arrow-button {
     width: 50px;
     height: 50px;
-    background-color: #f0f2f5; /* Light gray background color */
-    border-radius: 50%; /* Makes the button circular */
+    background-color: #f0f2f5; 
+    border-radius: 50%; 
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: #7f8c8d; /* Soft shadow for the button */
-    border: 1px solid #d9d9d9; /* Light gray border */
+    box-shadow: #7f8c8d;
+    border: 1px solid #d9d9d9; 
     cursor: pointer;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
@@ -124,22 +124,22 @@
 }
 
 .arrow-button::before {
-    content: ""; /* No content by default */
-    font-size: 24px; /* Adjust the size of the arrow as needed */
-    color: #576989; /* Darker shade of gray for the arrow */
+    content: ""; 
+    font-size: 24px;
+    color: #576989; 
 }
 
 .arrow-button.previous::before {
-    content: "\2190"; /* Unicode for the left arrow */
+    content: "\2190"; 
 }
 
 .arrow-button.next::before {
-    content: "\2192"; /* Unicode for the right arrow */
+    content: "\2192"; 
 }
 
 .arrow-button:hover:not(:disabled) {
-    background-color: rgba(27, 108, 179, 0.1); /* Slightly darker gray on hover */
-    color: #216097; /* Blue color on hover */
+    background-color: rgba(27, 108, 179, 0.1); 
+    color: #216097; 
 }
 
 .flashcard-counter {

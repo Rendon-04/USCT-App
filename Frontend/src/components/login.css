@@ -6,10 +6,11 @@
     max-width: 400px;
     margin: 0 auto;
     padding: 40px;
-    background-color: #f8f9fa; /* Light grey background */
+    background-color: #f8f9fa; 
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
+    margin-top: 100px;
     font-family: 'Hind Siliguri', sans-serif;
 }
 
@@ -17,7 +18,7 @@
 .login-title {
     font: 'Hind Siliguri';
     font-size: 2rem;
-    color: #216097; /* Blue color to match your theme */
+    color: #216097;
     margin-bottom: 20px;
     font-weight: 550;
 }
@@ -38,8 +39,8 @@
 .login-button {
     width: 100%;
     padding: 10px;
-    background-color: #1B6CB3; /* Blue background */
-    color: #fff; /* White text */
+    background-color: #1B6CB3; 
+    color: #fff; 
     border: none;
     border-radius: 4px;
     font-size: 1rem;
@@ -54,5 +55,5 @@
 .login-message {
     margin-top: 20px;
     font-size: 1rem;
-    color: #4a4848; /* Red color for error messages */
+    color: #4a4848; 
 }
