@@ -1,16 +1,3 @@
-#page-container {
-    position: relative;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-}
-
-#content-wrap {
-    flex: 1;
-    padding-bottom: 1rem; 
-    display: flex;
-    flex-direction: column;
-}
 
 #footer {
     width: 100%;

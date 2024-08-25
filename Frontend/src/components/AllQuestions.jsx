@@ -15,6 +15,7 @@ export default function AllQuestions() {
 
 
 return (
+  <body>
   <div className="all-questions-container">
     <h1 className="questions-title">All 100 Questions</h1>
     {Object.keys(data).flatMap((category) =>
@@ -38,5 +39,6 @@ return (
       ))
     )}
   </div>
+  </body>
 );
 }

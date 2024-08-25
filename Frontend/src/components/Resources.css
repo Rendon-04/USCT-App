@@ -1,11 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=SF+Pro+Text:ital,wght@0,500;1,500&display=swap');
+
 /* General container for the resources page */
 .resources-container {
     max-width: 800px;
-    margin: 0 auto;
+    margin: 0 auto; 
     padding: 20px;
     font-family: 'Arial', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
 }
 
 /* Title of the resources page */
@@ -21,16 +25,25 @@
 .resources-list {
     list-style-type: none;
     padding: 0;
+    width: 1200px;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
 /* Individual resource item */
 .resource-item {
-    background-color: #eaeff4; 
+    background-color: #f8fbfe; 
     border-radius: 8px;
     padding: 20px;
     margin-bottom: 15px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    flex: 0 0 48%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column; 
+    justify-content: space-between; 
+    height: 100%; 
 }
 
 .resource-item:hover {
@@ -51,6 +64,7 @@
     color: #555;
     margin-bottom: 15px;
     line-height: 1.6;
+    flex-grow: 1; 
 }
 
 /* Learn more link */
@@ -64,10 +78,10 @@
     padding: 8px 12px;
     border-radius: 4px;
     transition: background-color 0.3s ease, color 0.3s ease;
+    align-self: flex-start; 
 }
 
 .resource-link:hover {
     background-color: #216097;
     color: #fff;
-
 }

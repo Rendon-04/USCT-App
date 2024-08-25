@@ -15,8 +15,7 @@ from jinja2 import StrictUndefined
 app = Flask(__name__)
 
 app.secret_key = "092804910815"  
-app.jinja_env.undefined = StrictUndefined
-
+app.jinja_env.undefined = StrictUndefined 
 
 CORS(app)
 
