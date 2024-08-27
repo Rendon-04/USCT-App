@@ -46,11 +46,25 @@ export default function Test() {
     .then(response => response.json())
     .then(data => {
       setScore(data.score);  // Save the score
-  navigate('/score_display', { state: { score: data.score, total: questions.length } });
+  // navigate('/score_display', { state: { score: data.score, total: questions.length } });
+  //   })
+  //   .catch(error => console.error("Error submitting test:", error));
+  // };
+ // Navigate to ScoreDisplay with userAnswers, questions, and correct answers
+    navigate('/score_display', { 
+      state: { 
+        score: data.score, 
+        total: questions.length,
+        results: questions.map(q => ({
+          question: q.question,
+          correctAnswer: q.answer, // The correct answer from your questions array
+          yourAnswer: userAnswers[q.id] || 'No Answer Selected' // The user's selected answer, or fallback if none selected
+        }))
+      } 
+    });
     })
     .catch(error => console.error("Error submitting test:", error));
-  };
-
+    };
   // Show the score 
   if (score !== null) {
     return <div>You scored {score} out of {questions.length}!</div>

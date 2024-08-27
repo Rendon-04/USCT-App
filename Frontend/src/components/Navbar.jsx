@@ -32,7 +32,7 @@ export default function Navbar ({ isLoggedIn, onLogout, email }) {
               <Link className="nav-link" to="/study_for_the_test">Study</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/practice_test">Practice</Link>
+              <Link className="nav-link" to="/practice_test">Test</Link>
             </li>
             <li className="nav-item">
               <Link className="nav-link" to="/additional_resources">Resources</Link>

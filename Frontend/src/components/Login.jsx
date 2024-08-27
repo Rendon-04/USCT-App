@@ -1,11 +1,13 @@
 // Login Component
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import "/src/components/login.css"
 
 export default function Login ({ setUser }) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [message, setMessage] = useState('');
+    const navigate = useNavigate();
 
     const handleLogin = async (evt) => {
         evt.preventDefault();
@@ -28,6 +30,7 @@ export default function Login ({ setUser }) {
         } else {
             setMessage('Welcome back! Login successful');
             setUser(email);
+            navigate('/' , { state: { message: 'Welcome back! Login successful' } });
         }
     };
 

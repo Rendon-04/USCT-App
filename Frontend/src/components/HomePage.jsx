@@ -1,16 +1,20 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import './homepage.css';
 
 export default function HomePage() {
+  const location = useLocation();
+  const message = location.state?.message;
+  
   return (
     <body>
     <div className="frameParent">
+    {message && <p className="welcome-message">{message}</p>}
       <div className="contentParent">
         <div className="content">
           <div className="frameGroup">
             <div className="aceTheUsCivicTestParent">
-              <div className="aceTheUs">Ace the U.S. Civic test</div>
+              <div className="aceTheUs">Ace the U.S. Civic Test</div>
               <div className="preparingCanBe">
                 Preparing can be tough, but you don't have to do it alone. Our study guides, practice tests, and resources help you master U.S. history, government, and civic responsibilities. Track your progress, build your confidence, and join a community of learners!
               </div>
