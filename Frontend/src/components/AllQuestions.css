@@ -10,7 +10,7 @@
 }
 
 /* Title of the page */
-.questions-title {
+.all-questions-title {
     font-size: 2.5rem;
     color: #216097; 
     text-align: center;
@@ -19,7 +19,7 @@
 }
 
 /* Individual question item */
-.question-item {
+.all-question-item {
     background-color: #f8f9fa; 
     border-radius: 8px;
     padding: 20px;
@@ -28,13 +28,13 @@
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.question-item:hover {
+.all-question-item:hover {
     transform: translateY(-5px);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
 /* Question number styling */
-.question-number {
+.all-question-number {
     font-size: 1.2rem;
     color: #333;
     margin-bottom: 10px;
@@ -42,7 +42,7 @@
 }
 
 /* Question text styling */
-.question-text {
+.all-question-text {
     font-size: 1.1rem;
     color: #555;
     margin-bottom: 15px;
@@ -50,12 +50,12 @@
 }
 
 /* Answers container */
-.answers-container {
+.all-answers-container {
     margin-top: 10px;
 }
 
 /* Answers title styling */
-.answers-title {
+.all-answers-title {
     font-size: 1.1rem;
     color: #333;
     margin-bottom: 10px;
@@ -63,21 +63,21 @@
 }
 
 /* Answers list styling */
-.answers-list {
+.all-answers-list {
     list-style-type: disc;
     padding-left: 20px;
     margin: 0;
 }
 
 /* Individual answer item */
-.answer-item {
+.all-answer-item {
     font-size: 1rem;
     color: #444;
     margin-bottom: 5px;
 }
 
 /* Single answer styling */
-.single-answer {
+.all-single-answer {
     font-size: 1.1rem;
     color: #444;
     margin-top: 10px;

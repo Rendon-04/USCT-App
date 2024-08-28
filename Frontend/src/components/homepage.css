@@ -6,53 +6,23 @@ body {
   line-height: normal;
 }
 
-.welcome-message {
-  font-size: 24px;
-  font-weight: 500;
-  margin-left: 25px;
-}
-
 .aceTheUs {
-  /* display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-start;
   align-self: stretch;
   position: relative;
   letter-spacing: -0.19px;
   line-height: 71.5px;
-  font-weight: 500; */
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-start;
-  letter-spacing: -0.19px;
-  line-height: 1.2;
-  font-size: 50px; /* Adjust this to match the mockup */
   font-weight: 500;
-  color: #216097;
-  margin-left: -50px; /* Adjust overlap */
+  font-weight: 550;
 }
 .preparingCanBe {
-  /* width: 100%;
+  align-self: stretch;
   position: relative;
   font-size: 24px;
   letter-spacing: -0.19px;
   line-height: 39px;
-  font-family: 'Hind Siliguri';
   color: #000;
-  text-align: left;
-  display: inline-block; */
-  width: 100%;
-  font-size: 24px;
-  letter-spacing: -0.19px;
-  line-height: 1.6; /* Increase line height if necessary */
-  font-family: 'Hind Siliguri', sans-serif;
-  color: #000;
-  margin-left: -50px; /* Adjust overlap */
+  font-size: 1.2rem;
 }
-
-
 .aceTheUsCivicTestParent {
   align-self: stretch;
   display: flex;
@@ -60,7 +30,6 @@ body {
   align-items: flex-start;
   justify-content: flex-start;
   gap: 16px;
-
 }
 .text {
   position: relative;
@@ -68,7 +37,7 @@ body {
   line-height: 33px;
 }
 .secondarybutton {
-  /* border-radius: 8.25px;
+  border-radius: 8.25px;
   border: 1.4px solid #216097;
   overflow: hidden;
   display: flex;
@@ -77,14 +46,8 @@ body {
   justify-content: flex-start;
   padding: 9.6px 15.1px;
   font-size: 22px;
-  transition: background 0.3s, color 0.3s;  */
-  border-radius: 8px;
-  border: 1.4px solid #216097;
-  padding: 12px 20px; /* Increase padding */
-  font-size: 20px; /* Adjust font size */
-  margin-left: -50px; /* Adjust overlap */
+  transition: background 0.3s, color 0.3s; 
 }
-
 
 .secondarybutton:hover {
   background-color: rgba(27, 108, 179, 0.1);
@@ -98,16 +61,13 @@ body {
   gap: 32px;
 }
 .avatarIcon {
-  /* width: 54px;
+  width: 54px;
   position: relative;
   border-radius: 10383.58px;
   height: 54px;
   overflow: hidden;
   flex-shrink: 0;
-  object-fit: cover; */
-  width: 40px; /* Adjust size */
-  height: 40px;
-  margin-left: -20px; /* Adjust overlap */
+  object-fit: cover;
 }
 .avatarIcon1 {
   width: 54px;
@@ -145,7 +105,6 @@ body {
   align-items: center;
   justify-content: flex-start;
 }
-
 .join100Learners {
   position: relative;
   letter-spacing: -0.19px;
@@ -153,17 +112,13 @@ body {
   font-weight: 500;
 }
 .learnersValueProp {
-  /* display: flex;
+  display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
   gap: 13px;
   font-size: 24px;
-  font-family: 'SF Pro Text'; */
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 20px; /* Adjust font size */
+  font-family: 'SF Pro Text';
 }
 .content {
   width: 580px;
@@ -174,50 +129,40 @@ body {
   gap: 50px;
 }
 .photoChild {
-  width: 100%;
+  align-self: stretch;
   position: relative;
   max-width: 100%;
   overflow: hidden;
   height: 362.3px;
+  flex-shrink: 0;
   object-fit: cover;
 }
 .image5Icon {
-  width: 100%;
-position: relative;
-max-width: 100%;
-overflow: hidden;
-height: 324.2px;
-flex-shrink: 0;
-object-fit: cover;
+  align-self: stretch;
+  position: relative;
+  max-width: 100%;
+  overflow: hidden;
+  height: 324.2px;
+  flex-shrink: 0;
+  object-fit: cover;
 }
 .photo {
-  /* width: 684px;
+  width: 684px;
   border-radius: 16.58px;
   overflow: hidden;
   flex-shrink: 0;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  justify-content: center; */
-  width: 700px; /* Adjust width */
-  height: auto;
-  border-radius: 16px;
-  overflow: hidden;
+  justify-content: center;
 }
 .contentParent {
-  /* align-self: stretch;
+  align-self: stretch;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  padding: 0px 45px 0px 0px; */
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0px 45px;
-  width: 100%;
-  gap: 50px; /* Adjust gap if necessary */
+  padding: 0px 45px 0px 0px;
 }
 .art32Icon {
   width: 46px;
@@ -310,7 +255,7 @@ object-fit: cover;
   gap: 34px;
   font-size: 24px;
 }
-.frameParent {
+.homepage-wrapper .frameParent {
   width: 100%;
   position: relative;
   display: flex;
@@ -324,5 +269,56 @@ object-fit: cover;
   font-size: 61.29px;
   color: #216097;
   font-family: 'Hind Siliguri';
+}
+
+
+
+
+.homepage-text {
+
+  font-size: 24px;
+
+  font-weight: 500;
+  color: #1e1f21;
+
+
+
+}
+.homepage-left-items {
+
+  height: 40px;
+  display: flex;
+
+  align-items: normal;
+
+  padding: 5px 65px;
+  box-sizing: border-box;
+  gap: 8px;
+  text-align: left;
+  font-size: 20px;
+  color: #000;
+  font-family: 'SF Pro Display';
+}
+.homepage-min-height-40px {
+  width: 0px;
+  position: center;
+  height: 40px;
+}
+.messagebanner {
+  flex: 1;
+  width: 90%;
+  position: relative;
+  font-size: 24px;
+  letter-spacing: 0.35px;
+ 
+  font-weight: 400;
+  background-color: #f9f8f8;
+  font-family: 'SF Pro Display';
+  color: #1e1f21;
+  text-align: left;
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 

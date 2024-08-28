@@ -1,183 +1,158 @@
 /* Page container with two sections */
-.page-container {
-    display: flex;
-    justify-content: space-between; /* Space between the two sections */
-    padding: 20px;
-  }
-  
+.custom-page-container {
+  display: flex;
+  justify-content: space-between; /* Space between the two sections */
+  padding: 20px;
+}
+
 /* Score Section Styling */
-.your-score-parent {
-    align-self: stretch;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-    gap: 16px;
+.custom-your-score-parent {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 16px;
 }
 
 /* Title (Your Score) */
-.your-score {
-    font-size: 48px; /* Increase the font size */
-    font-weight: 600; /* Make the font bold */
-    color: #216097; /* Use the blue color from the second image */
-    margin-bottom: 10px;
-    margin-left: 20px;
+.custom-your-score {
+  font-size: 48px; /* Increase the font size */
+  font-weight: 600; /* Make the font bold */
+  color: #216097; /* Use the blue color from the second image */
+  margin-bottom: 10px;
+  margin-left: 20px;
 }
 
 /* Instruction Text */
-.in-order-to-container {
-    width: 500px;
-    position: relative;
-    font-size: 22px;
-    letter-spacing: -0.19px;
-    line-height: 39px;
-    color: #000;
-    text-align: left;
-    display: flex;
-    align-items: center;
-    font-family: 'Hind Siliguri'; 
-    margin-left: 20px;
+.custom-in-order-to-container {
+  width: 500px;
+  position: relative;
+  font-size: 22px;
+  letter-spacing: -0.19px;
+  line-height: 39px;
+  color: #000;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  font-family: 'Hind Siliguri'; 
+  margin-left: 20px;
 }
 
-.you-scored-a {
-    font-weight: 600;
-    color: #000;
- 
+.custom-you-scored-a {
+  font-weight: 600;
+  color: #000;
 }
-  
 
-  
 /* Button Container */
-.button-container {
-    display: flex;
-    gap: 60px;
-    margin-top: 20px;
-    margin-left: 20px;
-  }
-  
-  /* Primary Button (Retake test) */
-  .primarybutton {
-    /* background-color: #216097;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease; */
-    background-color: 216097;
-    color: #fff;
-    padding: 10px 20px;
-    border: 2px solid #216097;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    background-color: #216097;
-    transition: background-color 0.3s ease, color 0.3s ease;
-  }
-  
-  .primarybutton:hover {
-    background-color: #174a75;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  }
-  
-  /* Secondary Button (View dashboard) */
-  .secondarybutton {
-    background-color: transparent;
-    color: #216097;
-    padding: 10px 20px;
-    border: 2px solid #216097;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease;
-  }
-  
-  .secondarybutton:hover {
-    background-color: #f0f0f0;
-    color: #174a75;
-  }
-  
-  /* Right section: Review of answers */
-  .review-container {
-    width: 55%; /* Adjust as needed */
-    padding-left: 20px;
-  }
-  
-  .review-section {
-    margin-bottom: 40px;
-  }
-  
-  .review-section h2 {
-    font-size: 22px;
-    font-weight: 600;
-    color: #666;
-    margin-bottom: 16px;
-  }
-
-  
-  .background-parent {
-    width: 100%;
-    border-radius: 10px;
-    border: 1px solid #e1e1e1;
-    margin-bottom: 16px;
-    display: flex;
-    overflow: hidden;
-  }
-  
-  .background {
-    width: 12px;
-  }
-  
-  .wrong-answer {
-    background-color: #af3939;
-  }
-  
-  .right-answer {
-    background-color: #0b683e;
-  }
-  
-  .frame-wrapper {
-    flex: 1;
-    width: 100%;
-    position: relative;
-    background-color: #fff;
-    justify-content: flex-start;
-    padding: 20px; /* Add padding for spacing inside the container */
-  }
-  
-
-  .frame-wrapper .question-text {
-    font-weight: bold;
-    color: #216097 !important; /* Force the color to be applied */
-    font-size: 20px;
-    margin-bottom: 8px;
-    font-weight: 600;
-    
+.custom-button-container {
+  display: flex;
+  gap: 60px;
+  margin-top: 20px;
+  margin-left: 20px;
 }
 
-  /* .correct-answer-container,
-  .your-answer-container {
-    align-self: stretch;
-    position: relative;
-    font-size: 16px;
-    letter-spacing: -0.21px;
-    line-height: 30px;
-    color: #000;
-  } */
-  
-
-  /* Correct Answer Text */
-.correct-answer-container {
-    font-size: 16px;
-    color: #333; /* Match the dark grey/black color for the answer text */
+/* Primary Button (Retake test) */
+.custom-primarybutton {
+  background-color: #216097;
+  color: #fff;
+  padding: 10px 20px;
+  border: 2px solid #216097;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.correct-answer-container span {
-    font-weight: bold;
-    color: #000; /* Ensure 'Correct answer:' text is black */
+.custom-primarybutton:hover {
+  background-color: #174a75;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
-  .review-the-questions {
-    font-weight: 500;
-  }
-  
+
+/* Secondary Button (View dashboard) */
+.custom-secondarybutton {
+  background-color: transparent;
+  color: #216097;
+  padding: 10px 20px;
+  border: 2px solid #216097;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.custom-secondarybutton:hover {
+  background-color: #f0f0f0;
+  color: #174a75;
+}
+
+/* Right section: Review of answers */
+.custom-review-container {
+  width: 55%; /* Adjust as needed */
+  padding-left: 20px;
+}
+
+.custom-review-section {
+  margin-bottom: 40px;
+}
+
+.custom-review-section h2 {
+  font-size: 22px;
+  font-weight: 600;
+  color: #666;
+  margin-bottom: 16px;
+}
+
+.custom-background-parent {
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid #e1e1e1;
+  margin-bottom: 16px;
+  display: flex;
+  overflow: hidden;
+}
+
+.custom-background {
+  width: 12px;
+}
+
+.custom-wrong-answer {
+  background-color: #af3939;
+}
+
+.custom-right-answer {
+  background-color: #0b683e;
+}
+
+.custom-frame-wrapper {
+  flex: 1;
+  width: 100%;
+  position: relative;
+  background-color: #fff;
+  justify-content: flex-start;
+  padding: 20px; /* Add padding for spacing inside the container */
+}
+
+.custom-frame-wrapper .custom-question-text {
+  font-weight: bold;
+  color: #216097 !important; /* Force the color to be applied */
+  font-size: 20px;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+/* Correct Answer Text */
+.custom-correct-answer-container {
+  font-size: 16px;
+  color: #333; /* Match the dark grey/black color for the answer text */
+}
+
+.custom-correct-answer-container span {
+  font-weight: bold;
+  color: #000; /* Ensure 'Correct answer:' text is black */
+}
+
+.custom-review-the-questions {
+  font-weight: 500;
+}
+

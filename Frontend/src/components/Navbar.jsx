@@ -41,9 +41,9 @@ export default function Navbar ({ isLoggedIn, onLogout, email }) {
               <Link className="nav-link" to="/view_scores">Dashboard</Link>
             </li>
           </ul>
-          <div className="primary-buttons">
+          <div className="nav-primary-buttons">
             {!isLoggedIn && <Link to="/register" className="signup-button">Sign up</Link>}
-            <div className="buttonContainer">
+            <div className="nav-buttonContainer">
               <input
                 className="inputButton"
                 type="button"

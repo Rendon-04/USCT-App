@@ -48,14 +48,14 @@
 }
 
 /* Styling for right-aligned buttons */
-.navbar-custom .primary-buttons {
+.navbar-custom .nav-primary-buttons {
   display: flex;
   align-items: center;
   margin-left: auto;
 }
 
 /* Signup button styling */
-.primary-buttons .signup-button {
+.nav-primary-buttons .signup-button {
   font-size: 14px;
   color: #1B6CB3; 
   border: 1px solid #1B6CB3;
@@ -66,12 +66,12 @@
   transition: background 0.3s, color 0.3s; 
 }
 
-.primary-buttons .signup-button:hover {
+.nav-primary-buttons .signup-button:hover {
   background: rgba(27, 108, 179, 0.1); 
 }
 
 /* Login button styling */
-.primary-buttons .login-button {
+.nav-primary-buttons .login-button {
   font-size: 14px;
   padding: 8px 16px;
   border-radius: 6px;
@@ -81,12 +81,12 @@
   transition: background 0.3s;
 }
 
-.primary-buttons .login-button:hover {
+.nav-primary-buttons .login-button:hover {
   background-color: #216097; 
 }
 
 /* Container for the button and user info */
-.buttonContainer {
+.nav-buttonContainer{
   display: flex;
   align-items: center;
 }
