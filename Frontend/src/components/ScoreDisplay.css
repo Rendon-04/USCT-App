@@ -1,7 +1,7 @@
 /* Page container with two sections */
 .custom-page-container {
   display: flex;
-  justify-content: space-between; /* Space between the two sections */
+  justify-content: space-between; 
   padding: 20px;
 }
 
@@ -17,9 +17,9 @@
 
 /* Title (Your Score) */
 .custom-your-score {
-  font-size: 48px; /* Increase the font size */
-  font-weight: 600; /* Make the font bold */
-  color: #216097; /* Use the blue color from the second image */
+  font-size: 48px; 
+  font-weight: 600; 
+  color: #216097; 
   margin-bottom: 10px;
   margin-left: 20px;
 }
@@ -88,7 +88,7 @@
 
 /* Right section: Review of answers */
 .custom-review-container {
-  width: 55%; /* Adjust as needed */
+  width: 55%; 
   padding-left: 20px;
 }
 
@@ -130,12 +130,12 @@
   position: relative;
   background-color: #fff;
   justify-content: flex-start;
-  padding: 20px; /* Add padding for spacing inside the container */
+  padding: 20px; 
 }
 
 .custom-frame-wrapper .custom-question-text {
   font-weight: bold;
-  color: #216097 !important; /* Force the color to be applied */
+  color: #216097 !important;
   font-size: 20px;
   margin-bottom: 8px;
   font-weight: 600;
@@ -144,12 +144,12 @@
 /* Correct Answer Text */
 .custom-correct-answer-container {
   font-size: 16px;
-  color: #333; /* Match the dark grey/black color for the answer text */
+  color: #333; 
 }
 
 .custom-correct-answer-container span {
   font-weight: bold;
-  color: #000; /* Ensure 'Correct answer:' text is black */
+  color: #000; 
 }
 
 .custom-review-the-questions {

@@ -46,19 +46,15 @@ export default function Test() {
     .then(response => response.json())
     .then(data => {
       setScore(data.score);  // Save the score
-  // navigate('/score_display', { state: { score: data.score, total: questions.length } });
-  //   })
-  //   .catch(error => console.error("Error submitting test:", error));
-  // };
- // Navigate to ScoreDisplay with userAnswers, questions, and correct answers
+ 
     navigate('/score_display', { 
       state: { 
         score: data.score, 
         total: questions.length,
         results: questions.map(q => ({
           question: q.question,
-          correctAnswer: q.answer, // The correct answer from your questions array
-          yourAnswer: userAnswers[q.id] || 'No Answer Selected' // The user's selected answer, or fallback if none selected
+          correctAnswer: q.answer,
+          yourAnswer: userAnswers[q.id] || 'No Answer Selected' 
         }))
       } 
     });
@@ -83,72 +79,6 @@ export default function Test() {
   };
 
   const isLastQuestion = currentQuestionIndex === questions.length - 1;
-
-
-// return (
-  
-//   <div className="test">
-//     {/* Progress Bar */}
-//     <div className="navBar">
-//       <div className="progressContainer">
-//         <div className="progressWrapper">
-//           <div
-//             className="progressBar"
-//             style={{
-//               width: `${((currentQuestionIndex + 1) / questions.length) * 100}%`,
-//             }}
-//           />
-//         </div>
-//         <div className="progressText">{currentQuestionIndex + 1}/{questions.length}</div>
-//       </div>
-//       <Link to="/practice_test" className="iconWrapper">
-//         <div className="icon">
-//           <img className="xicon16px" alt="Close" src="/src/img/Xicon.png" />
-//         </div>
-//       </Link>
-//     </div>
-
-//     {/* Test Content */}
-//     <div className="frameGroup">
-//       <div className="frameContainer">
-//         <div className="questionWrapper">
-//           <div className="questionText">{questions[currentQuestionIndex]?.question}</div>
-//         </div>
-//         <div className="optionsContainer">
-//           {questions[currentQuestionIndex]?.options.map((option, i) => (
-//             <div key={i} className={`optionCard ${userAnswers[questions[currentQuestionIndex]?.id] === option ? 'selectedOption' : ''}`} onClick={() => handleSelectAnswer(questions[currentQuestionIndex]?.id, option)}>
-//               <div className="radioWrapper">
-//                 <div className={`radio ${userAnswers[questions[currentQuestionIndex]?.id] === option ? 'radioSelected' : ''}`} />
-//               </div>
-//               <div className="optionContent">
-//                 <div className="optionLabel">{option}</div>
-//               </div>
-//             </div>
-//           ))}
-//         </div>
-//       </div>
-//     </div>
-
-//     {/* Footer */}
-//     <div className="footer">
-//       <div className="buttonWrapper">
-//         <div className="secondaryButton" onClick={handleBack}>
-//           <div className="buttonText">Back</div>
-//         </div>
-//         {isLastQuestion ? (
-//           <div className="primaryButton" onClick={handleSubmit}>
-//             <div className="buttonText">Submit</div>
-//           </div>
-//         ) : (
-//           <div className="primaryButton" onClick={handleNext}>
-//             <div className="buttonText">Next</div>
-//           </div>
-//         )}
-//       </div>
-//     </div>
-//   </div>
-// );
-// }
 
 return (
   <div className="test-container">
@@ -213,3 +143,4 @@ return (
   </div>
 );
 }
+
