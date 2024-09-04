@@ -30,8 +30,8 @@
   /* Grid Layout for Resource Cards */
   .resources-frame-div {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Three equal-width columns */
-    gap: 20px; /* Space between cards */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 20px; 
     width: 100%;
   }
   
@@ -45,12 +45,12 @@
     padding: 20px;
     box-sizing: border-box;
     transition: transform 0.2s ease-in-out;
-    height: 150px; /* Fixed height for all cards */
+    height: 150px; 
     width: 600px;
   }
   
   .resources-frame-parent1:hover {
-    transform: translateY(-5px); /* Slight hover effect */
+    transform: translateY(-5px); 
   }
   
   .resources-frame-child {
@@ -60,10 +60,10 @@
   	overflow: hidden;
   	flex-shrink: 0;
   	object-fit: cover;
-      margin-right: 20px; /* Adjust spacing between image and text */
-      margin-left: -20px; /* Move image further to the left */
-      border-radius: 8px 0 0 8px; /* Round only the left side of the image */
-      object-fit: cover; /* Ensure the image covers the container area */
+      margin-right: 20px; 
+      margin-left: -20px; 
+      border-radius: 8px 0 0 8px; 
+      object-fit: cover; 
     }
     
   
@@ -97,7 +97,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 16px; /* Ensure the icon is properly sized */
+    width: 16px;
   }
   
   .resources-icon{

@@ -1,9 +1,9 @@
 /* General styling for the navbar */
 .navbar-custom {
-  position: fixed;
+  position: fixed; 
   top: 0;
   width: 100%;
-  padding: 20px 80px;
+  padding: 20px px;
   justify-content: space-between;
   align-items: center;
   background-color: #ffffff; 
@@ -107,3 +107,10 @@
   background-color: #216097; 
 }
   
+
+
+
+
+
+
+
