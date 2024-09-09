@@ -18,7 +18,6 @@ app.secret_key = "092804910815"
 app.jinja_env.undefined = StrictUndefined 
 
 CORS(app)
-
 # Parse the JSON data and return it as a Python dictionary 
 def load_test_data():
     """Load test data from JSON file."""
