@@ -20,7 +20,7 @@ export default function Navbar ({ isLoggedIn, onLogout, email }) {
     <nav className="navbar navbar-expand-lg navbar-custom">
       <div className="container-fluid">
         <Link className="navbar-logo" to="/">
-          <img src="/src/img/torch.png" alt="Logo" style={{ height: '30px', marginRight: '10px' }} />
+          <img src="/img/torch.png" alt="Logo" style={{ height: '30px', marginRight: '10px' }} />
           U.S. Civic Test
         </Link>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">

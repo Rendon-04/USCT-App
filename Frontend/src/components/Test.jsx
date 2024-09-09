@@ -97,7 +97,7 @@ return (
       </div>
       <Link to="/practice_test" className="test-iconWrapper">
         <div className="test-icon">
-          <img className="test-xicon16px" alt="Close" src="/src/img/Xicon.png" />
+          <img className="test-xicon16px" alt="Close" src="/img/Xicon.png" />
         </div>
       </Link>
     </div>

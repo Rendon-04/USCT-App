@@ -10,7 +10,7 @@ export default function StudyCategoryPage() {
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        fetch('/src/components/questionsNaturalizationTest.json')
+        fetch('/data/questionsNaturalizationTest.json')
             .then(response => response.json())
             .then(data => {
                 setData(data);

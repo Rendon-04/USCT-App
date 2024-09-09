@@ -10,7 +10,7 @@ export default function RandomQuestions() {
   const [error, setError] = useState(null); // Store error messages
   useEffect(() => {
     // Fetch all questions when the component mounts
-    fetch('/src/components/questionsNaturalizationTest.json')
+    fetch('/data/questionsNaturalizationTest.json')
       .then(response => response.json())
       .then(data => {
         setQuestions(data);

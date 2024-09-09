@@ -8,7 +8,7 @@ export default function Study() {
 
   useEffect(() => {
     // Fetch the questions data
-    fetch('/src/components/questionsNaturalizationTest.json')
+    fetch('/data/questionsNaturalizationTest.json')
       .then((response) => response.json())
       .then((data) => setData(data))
       .catch((error) => setError(error));
@@ -41,7 +41,7 @@ return (
                 </Link>
               </div>
               <div className="study-subtleiconbutton">
-                <img className="study-icon-16px" alt="" src="/src/img/SubtleIconButton.png" />
+                <img className="study-icon-16px" alt="" src="/img/SubtleIconButton.png" />
               </div>
             </div>
           </div>
@@ -58,7 +58,7 @@ return (
                 </Link>
               </div>
               <div className="study-subtleiconbutton">
-                <img className="study-icon-16px" alt="" src="/src/img/SubtleIconButton.png"/>
+                <img className="study-icon-16px" alt="" src="/img/SubtleIconButton.png"/>
               </div>
             </div>
             
@@ -70,7 +70,7 @@ return (
         <div className="study-get-started-by1">Get started by theme</div>
         <div className="study-cards1">
           <div className="study-background-parent">
-            <img className="study-background-icon" alt="" src="/src/img/AmericanDemocracy.png" />
+            <img className="study-background-icon" alt="" src="/img/AmericanDemocracy.png" />
             <div className="study-frame-parent1">
               <div className="study-study-100-questions-parent">
                 <Link to="/study_for_the_test/Principles of American Democracy">
@@ -79,12 +79,12 @@ return (
                 </Link>
               </div>
               <div className="study-subtleiconbutton">
-                <img className="study-icon-16px" alt="" src="/src/img/SubtleIconButton.png" />
+                <img className="study-icon-16px" alt="" src="/img/SubtleIconButton.png" />
               </div>
             </div>
           </div>
           <div className="study-background-parent">
-            <img className="study-background-icon" alt="" src="/src/img/AmericanGovernment.png" />
+            <img className="study-background-icon" alt="" src="/img/AmericanGovernment.png" />
             <div className="study-frame-wrapper1">
               <div className="study-frame-parent2">
                 <div className="study-study-100-questions-parent">
@@ -94,13 +94,13 @@ return (
                 </Link>
                 </div>
                 <div className="study-subtleiconbutton">
-                  <img className="study-icon-16px" alt="" src="/src/img/SubtleIconButton.png" />
+                  <img className="study-icon-16px" alt="" src="/img/SubtleIconButton.png" />
                 </div>
               </div>
             </div>
           </div>
           <div className="study-background-parent">
-            <img className="study-background-icon" alt="" src="/src/img/Rights.png" />
+            <img className="study-background-icon" alt="" src="/img/Rights.png" />
             <div className="study-frame-wrapper2">
               <div className="study-frame-parent3">
                 <div className="study-rights-parent">
@@ -110,7 +110,7 @@ return (
                 </Link>
                 </div>
                 <div className="study-subtleiconbutton">
-                  <img className="study-icon-16px" alt="" src="/src/img/SubtleIconButton.png" />
+                  <img className="study-icon-16px" alt="" src="/img/SubtleIconButton.png" />
                 </div>
               </div>
             </div>
@@ -118,7 +118,7 @@ return (
         </div>
         <div className="study-cards1">
           <div className="study-background-parent">
-            <img className="study-background-icon" alt="" src="/src/img/ColonialPeriod.png" />
+            <img className="study-background-icon" alt="" src="/img/ColonialPeriod.png" />
             <div className="study-frame-parent1">
               <div className="study-study-100-questions-parent">
               <Link to="/study_for_the_test/Colonial Period and Independence">
@@ -127,12 +127,12 @@ return (
              </Link>
              </div>
               <div className="study-subtleiconbutton">
-                <img className="study-icon-16px" alt="" src="/src/img/SubtleIconButton.png" />
+                <img className="study-icon-16px" alt="" src="/img/SubtleIconButton.png" />
               </div>
             </div>
           </div>
           <div className="study-background-parent">
-            <img className="study-background-icon" alt="" src="/src/img/1800s.png" />
+            <img className="study-background-icon" alt="" src="/img/1800s.png" />
             <div className="study-frame-parent1">
               <div className="study-study-100-questions-parent">
               <Link to="/study_for_the_test/1800s">
@@ -141,12 +141,12 @@ return (
               </Link>
               </div>
               <div className="study-subtleiconbutton">
-                <img className="study-icon-16px" alt="" src="/src/img/SubtleIconButton.png" />
+                <img className="study-icon-16px" alt="" src="/img/SubtleIconButton.png" />
               </div>
             </div>
           </div>
           <div className="study-background-parent">
-            <img className="study-background-icon" alt="" src="/src/img/RecentAmericanHistory.png" />
+            <img className="study-background-icon" alt="" src="/img/RecentAmericanHistory.png" />
             <div className="study-frame-parent1">
               <div className="study-study-100-questions-parent">
               <Link to="/study_for_the_test/Recent American History">
@@ -155,14 +155,14 @@ return (
               </Link>
               </div>
               <div className="study-subtleiconbutton">
-                <img className="study-icon-16px" alt="" src="/src/img/SubtleIconButton.png" />
+                <img className="study-icon-16px" alt="" src="/img/SubtleIconButton.png" />
               </div>
             </div>
           </div>
         </div>
         <div className="study-cards1">
           <div className="study-background-parent">
-            <img className="study-background-icon" alt="" src="/src/img/Geography.png" />
+            <img className="study-background-icon" alt="" src="/img/Geography.png" />
             <div className="study-frame-parent1">
               <div className="study-study-100-questions-parent">
               <Link to="/study_for_the_test/Geography">
@@ -171,12 +171,12 @@ return (
               </Link>
               </div>
               <div className="study-subtleiconbutton">
-                <img className="study-icon-16px" alt="" src="/src/img/SubtleIconButton.png" />
+                <img className="study-icon-16px" alt="" src="/img/SubtleIconButton.png" />
               </div>
             </div>
           </div>
           <div className="study-background-parent">
-            <img className="study-background-icon" alt="" src="/src/img/symbols.png" />
+            <img className="study-background-icon" alt="" src="/img/symbols.png" />
             <div className="study-frame-parent1">
               <div className="study-study-100-questions-parent">
               <Link to="/study_for_the_test/Symbols">
@@ -185,12 +185,12 @@ return (
               </Link>
               </div>
               <div className="study-subtleiconbutton">
-                <img className="study-icon-16px" alt="" src="/src/img/SubtleIconButton.png" />
+                <img className="study-icon-16px" alt="" src="/img/SubtleIconButton.png" />
               </div>
             </div>
           </div>
           <div className="study-background-parent">
-            <img className="study-background-icon" alt="" src="/src/img/Holidays.png"/>
+            <img className="study-background-icon" alt="" src="/img/Holidays.png"/>
             <div className="study-frame-parent1">
               <div className="study-study-100-questions-parent">
               <Link to="/study_for_the_test/Holidays">
@@ -199,7 +199,7 @@ return (
               </Link>
               </div>
               <div className="study-subtleiconbutton">
-                <img className="study-icon-16px" alt="" src="/src/img/SubtleIconButton.png" />
+                <img className="study-icon-16px" alt="" src="/img/SubtleIconButton.png" />
               </div>
             </div>
           </div>

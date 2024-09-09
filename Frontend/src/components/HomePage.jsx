@@ -33,13 +33,13 @@ return (
         </div>
         <div className="learnersValueProp">
           <div className="avatarParent">
-            <img className="avatarIcon" alt="" src="/src/img/learner1.png" />
-            <img className="avatarIcon1" alt="" src="/src/img/learner2.png" />
+          <img className="avatarIcon" alt="Learner 1" src="/img/learner1.png" />
+            <img className="avatarIcon1" alt="" src="/img/learner2.png" />
             <div className="avatar">
               <img
                 className="learner3"
                 alt=""
-                src="/src/img/learner3.png"
+                src="/img/learner3.png"
               />
             </div>
           </div>
@@ -47,8 +47,8 @@ return (
         </div>
       </div>
       <div className="photo">
-        <img className="photoChild" alt="" src="/src/img/Group 4.png" />
-        <img className="image5Icon" alt="" src="/src/img/image 5.png" />
+        <img className="photoChild" alt="" src="/img/Group 4.png" />
+        <img className="image5Icon" alt="" src="/img/image 5.png" />
       </div>
     </div>
     <div className="cards">
@@ -56,7 +56,7 @@ return (
         <div className="frameContainer">
           <div className="bookenhancediconParent">
             <div className="bookenhancedicon">
-              <img className="art32Icon" alt="" src="/src/img/BookEnhancedIcon.png" />
+              <img className="art32Icon" alt="" src="/img/BookEnhancedIcon.png" />
             </div>
             <div className="study">Study</div>
             <div className="testYourKnowledge">
@@ -65,7 +65,7 @@ return (
           </div>
           <Link to="/study_for_the_test" className="subtlebutton">
             <div className="text1">Start learning</div>
-            <img className="rIcon16px" alt="" src="/src/img/arrow-right-short.svg" />
+            <img className="rIcon16px" alt="" src="/img/arrow-right-short.svg" />
           </Link>
         </div>
       </div>
@@ -73,7 +73,7 @@ return (
         <div className="frameContainer">
           <div className="bookenhancediconParent">
             <div className="bookenhancedicon">
-              <img className="art32Icon" alt="" src="/src/img/ListViewEnhancedIcon.png" />
+              <img className="art32Icon" alt="" src="/img/ListViewEnhancedIcon.png" />
             </div>
             <div className="study">Practice</div>
             <div className="testYourKnowledge">
@@ -82,7 +82,7 @@ return (
           </div>
           <Link to="/practice_test" className="subtlebutton">
             <div className="text1">Start practicing</div>
-            <img className="rIcon16px" alt="" src="/src/img/arrow-right-short.svg" />
+            <img className="rIcon16px" alt="" src="/img/arrow-right-short.svg" />
           </Link>
         </div>
       </div>
@@ -90,7 +90,7 @@ return (
         <div className="frameContainer">
           <div className="bookenhancediconParent">
             <div className="bookenhancedicon">
-              <img className="art32Icon" alt="" src="/src/img/BoardsViewEnhancedIcon.png" />
+              <img className="art32Icon" alt="" src="/img/BoardsViewEnhancedIcon.png" />
             </div>
             <div className="study">Resources</div>
             <div className="testYourKnowledge">
@@ -99,7 +99,7 @@ return (
           </div>
           <Link to="/additional_resources" className="subtlebutton">
             <div className="text1">Resources</div>
-            <img className="rIcon16px" alt="" src="/src/img/arrow-right-short.svg" />
+            <img className="rIcon16px" alt="" src="/img/arrow-right-short.svg" />
           </Link>
         </div>
       </div>

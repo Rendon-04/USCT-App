@@ -7,7 +7,7 @@ export default function AllQuestions() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch('/src/components/questionsNaturalizationTest.json')
+    fetch('/data/questionsNaturalizationTest.json')
       .then(response => response.json())
       .then(data => setData(data))
       .catch(error => setError(error));

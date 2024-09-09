@@ -67,7 +67,7 @@ export default function Practice() {
           </Link>
         </div>
       </div>
-      <img className="practiceImage1Icon" alt="" src="/src/img/practice.png" />
+      <img className="practiceImage1Icon" alt="" src="/img/practice.png" />
     </div>
     </body>
   );

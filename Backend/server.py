@@ -22,8 +22,8 @@ CORS(app)
 # Parse the JSON data and return it as a Python dictionary 
 def load_test_data():
     """Load test data from JSON file."""
-    with open("/Users/rendon/src/USCT-App/Frontend/src/components/testQuestions.json") as f:
-        return json.loads(f.read()) 
+    with open("/home/ubuntu/USCT-App/data/testQuestions.json", "r") as f:
+        return json.load(f)
 def load_study_data():
     """Load test data from JSON file."""
     with open("./data /study.json") as f:
