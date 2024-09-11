@@ -12,7 +12,8 @@ from flask_cors import CORS
 
 from jinja2 import StrictUndefined
 
-app = Flask(__name__)
+# app = Flask(__name__)
+app = Flask(__name__, static_folder="../frontend/dist", static_url_path="/")
 
 app.secret_key = "092804910815"  
 app.jinja_env.undefined = StrictUndefined 
@@ -156,7 +157,15 @@ def check_session():
         return jsonify({"is_logged_in": True, "email": session['user_email']})
     else:
         return jsonify({"is_logged_in": False})
+    
+@app.route("/", defaults={"path": ""})
+@app.route("/<path:path>")
+def index(path):
+    return app.send_static_file("index.html")
+@app.errorhandler(404)
+def not_found(_error):
+    return app.send_static_file("index.html")
 
 if __name__ == "__main__":
     connect_to_db(app)
-    app.run(host="0.0.0.0", debug=True, port=6060)
+    app.run(host="0.0.0.0", debug=True, port=6061)

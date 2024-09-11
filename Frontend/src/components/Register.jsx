@@ -1,6 +1,7 @@
 // User Registration
 import React, { useState } from 'react';
 import "/src/components/login.css"
+import API_BASE_URL from '../config';
 
 export default function Register () {
     const [userName, setUserName] = useState('');
@@ -18,7 +19,7 @@ export default function Register () {
             password: password,
         };
 
-        const response = await fetch("/register", {
+        const response = await fetch(`${API_BASE_URL}/register`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
