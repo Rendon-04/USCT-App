@@ -7,6 +7,7 @@ import crud
 import json
 import random 
 from flask_cors import CORS
+import os
 
 
 
@@ -15,7 +16,8 @@ from jinja2 import StrictUndefined
 # app = Flask(__name__)
 app = Flask(__name__, static_folder="../frontend/dist", static_url_path="/")
 
-app.secret_key = "092804910815"  
+app.secret_key = os.getenv("SECRET_KEY") 
+DATABASE_URL = os.getenv("DATABASE_URL")
 app.jinja_env.undefined = StrictUndefined 
 
 CORS(app)
@@ -168,4 +170,4 @@ def not_found(_error):
 
 if __name__ == "__main__":
     connect_to_db(app)
-    app.run(host="0.0.0.0", debug=True, port=6061)
+    app.run(host="0.0.0.0", debug=True, port=6060)
