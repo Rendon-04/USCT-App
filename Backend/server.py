@@ -11,14 +11,14 @@ import os
 
 
 
-from jinja2 import StrictUndefined
+# from jinja2 import StrictUndefined
 
 # app = Flask(__name__)
-app = Flask(__name__, static_folder="../frontend/dist", static_url_path="/")
+app = Flask(__name__, static_folder="frontend/dist", static_url_path="/")
 
 app.secret_key = os.getenv("SECRET_KEY") 
 DATABASE_URL = os.getenv("DATABASE_URL")
-app.jinja_env.undefined = StrictUndefined 
+# app.jinja_env.undefined = StrictUndefined 
 
 CORS(app)
 # Parse the JSON data and return it as a Python dictionary 
@@ -164,6 +164,7 @@ def check_session():
 @app.route("/<path:path>")
 def index(path):
     return app.send_static_file("index.html")
+
 @app.errorhandler(404)
 def not_found(_error):
     return app.send_static_file("index.html")
