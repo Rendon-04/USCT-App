@@ -7,7 +7,7 @@ export default function HomePage() {
   const message = location.state?.message;
   
 return (
-  <body>
+  
     <div className="homepage-wrapper">
   <div className="frameParent">
     <div className="contentParent">
@@ -106,6 +106,5 @@ return (
     </div>
   </div>
   </div>
-  </body>
 );
 }

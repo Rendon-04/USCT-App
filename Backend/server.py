@@ -9,18 +9,16 @@ import random
 from flask_cors import CORS
 import os
 
-
-
-# from jinja2 import StrictUndefined
-
-# app = Flask(__name__)
 app = Flask(__name__, static_folder="frontend/dist", static_url_path="/")
 
-app.secret_key = os.getenv("SECRET_KEY") 
-DATABASE_URL = os.getenv("DATABASE_URL")
-# app.jinja_env.undefined = StrictUndefined 
+# Allow CORS requests from localhost:5173
+CORS(app, resources={r"/*": {"origins": "*"}}, supports_credentials=True)  
 
-CORS(app)
+app.secret_key = os.getenv("SECRET_KEY")
+DATABASE_URL = os.getenv("DATABASE_URL")
+
+
+
 # Parse the JSON data and return it as a Python dictionary 
 def load_test_data():
     """Load test data from JSON file."""
@@ -31,17 +29,8 @@ def load_study_data():
     with open("./data /study.json") as f:
         return json.loads(f.read()) 
 
-@app.route("/")
-def homepage():
-    """View homepage."""
-    return render_template('homepage.html')
 
-@app.route("/register", methods=["GET"])
-def show_registration_form():
-    """Display the registraion form."""
-    return render_template("register.html")
-
-@app.route("/register", methods=["POST"])
+@app.route("/api/register", methods=["POST"])
 def register():
     """Register a new user"""
     email = request.json.get("email")
@@ -56,13 +45,8 @@ def register():
         db.session.add(user)
         db.session.commit()
         return jsonify({"success": True, "message": "Account created! Please log in."}), 201
-
-@app.route("/login", methods=["GET"])
-def show_login_form():
-    """Display the login form."""
-    return render_template("login.html")
     
-@app.route("/login", methods=["POST"])
+@app.route("/api/login", methods=["POST"])
 def login():
     """Log in a user"""
     #Get the email and password from the submitted JSON data 
@@ -73,20 +57,17 @@ def login():
     user = crud.get_user_by_email(email)
 
     if user and user.password == password:
-        session['user_id'] = user.id  # Set session ID here
-        session['user_email'] = user.email  # Set session here
+        session['user_id'] = user.id  
+        session['user_email'] = user.email  
         return jsonify({"message": "Login successful"}), 200
     else:
         return jsonify({"message": "Invalid credentials"}), 401
     
  
-@app.route('/logout', methods=['GET'])
+@app.route('/api/logout', methods=['GET'])
 def logout():
     session.clear()  # This clears all session data
     return jsonify({"message": "Successfully logged out"}), 200
-
-    
-    # return jsonify({"message": "Successfully logged out"}), 200
     
 @app.route("/practice_test")
 def practice_test():
@@ -98,7 +79,6 @@ def practice_test():
     random_questions = random.sample(questions_list, 10)
 
     return jsonify({"questions": random_questions})
-
 
 @app.route("/submit_practice_test", methods=["POST"])
 def submit_practice_test():
@@ -163,11 +143,11 @@ def check_session():
 @app.route("/", defaults={"path": ""})
 @app.route("/<path:path>")
 def index(path):
-    return app.send_static_file("index.html")
+    return app.send_static_file("frontend/dist/index.html")
 
 @app.errorhandler(404)
 def not_found(_error):
-    return app.send_static_file("index.html")
+    return app.send_static_file("frontend/dist/index.html")
 
 if __name__ == "__main__":
     connect_to_db(app)

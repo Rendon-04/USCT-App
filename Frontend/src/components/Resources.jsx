@@ -6,7 +6,7 @@ import './Resources.css'
 export default function Resources ()  {     
 
 return (
-  <body>
+
     <div className="resource-page-wrapper">
 <div className="resource-frame-parent">
       <div className="resources-frame-wrapper">
@@ -124,6 +124,6 @@ return (
       </div>
     </div>
     </div>
-    </body>
+
     )
   }
