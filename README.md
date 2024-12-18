@@ -1,8 +1,12 @@
 ---
 
-# **US Citizenship Test Preparation Web App**
+# **US Civics Test Preparation Web App**
 
 This web application helps users prepare for the U.S. Civics test by providing study materials, practice tests, and external resources. It is a full-stack web app developed using Flask for the backend and React for the frontend, with PostgreSQL as the database. The app supports user registration, login, and tracking of test scores.
+Check it out [here!](http://54.213.207.219/)
+
+<img width="1728" alt="Screenshot 2024-10-25 at 1 30 18 PM" src="https://github.com/user-attachments/assets/635b97ee-8a4d-49cf-b3f3-a0a676dc4d82">
+
 
 ## **Features**
 
