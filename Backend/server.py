@@ -122,16 +122,17 @@ def overview_study_page():
     study_data = load_study_data()
     return render_template("overview_study_page.html", questions=study_data["study"])
 
-@app.route("/view_scores")
+# Use an /api/ prefix so Vite proxy picks it up
+@app.route("/api/view_scores", methods=["GET"])
 def view_scores():
     user_id = session.get("user_id")
-    
-    if user_id:
-        scores = crud.get_scores_by_user_id(user_id)
-        scores_list = [{"user_score": score.user_score} for score in scores]
-        return jsonify({"scores": scores_list})
-    else:
+    if not user_id:
         return jsonify({"error": "Please log in to view your score history."}), 401
+
+    scores = crud.get_scores_by_user_id(user_id)
+    scores_list = [{"user_score": s.user_score} for s in scores]
+    return jsonify({"scores": scores_list})
+
 
 @app.route('/check_session', methods=['GET'])
 def check_session():
