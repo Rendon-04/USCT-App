@@ -306,18 +306,18 @@
         "Barack Obama",
         "Joe Biden"
       ],
-      "answer": "Joe Biden"
+      "answer": "Donald Trump"
     },
     {
       "id": 29,
       "question": "What is the name of the Vice President of the United States now?",
       "options": [
-        "Bernie Sanders",
+        "JD Vance",
         "Kamala Harris",
         "Mike Pence",
         "Nancy Pelosi"
       ],
-      "answer": "Kamala Harris"
+      "answer": "JD Vance"
     },
     {
       "id": 30,
@@ -504,7 +504,7 @@
         "Republican",
         "Independent"
       ],
-      "answer": "Democratic"
+      "answer": "Republican"
     },
     {
       "id": 47, 
